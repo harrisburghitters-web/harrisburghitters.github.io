@@ -9,53 +9,19 @@
 </head>
 <body>
 
-<!-- ===== TOP NAV ===== -->
 <div class="topbar">
-
-  <!-- BRAND ROW (NEW STYLE) -->
-  <div style="
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:22px 16px 14px;
-  ">
-
-    <!-- LEFT-ALIGNED TEXT BLOCK -->
-    <div style="
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      margin-right:20px;
-    ">
-      <div style="
-        font-size:50px;
-        font-weight:900;
-        letter-spacing:1.5px;
-        line-height:1.05;
-      ">
+  <div style="display:flex; justify-content:center; align-items:center; padding:22px 16px 14px;">
+    <div style="display:flex; flex-direction:column; align-items:flex-start; margin-right:20px;">
+      <div style="font-size:50px; font-weight:900; letter-spacing:1.5px; line-height:1.05;">
         HARRISBURG HITTERS
       </div>
-
-      <div style="
-        font-size:40px;
-        color:var(--muted);
-        margin-top:4px;
-        line-height:1.05;
-      ">
+      <div style="font-size:40px; color:var(--muted); margin-top:4px; line-height:1.05;">
         Youth Travel Football
       </div>
     </div>
 
-    <!-- LOGO -->
-    <img
-      src="assets/MainLogo.png"
-      alt="Harrisburg Hitters Logo"
-      style="
-        height:120px;
-        width:auto;
-        object-fit:contain;
-      "
-    />
+    <img src="assets/MainLogo.png" alt="Harrisburg Hitters Logo"
+         style="height:120px; width:auto; object-fit:contain;" />
   </div>
 
   <div class="navwrap">
@@ -72,38 +38,27 @@
 </div>
 
 <main class="container">
-
   <section class="card">
     <div class="section-title">Calendar (Read-Only)</div>
     <p style="color:var(--muted); margin-top:0;">
-      Select one or more age groups to filter. Defaults to the Main Calendar.
+      Filter by age group. Defaults to 6U–14U.
     </p>
 
-    <!-- HORIZONTAL FILTER BAR -->
-    <div style="
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      align-items:center;
-      justify-content:flex-start;
-      margin-top:12px;
-    ">
-
-      <!-- NOTE: VALUES ARE RAW IDs (NO %40) -->
+    <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:flex-start; margin-top:12px;">
       <label class="cal-pill">
-        <input type="checkbox" class="cal" value="harrisburghitters@gmail.com" checked />
+        <input type="checkbox" class="cal" value="harrisburghitters@gmail.com" />
         <span>Main</span>
       </label>
 
-      <label class="cal-pill"><input type="checkbox" class="cal" value="1138a469318c6b6e8a91fc00b92634ef29a8d81c40c177f40e97a233b65ae411@group.calendar.google.com" /><span>6U</span></label>
-      <label class="cal-pill"><input type="checkbox" class="cal" value="0dc6536ee1f98bf988853e5f2e3638ed8de499a6ebff0f4b66bea84eccbca0fa@group.calendar.google.com" /><span>7U</span></label>
-      <label class="cal-pill"><input type="checkbox" class="cal" value="ce6f52d8d4f0065ae9d024d70f1e3813b381e192b5d3c467753d02908ba6611d@group.calendar.google.com" /><span>8U</span></label>
-      <label class="cal-pill"><input type="checkbox" class="cal" value="b0a543e10c7bf625c46837e4e106750de4c553d9d73db0288abd72ac673bd234@group.calendar.google.com" /><span>9U</span></label>
-      <label class="cal-pill"><input type="checkbox" class="cal" value="a1d4a1bd09b997e3beaacd2556779817c87baecf2a5bb3c2dee4d31115c0e4ce@group.calendar.google.com" /><span>10U</span></label>
-      <label class="cal-pill"><input type="checkbox" class="cal" value="c42ced152fd8c693dd7ece7d267f3018ecd4301b7cb0653e19a0b1e7b4d2756b@group.calendar.google.com" /><span>11U</span></label>
-      <label class="cal-pill"><input type="checkbox" class="cal" value="c42c5b97fa9e53712308cd5e20b9ed2310047f6525b71177b1075f3a99658a36@group.calendar.google.com" /><span>12U</span></label>
-      <label class="cal-pill"><input type="checkbox" class="cal" value="01142b8f48a5ed04b809a312d4615367ffec83b2d881dd9ed90b484afd9e311f@group.calendar.google.com" /><span>13U</span></label>
-      <label class="cal-pill"><input type="checkbox" class="cal" value="33b899accee661a2e3b0a59e14b534650f77670bfe26637ad7c923aab589fda7@group.calendar.google.com" /><span>14U</span></label>
+      <label class="cal-pill"><input type="checkbox" class="cal" value="1138a469318c6b6e8a91fc00b92634ef29a8d81c40c177f40e97a233b65ae411@group.calendar.google.com" checked /><span>6U</span></label>
+      <label class="cal-pill"><input type="checkbox" class="cal" value="0dc6536ee1f98bf988853e5f2e3638ed8de499a6ebff0f4b66bea84eccbca0fa@group.calendar.google.com" checked /><span>7U</span></label>
+      <label class="cal-pill"><input type="checkbox" class="cal" value="ce6f52d8d4f0065ae9d024d70f1e3813b381e192b5d3c467753d02908ba6611d@group.calendar.google.com" checked /><span>8U</span></label>
+      <label class="cal-pill"><input type="checkbox" class="cal" value="b0a543e10c7bf625c46837e4e106750de4c553d9d73db0288abd72ac673bd234@group.calendar.google.com" checked /><span>9U</span></label>
+      <label class="cal-pill"><input type="checkbox" class="cal" value="a1d4a1bd09b997e3beaacd2556779817c87baecf2a5bb3c2dee4d31115c0e4ce@group.calendar.google.com" checked /><span>10U</span></label>
+      <label class="cal-pill"><input type="checkbox" class="cal" value="c42ced152fd8c693dd7ece7d267f3018ecd4301b7cb0653e19a0b1e7b4d2756b@group.calendar.google.com" checked /><span>11U</span></label>
+      <label class="cal-pill"><input type="checkbox" class="cal" value="c42c5b97fa9e53712308cd5e20b9ed2310047f6525b71177b1075f3a99658a36@group.calendar.google.com" checked /><span>12U</span></label>
+      <label class="cal-pill"><input type="checkbox" class="cal" value="01142b8f48a5ed04b809a312d4615367ffec83b2d881dd9ed90b484afd9e311f@group.calendar.google.com" checked /><span>13U</span></label>
+      <label class="cal-pill"><input type="checkbox" class="cal" value="33b899accee661a2e3b0a59e14b534650f77670bfe26637ad7c923aab589fda7@group.calendar.google.com" checked /><span>14U</span></label>
 
       <div style="flex-basis:100%; height:0;"></div>
 
@@ -114,20 +69,12 @@
 
     <hr class="sep" />
 
-    <!-- CALENDAR EMBED -->
-    <iframe
-      id="calFrame"
-      src=""
-      height="900"
-      loading="lazy"
-      title="Harrisburg Hitters Calendar">
-    </iframe>
+    <iframe id="calFrame" src="" height="900" loading="lazy" title="Harrisburg Hitters Calendar"></iframe>
 
     <p style="color:var(--muted); margin-bottom:0; margin-top:12px; font-size:12px;">
       Tip: Selecting Main plus age calendars can show duplicates. Use “Main Only” or “Select 6U–14U.”
     </p>
   </section>
-
 </main>
 
 <div class="footer">Harrisburg Hitters • Harrisburg, PA</div>
@@ -138,21 +85,14 @@
   function buildEmbedSrc(calIds) {
     const base = "https://calendar.google.com/calendar/embed";
     const params = new URLSearchParams();
-
-    // Schedule / Agenda view by default (best on phones)
     params.set("ctz", "America/New_York");
     params.set("mode", "AGENDA");
-
-    // Reduce clutter
     params.set("showTitle", "0");
     params.set("showPrint", "0");
     params.set("showTabs", "0");
     params.set("showCalendars", "0");
     params.set("showTz", "0");
-
-    // Add calendars (URLSearchParams will safely encode @ to %40)
     calIds.forEach(id => params.append("src", id));
-
     return `${base}?${params.toString()}`;
   }
 
@@ -173,24 +113,24 @@
 
   function mainOnly() {
     document.querySelectorAll(".cal").forEach(cb => cb.checked = false);
-    document.querySelectorAll(".cal")[0].checked = true; // Main
+    document.querySelectorAll(".cal")[0].checked = true;
     updateCalendar();
   }
 
   function selectAllAges() {
     document.querySelectorAll(".cal").forEach(cb => cb.checked = true);
-    document.querySelectorAll(".cal")[0].checked = false; // uncheck Main to reduce duplicates
+    document.querySelectorAll(".cal")[0].checked = false;
     updateCalendar();
   }
 
-  // Event handlers
   document.querySelectorAll(".cal").forEach(cb => cb.addEventListener("change", updateCalendar));
 
-  // Initial load
+  // Initial load: default to 6U–14U (not Main)
+  document.querySelectorAll(".cal").forEach(cb => cb.checked = true);
+  document.querySelectorAll(".cal")[0].checked = false;
   updateCalendar();
 </script>
 
-<!-- Small pill styling (scoped, no need to touch style.css) -->
 <style>
   .cal-pill {
     display: inline-flex;
