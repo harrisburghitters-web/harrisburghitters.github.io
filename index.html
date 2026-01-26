@@ -9,6 +9,32 @@
 
   <!-- Page-scoped header behavior + responsive header layout -->
   <style>
+    /* ===== FULLSCREEN BACKGROUND WATERMARK ===== */
+body {
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("assets/HitVsEveryone.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain; /* use "cover" if you want edge-to-edge */
+  opacity: 0.08; /* watermark strength – adjust 0.05–0.12 */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Ensure all actual content sits above the watermark */
+.topbar,
+main,
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
     /* Sticky header that can shrink */
     .topbar {
       position: sticky;
