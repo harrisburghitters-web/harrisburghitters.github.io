@@ -17,33 +17,41 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:16px;
-    padding:16px 16px 10px;
+    padding:18px 16px 12px;
   ">
-    <!-- TEXT STACK -->
-    <div style="text-align:center;">
+
+    <!-- LEFT-ALIGNED TEXT BLOCK -->
+    <div style="
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      margin-right:18px;
+    ">
       <div style="
-        font-size:26px;
+        font-size:32px;
         font-weight:900;
-        letter-spacing:1px;
+        letter-spacing:1.2px;
+        line-height:1.05;
       ">
         HARRISBURG HITTERS
       </div>
+
       <div style="
-        font-size:14px;
+        font-size:18px;
         color:var(--muted);
-        margin-top:2px;
+        margin-top:4px;
+        line-height:1.1;
       ">
         Youth Travel Football
       </div>
     </div>
 
-    <!-- LOGO -->
+    <!-- LOGO (MATCHES TEXT HEIGHT) -->
     <img
       src="assets/MainLogo.png"
       alt="Harrisburg Hitters Logo"
       style="
-        height:56px;
+        height:76px;
         width:auto;
         object-fit:contain;
       "
@@ -72,7 +80,7 @@
   <section class="hero-bg">
     <h1 style="
       margin:0;
-      font-size:32px;
+      font-size:36px;
       font-weight:900;
       letter-spacing:-0.5px;
       text-align:center;
@@ -81,17 +89,18 @@
     </h1>
 
     <p style="
-      margin:8px 0 0;
+      margin:10px 0 0;
       color:var(--muted);
       text-align:center;
+      font-size:16px;
     ">
       Elite youth travel football program serving Harrisburg, Pennsylvania.
     </p>
 
     <div style="
-      margin-top:20px;
+      margin-top:22px;
       display:flex;
-      gap:12px;
+      gap:14px;
       flex-wrap:wrap;
       justify-content:center;
     ">
@@ -101,7 +110,7 @@
   </section>
 
   <!-- INFO CARD -->
-  <section class="card" style="margin-top:16px;">
+  <section class="card" style="margin-top:18px;">
     <div class="section-title">Harrisburg Hitters</div>
     <p style="color:var(--muted); margin-top:0;">
       Competitive youth travel football focused on discipline, toughness,
