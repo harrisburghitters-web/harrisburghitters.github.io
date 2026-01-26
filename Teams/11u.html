@@ -3,17 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>6U | Harrisburg Hitters</title>
+  <title>11u | Harrisburg Hitters</title>
 
-  <!-- NOTE: we are inside /teams so we go up one level -->
   <link rel="stylesheet" href="../assets/style.css" />
+
+  <style>
+    .topbar{position:sticky;top:0;z-index:999;transition:padding 180ms ease,box-shadow 180ms ease;will-change:padding}
+    .brand-row{display:flex;justify-content:center;align-items:center;gap:18px;padding:22px 16px 14px;transition:padding 180ms ease}
+    .brand-text{display:flex;flex-direction:column;align-items:flex-start;margin-right:8px}
+    .brand-title{font-size:50px;font-weight:900;letter-spacing:1.5px;line-height:1.05}
+    .brand-subtitle{font-size:40px;color:var(--muted);margin-top:4px;line-height:1.05}
+    .brand-logo{height:120px;width:auto;object-fit:contain;transition:height 180ms ease}
+    .mobile-brand{display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 12px 10px;transition:padding 180ms ease}
+    .mobile-brand img{height:84px;width:auto;object-fit:contain;transition:height 180ms ease}
+    .mobile-brand .mobile-title{font-weight:900;letter-spacing:1px;font-size:16px;text-align:center;color:var(--text)}
+    .topbar.shrink .brand-row{padding:10px 16px 8px}
+    .topbar.shrink .brand-logo{height:72px}
+    .topbar.shrink .mobile-brand{padding:10px 12px 8px}
+    .topbar.shrink .mobile-brand img{height:58px}
+    .topbar.shrink{box-shadow:0 10px 30px rgba(0,0,0,0.35)}
+    @media (max-width:720px){.brand-row{display:none}.mobile-brand{display:flex}}
+  </style>
 </head>
 <body>
 
-<div class="topbar">
-  <div class="brand">
-    <div class="title">Harrisburg Hitters</div>
-    <div class="subtitle">11u Team</div>
+<div class="topbar" id="topbar">
+  <div class="brand-row">
+    <div class="brand-text">
+      <div class="brand-title">HARRISBURG HITTERS</div>
+      <div class="brand-subtitle">Youth Travel Football</div>
+    </div>
+    <img class="brand-logo" src="../assets/MainLogo.png" alt="Harrisburg Hitters Logo" />
+  </div>
+
+  <div class="mobile-brand">
+    <img src="../assets/MainLogo.png" alt="Harrisburg Hitters Logo" />
+    <div class="mobile-title">Harrisburg Hitters</div>
   </div>
 
   <div class="navwrap">
@@ -30,55 +55,104 @@
 </div>
 
 <main class="container">
-  <div class="grid two">
 
-    <!-- Coaches -->
-    <section class="card">
-      <div class="section-title">Coaching Staff</div>
+  <!-- Block 1: Team title -->
+  <section class="card">
+    <div style="text-align:center; font-weight:900; font-size:60px; letter-spacing:0.6px; line-height:1.05;">
+      11u Team
+    </div>
+  </section>
 
-      <div class="kv">
-        <b>Head Coach</b>
-        <span>TBD</span>
-      </div>
+  <!-- Block 2: Coaching staff -->
+  <section class="card" style="margin-top:16px;">
+    <div style="font-weight:900; font-size:27px; margin-bottom:10px;">Coaching Staff</div>
 
-      <div class="kv" style="margin-top:12px;">
-        <b>Assistant Coaches</b>
-        <span>TBD</span>
-      </div>
+    <div style="font-weight:900; margin-top:6px;">Head Coach:</div>
+    <div style="color:var(--muted); margin-top:6px;">
+      [Name]<br />
+      [Cell Phone Number]<br />
+      HarrisburgHitters@gmail.com
+    </div>
 
-      <hr class="sep" />
+    <div style="height:14px;"></div>
 
-      <div class="kv">
-        <b>Notes</b>
-        <span>Add short notes here (practice location, reminders). Keep it brief for mobile.</span>
-      </div>
+    <div style="font-weight:900;">Assistant Coaches:</div>
+    <div style="color:var(--muted); margin-top:6px;">
+      1. [Name]<br />
+      2. [Name]<br />
+      3. [Name]<br />
+      4. [Name]<br />
+      5. [Name]
+    </div>
 
-      <div style="margin-top:14px;">
-        <a class="btn secondary" href="../calendar.html">Back to Calendar</a>
-      </div>
-    </section>
+    <div style="height:14px;"></div>
 
-    <!-- Calendar -->
-    <section class="card">
-      <div class="section-title">11u Calendar (Read-Only)</div>
-      <p style="color: var(--muted); margin-top:0;">
-        Practices, games, and events for 11u.
-      </p>
+    <div style="font-weight:900;">Team Mom:</div>
+    <div style="color:var(--muted); margin-top:6px;">
+      1. [Name]<br />
+      2. [Name]
+    </div>
+  </section>
 
-      <iframe
-src="https://calendar.google.com/calendar/embed?src=c42ced152fd8c693dd7ece7d267f3018ecd4301b7cb0653e19a0b1e7b4d2756b%40group.calendar.google.com&ctz=America%2FNew_York&mode=AGENDA&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0"
-        height="900"
-        loading="lazy"
-        title="11u Calendar">
-      </iframe>
-    </section>
+  <!-- Block 3: Locations -->
+  <section class="card" style="margin-top:16px;">
+    <div style="font-weight:900;">Our main practice location is:</div>
+    <div style="color:var(--muted); margin-top:6px;">
+      Sunshine Park - 901 N 12th St, Harrisburg, PA 17103
+    </div>
 
-  </div>
+    <div style="height:14px;"></div>
+
+    <div style="font-weight:900;">Our main Home Game locations are:</div>
+    <div style="margin-top:6px; color:var(--muted);"><i>*These are subject to change</i></div>
+
+    <div style="margin-top:10px; line-height:1.6;">
+      <a href="https://www.google.com/maps/search/?api=1&query=Sunshine+Park+901+N+12th+St+Harrisburg+PA+17103" target="_blank" rel="noopener">
+        Sunshine Park - 901 N 12th St, Harrisburg, PA 17103
+      </a>
+      <br />
+      <a href="https://www.google.com/maps/search/?api=1&query=Ivy+Ridge+Park+850+Yale+St+Harrisburg+PA+17104" target="_blank" rel="noopener">
+        Ivy Ridge Park - 850 Yale St, Harrisburg, PA 17104
+      </a>
+    </div>
+  </section>
+
+  <!-- Block 4: Notes -->
+  <section class="card" style="margin-top:16px;">
+    <div style="font-weight:900;">Notes:</div>
+    <div style="color:var(--muted); margin-top:6px;">Add short notes here (main practice location, reminders).</div>
+  </section>
+
+  <!-- Calendar below info -->
+  <section class="card" style="margin-top:16px;">
+    <div class="section-title">Team Calendar (Read-Only)</div>
+
+    <iframe
+      src="https://calendar.google.com/calendar/embed?src=c42ced152fd8c693dd7ece7d267f3018ecd4301b7cb0653e19a0b1e7b4d2756b@group.calendar.google.com&ctz=America/New_York&mode=AGENDA"
+      style="border:0;"
+      height="900"
+      loading="lazy"
+      title="11u Team Calendar">
+    </iframe>
+  </section>
+
 </main>
 
 <div class="footer">Harrisburg Hitters • Harrisburg, PA</div>
 
-<!-- NOTE: we are inside /teams so we go up one level -->
 <script src="../assets/site.js"></script>
+<script>
+  (function () {
+    const topbar = document.getElementById("topbar");
+    function onScroll() {
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      if (y > 30) topbar.classList.add("shrink");
+      else topbar.classList.remove("shrink");
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
 </body>
 </html>
