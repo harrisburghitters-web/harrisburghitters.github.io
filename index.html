@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harrisburg Hitters | Youth Football</title>
+
+  <!-- Site Styles -->
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<div class="topbar">
+  <div class="brand">
+    <div class="title">Harrisburg Hitters</div>
+    <div class="subtitle">Youth Football • Harrisburg, PA</div>
+  </div>
+
+  <div class="navwrap">
+    <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+  </div>
+
+  <nav id="site-nav" class="nav">
+    <a href="index.html">Home</a>
+    <a href="registration.html">Registration</a>
+    <a href="teams.html">Our Teams</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="about.html">About Us</a>
+  </nav>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="container">
+
+  <!-- HERO -->
+  <section class="card hero">
+    <h1>Built Different.</h1>
+    <p>Elite youth football program serving Harrisburg, Pennsylvania.</p>
+
+    <div style="margin-top:16px;">
+      <a class="btn" href="registration.html">Register Now</a>
+    </div>
+  </section>
+
+  <!-- IMAGE PLACEHOLDER -->
+  <section class="card" style="margin-top:16px;">
+    <div class="section-title">Harrisburg Hitters</div>
+    <p style="color: var(--muted);">
+      Home image will feature a muscular gorilla in all black,
+      wearing a black uniform with “Hitter” on the chest,
+      white numbers, and Super Bowl rings.
+    </p>
+
+    <!-- Image goes here later -->
+    <!-- <img src="/assets/gorilla.jpg" alt="Harrisburg Hitters Gorilla" /> -->
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+  © <span id="year"></span> Harrisburg Hitters • Harrisburg, PA
+</div>
+
+<script src="/assets/site.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
