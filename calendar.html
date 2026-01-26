@@ -6,22 +6,49 @@
   <title>Calendar | Harrisburg Hitters</title>
 
   <link rel="stylesheet" href="assets/style.css" />
+
+  <style>
+    .topbar{position:sticky;top:0;z-index:999;transition:padding 180ms ease,box-shadow 180ms ease;will-change:padding}
+    .brand-row{display:flex;justify-content:center;align-items:center;gap:18px;padding:22px 16px 14px;transition:padding 180ms ease}
+    .brand-text{display:flex;flex-direction:column;align-items:flex-start;margin-right:8px}
+    .brand-title{font-size:50px;font-weight:900;letter-spacing:1.5px;line-height:1.05}
+    .brand-subtitle{font-size:40px;color:var(--muted);margin-top:4px;line-height:1.05}
+    .brand-logo{height:120px;width:auto;object-fit:contain;transition:height 180ms ease}
+    .mobile-brand{display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 12px 10px;transition:padding 180ms ease}
+    .mobile-brand img{height:84px;width:auto;object-fit:contain;transition:height 180ms ease}
+    .mobile-brand .mobile-title{font-weight:900;letter-spacing:1px;font-size:16px;text-align:center;color:var(--text)}
+    .topbar.shrink .brand-row{padding:10px 16px 8px}
+    .topbar.shrink .brand-logo{height:72px}
+    .topbar.shrink .mobile-brand{padding:10px 12px 8px}
+    .topbar.shrink .mobile-brand img{height:58px}
+    .topbar.shrink{box-shadow:0 10px 30px rgba(0,0,0,0.35)}
+    @media (max-width:720px){.brand-row{display:none}.mobile-brand{display:flex}}
+
+    .cal-pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 12px;border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(20,20,20,0.92);
+      cursor:pointer;user-select:none;font-weight:900;
+    }
+    .cal-pill input{transform:scale(1.1)}
+    .cal-pill span{color:var(--text)}
+  </style>
 </head>
 <body>
 
-<div class="topbar">
-  <div style="display:flex; justify-content:center; align-items:center; padding:22px 16px 14px;">
-    <div style="display:flex; flex-direction:column; align-items:flex-start; margin-right:20px;">
-      <div style="font-size:50px; font-weight:900; letter-spacing:1.5px; line-height:1.05;">
-        HARRISBURG HITTERS
-      </div>
-      <div style="font-size:40px; color:var(--muted); margin-top:4px; line-height:1.05;">
-        Youth Travel Football
-      </div>
+<div class="topbar" id="topbar">
+  <div class="brand-row" aria-label="Harrisburg Hitters Header">
+    <div class="brand-text">
+      <div class="brand-title">HARRISBURG HITTERS</div>
+      <div class="brand-subtitle">Youth Travel Football</div>
     </div>
+    <img class="brand-logo" src="assets/MainLogo.png" alt="Harrisburg Hitters Logo" />
+  </div>
 
-    <img src="assets/MainLogo.png" alt="Harrisburg Hitters Logo"
-         style="height:120px; width:auto; object-fit:contain;" />
+  <div class="mobile-brand" aria-label="Harrisburg Hitters Mobile Header">
+    <img src="assets/MainLogo.png" alt="Harrisburg Hitters Logo" />
+    <div class="mobile-title">Harrisburg Hitters</div>
   </div>
 
   <div class="navwrap">
@@ -38,6 +65,7 @@
 </div>
 
 <main class="container">
+
   <section class="card">
     <div class="section-title">Calendar (Read-Only)</div>
     <p style="color:var(--muted); margin-top:0;">
@@ -45,11 +73,13 @@
     </p>
 
     <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:flex-start; margin-top:12px;">
+      <!-- Main (unchecked by default to avoid duplicates) -->
       <label class="cal-pill">
         <input type="checkbox" class="cal" value="harrisburghitters@gmail.com" />
         <span>Main</span>
       </label>
 
+      <!-- Age Calendars (checked by default) -->
       <label class="cal-pill"><input type="checkbox" class="cal" value="1138a469318c6b6e8a91fc00b92634ef29a8d81c40c177f40e97a233b65ae411@group.calendar.google.com" checked /><span>6U</span></label>
       <label class="cal-pill"><input type="checkbox" class="cal" value="0dc6536ee1f98bf988853e5f2e3638ed8de499a6ebff0f4b66bea84eccbca0fa@group.calendar.google.com" checked /><span>7U</span></label>
       <label class="cal-pill"><input type="checkbox" class="cal" value="ce6f52d8d4f0065ae9d024d70f1e3813b381e192b5d3c467753d02908ba6611d@group.calendar.google.com" checked /><span>8U</span></label>
@@ -69,24 +99,37 @@
 
     <hr class="sep" />
 
-    <iframe id="calFrame" src="" height="900" loading="lazy" title="Harrisburg Hitters Calendar"></iframe>
+    <iframe id="calFrame" src="" style="border:0;" height="900" loading="lazy" title="Harrisburg Hitters Calendar"></iframe>
 
     <p style="color:var(--muted); margin-bottom:0; margin-top:12px; font-size:12px;">
       Tip: Selecting Main plus age calendars can show duplicates. Use “Main Only” or “Select 6U–14U.”
     </p>
   </section>
+
 </main>
 
 <div class="footer">Harrisburg Hitters • Harrisburg, PA</div>
 
 <script src="assets/site.js"></script>
-
 <script>
+  // Header shrink-on-scroll
+  (function () {
+    const topbar = document.getElementById("topbar");
+    function onScroll() {
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      if (y > 30) topbar.classList.add("shrink");
+      else topbar.classList.remove("shrink");
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+
+  // Calendar embed builder
   function buildEmbedSrc(calIds) {
     const base = "https://calendar.google.com/calendar/embed";
     const params = new URLSearchParams();
     params.set("ctz", "America/New_York");
-    params.set("mode", "AGENDA");
+    params.set("mode", "AGENDA");            // schedule view
     params.set("showTitle", "0");
     params.set("showPrint", "0");
     params.set("showTabs", "0");
@@ -113,13 +156,13 @@
 
   function mainOnly() {
     document.querySelectorAll(".cal").forEach(cb => cb.checked = false);
-    document.querySelectorAll(".cal")[0].checked = true;
+    document.querySelectorAll(".cal")[0].checked = true; // Main
     updateCalendar();
   }
 
   function selectAllAges() {
     document.querySelectorAll(".cal").forEach(cb => cb.checked = true);
-    document.querySelectorAll(".cal")[0].checked = false;
+    document.querySelectorAll(".cal")[0].checked = false; // uncheck Main
     updateCalendar();
   }
 
@@ -130,23 +173,6 @@
   document.querySelectorAll(".cal")[0].checked = false;
   updateCalendar();
 </script>
-
-<style>
-  .cal-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 12px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    background: rgba(20,20,20,0.92);
-    cursor: pointer;
-    user-select: none;
-    font-weight: 900;
-  }
-  .cal-pill input { transform: scale(1.1); }
-  .cal-pill span { color: var(--text); }
-</style>
 
 </body>
 </html>
