@@ -25,112 +25,33 @@
       padding:14px 14px 0;
       font-size:26px;
       line-height:1.1;
-      transition: font-size 180ms ease, padding 180ms ease;
     }
 
-    .brand-row{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:18px;
-      padding:14px 16px 14px;
-      transition: padding 180ms ease;
-    }
-    .brand-text{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      margin-right:8px;
-    }
-    .brand-title{
-      font-size:50px;
-      font-weight:900;
-      letter-spacing:1.5px;
-      line-height:1.05;
-    }
-    .brand-subtitle{
-      font-size:40px;
-      color:var(--muted);
-      margin-top:4px;
-      line-height:1.05;
-    }
-    .brand-logo{
-      height:120px;
-      width:auto;
-      object-fit:contain;
-      transition: height 180ms ease;
-    }
-
-    /* Mobile header (logo + small text) */
-    .mobile-brand{
-      display:none;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:12px 12px 10px;
-      transition: padding 180ms ease;
-    }
-    .mobile-brand img{
-      height:84px;
-      width:auto;
-      object-fit:contain;
-      transition: height 180ms ease;
-    }
-    .mobile-brand .mobile-title{
-      font-weight:900;
-      letter-spacing:1px;
-      font-size:16px;
-      text-align:center;
-      color:var(--text);
-    }
-
-    /* Shrink states */
-    .topbar.shrink .program-tagline{ font-size:18px; padding:10px 14px 0; }
-    .topbar.shrink .brand-row{ padding:10px 16px 8px; }
-    .topbar.shrink .brand-logo{ height:72px; }
-    .topbar.shrink .mobile-brand{ padding:10px 12px 8px; }
-    .topbar.shrink .mobile-brand img{ height:58px; }
-
-    /* Responsive switch */
-    @media (max-width: 720px){
-      .program-tagline{ font-size:16px; padding:10px 10px 0; }
-      .brand-row{ display:none; }
-      .mobile-brand{ display:flex; }
-    }
-
-    /* ===== MAIN: 30/70 borderless blocks ===== */
+    /* ===== MAIN: 50 / 50 SPLIT ===== */
     .split-wrap{
       width:100%;
       display:flex;
-      gap:18px;
+      gap:20px;
       align-items:stretch;
       justify-content:center;
-      padding: 22px 0 10px;
+      padding:30px 0;
     }
 
-    /* Mobile: stack */
     @media (max-width: 900px){
-      .split-wrap{ flex-direction:column; gap:14px; }
+      .split-wrap{ flex-direction:column; }
     }
 
-    .split-left{
-      flex: 0 0 30%;
-      min-height: 420px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-    }
-
-    /* Subtle contrast so transparent PNG is visible */
+    .split-left,
     .split-right{
-      flex: 0 0 70%;
-      min-height: 420px;
+      flex: 0 0 50%;
+      min-height: 520px;
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
+    }
+
+    .split-right{
       background: radial-gradient(
         circle at center,
         rgba(255,255,255,0.06),
@@ -138,16 +59,14 @@
       );
     }
 
-    /* When stacked on mobile, allow full width */
     @media (max-width: 900px){
       .split-left, .split-right{
-        flex: 1 1 auto;
         width:100%;
-        min-height: 320px;
+        min-height: 360px;
       }
     }
 
-    /* Clickable tiles with NO border */
+    /* ===== CLICKABLE TILE ===== */
     .tile-link{
       display:flex;
       flex-direction:column;
@@ -156,59 +75,48 @@
       width:100%;
       height:100%;
       text-decoration:none;
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      padding: 18px;
+      padding:24px;
       transition: transform 120ms ease, opacity 120ms ease;
     }
-    .tile-link:hover{ transform: translateY(-2px); opacity: 0.95; }
+    .tile-link:hover{ transform: translateY(-3px); opacity:0.96; }
 
-    .tile-img{
-      max-width: 100%;
-      height: auto;
-      object-fit: contain;
-      display:block;
-    }
-
-    /* Left image sizing */
+    /* ===== FACE LOGO (BIGGER) ===== */
     .tile-left-img{
-      max-width: 280px;
+      max-width: 360px;
       width: 100%;
-    }
-    @media (max-width: 900px){
-      .tile-left-img{ max-width: 220px; }
+      height: auto;
+      margin-bottom: 24px;
     }
 
-    /* Right image sizing */
+    @media (max-width: 900px){
+      .tile-left-img{ max-width: 260px; }
+    }
+
+    /* ===== RIGHT IMAGE ===== */
     .tile-right-img{
-      max-width: 100%;
-      width: 100%;
-      max-height: 520px;
-    }
-    @media (max-width: 900px){
-      .tile-right-img{ max-height: 360px; }
+      max-width:100%;
+      width:100%;
+      max-height:560px;
+      object-fit:contain;
     }
 
-    .register-text{
-      margin-top: 14px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      font-size: 22px;
-      color: var(--text);
-      text-decoration: underline;
-    }
-    @media (max-width: 900px){
-      .register-text{ font-size: 18px; }
-    }
-
-    /* Optional: a tiny helper note when images fail to load */
-    .img-fallback{
-      display:none;
-      margin-top:10px;
+    /* ===== WHITE REGISTER BUTTON ===== */
+    .register-btn{
+      background:#ffffff;
+      color:#000000;
       font-weight:900;
-      color:var(--text);
-      opacity:0.9;
+      font-size:20px;
+      padding:14px 34px;
+      border-radius:6px;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      border:none;
+      cursor:pointer;
+      transition: transform 120ms ease, background 120ms ease;
+    }
+    .register-btn:hover{
+      background:#f2f2f2;
+      transform: translateY(-1px);
     }
   </style>
 </head>
@@ -222,28 +130,10 @@
     NATIONALLY RANKED TRAVEL YOUTH FOOTBALL PROGRAM
   </div>
 
-  <!-- Desktop/Tablet Brand Row -->
-  <div class="brand-row" aria-label="Harrisburg Hitters Header">
-    <div class="brand-text">
-      <div class="brand-title">HARRISBURG HITTERS</div>
-      <div class="brand-subtitle">Youth Travel Football</div>
-    </div>
-
-    <img class="brand-logo" src="assets/MainLogo.png" alt="Harrisburg Hitters Logo" />
-  </div>
-
-  <!-- Mobile Brand Row -->
-  <div class="mobile-brand" aria-label="Harrisburg Hitters Mobile Header">
-    <img src="assets/MainLogo.png" alt="Harrisburg Hitters Logo" />
-    <div class="mobile-title">Harrisburg Hitters</div>
-  </div>
-
-  <!-- MENU BUTTON -->
   <div class="navwrap">
     <button class="menu-btn" onclick="toggleMenu()">Menu</button>
   </div>
 
-  <!-- NAV LINKS -->
   <nav id="site-nav" class="nav">
     <a href="index.html">Home</a>
     <a href="registration.html">Registration</a>
@@ -258,28 +148,26 @@
 
   <div class="split-wrap">
 
-    <!-- LEFT 30%: FaceBlack + Register Here (both clickable) -->
+    <!-- LEFT 50%: BIG FACE + WHITE BUTTON -->
     <div class="split-left">
-      <a class="tile-link" href="registration.html" aria-label="Register Here">
-        <img class="tile-img tile-left-img"
-             src="assets/FaceBlack.png"
-             alt="Register Here"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-        <div class="img-fallback">Missing image: assets/FaceBlack.png</div>
-
-        <div class="register-text">Register Here</div>
+      <a class="tile-link" href="registration.html">
+        <img
+          class="tile-left-img"
+          src="assets/FaceBlack.png"
+          alt="Register for Harrisburg Hitters"
+        />
+        <button class="register-btn">Register Here</button>
       </a>
     </div>
 
-    <!-- RIGHT 70%: HitVsEveryoneTransparent (clickable to Teams) -->
+    <!-- RIGHT 50%: HIT VS EVERYONE -->
     <div class="split-right">
-      <a class="tile-link" href="teams.html" aria-label="View Teams">
-        <img class="tile-img tile-right-img"
-     src="assets/HitVsEveryone_Transparent.png"
-     alt="Hitters vs Everyone"
-
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-        <div class="img-fallback">Missing image: assets/HitVsEveryoneTransparent.png</div>
+      <a class="tile-link" href="teams.html">
+        <img
+          class="tile-right-img"
+          src="assets/HitVsEveryone_Transparent.png"
+          alt="Hitters vs Everyone"
+        />
       </a>
     </div>
 
@@ -295,12 +183,10 @@
 <script src="assets/site.js"></script>
 
 <script>
-  // Shrink-on-scroll behavior
   (function () {
     const topbar = document.getElementById("topbar");
     function onScroll() {
-      const y = window.scrollY || document.documentElement.scrollTop || 0;
-      if (y > 30) topbar.classList.add("shrink");
+      if (window.scrollY > 30) topbar.classList.add("shrink");
       else topbar.classList.remove("shrink");
     }
     window.addEventListener("scroll", onScroll, { passive: true });
