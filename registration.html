@@ -5,16 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Registration | Harrisburg Hitters</title>
 
-  <!-- IMPORTANT: relative path (project pages) -->
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
 
 <!-- ===== TOP NAV ===== -->
 <div class="topbar">
-  <div class="brand">
-    <div class="title">Harrisburg Hitters</div>
-    <div class="subtitle">Registration</div>
+
+  <!-- BRAND ROW -->
+  <div style="
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:22px 16px 14px;
+  ">
+
+    <!-- LEFT-ALIGNED TEXT BLOCK -->
+    <div style="
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      margin-right:20px;
+    ">
+      <div style="
+        font-size:50px;
+        font-weight:900;
+        letter-spacing:1.5px;
+        line-height:1.05;
+      ">
+        HARRISBURG HITTERS
+      </div>
+
+      <div style="
+        font-size:40px;
+        color:var(--muted);
+        margin-top:4px;
+        line-height:1.05;
+      ">
+        Youth Travel Football
+      </div>
+    </div>
+
+    <!-- LOGO -->
+    <img
+      src="assets/MainLogo.png"
+      alt="Harrisburg Hitters Logo"
+      style="
+        height:120px;
+        width:auto;
+        object-fit:contain;
+      "
+    />
   </div>
 
   <div class="navwrap">
@@ -24,15 +65,15 @@
   <nav id="site-nav" class="nav">
     <a href="index.html">Home</a>
     <a href="registration.html">Registration</a>
-    <a href="teams.html">Our Teams</a>
     <a href="calendar.html">Calendar</a>
+    <a href="teams.html">Our Teams</a>
     <a href="about.html">About Us</a>
   </nav>
 </div>
 
 <main class="container">
 
-  <!-- ===== POLICIES / COST ===== -->
+  <!-- ===== REGISTRATION INFO + REQUIRED DOCUMENTS (DOWNLOAD) ===== -->
   <section class="card">
     <div class="section-title">Registration Info</div>
 
@@ -61,12 +102,44 @@
       <b>Practice & Playing Time</b>
       <span>Attendance matters. Players earn playing time through practice participation, effort, and readiness. Athletes who miss practices should expect reduced playing time during games.</span>
     </div>
+
+    <hr class="sep" />
+
+    <div class="section-title" style="margin-top:0;">Required Documents (Download)</div>
+    <p style="color: var(--muted); margin-top:0;">
+      Click below to access required forms and documents.
+    </p>
+
+    <a class="btn secondary"
+       href="https://drive.google.com/drive/folders/1IqNWa6oFQ1uYJd4cixn-7j00kX1BNf8q?usp=sharing"
+       target="_blank" rel="noopener">
+      Click Here to Access Shared Drive
+    </a>
   </section>
 
-  <!-- ===== GOOGLE FORM ===== -->
+  <!-- ===== REQUIRED DOCUMENTS (UPLOAD) ===== -->
+  <section class="card" style="margin-top:16px;">
+    <div class="section-title">Required Documents (Upload)</div>
+
+    <p style="color: var(--muted); margin-top:0;">
+      Required documents are items like screenshot proof of payment, completed physical forms, and other requested verification documents.
+    </p>
+
+    <a class="btn"
+       href="https://docs.google.com/forms/d/e/1FAIpQLSellGFeKwyLhw0Ohcysq0pfTAkYajf8E0hfFq-tdgV1fAVB5A/viewform?usp=publish-editor"
+       target="_blank" rel="noopener">
+      Upload Forms
+    </a>
+
+    <p style="color: var(--muted); margin-top:12px; margin-bottom:0; font-size:12px;">
+      Note: Uploads may require signing into a Google account due to Google’s file-upload security requirements.
+    </p>
+  </section>
+
+  <!-- ===== REGISTRATION FORM ===== -->
   <section class="card" style="margin-top:16px;">
     <div class="section-title">Registration Form</div>
-    <p style="color: var(--muted); margin-top: 0;">
+    <p style="color: var(--muted); margin-top:0;">
       Complete the form below to register your athlete.
     </p>
 
@@ -76,24 +149,6 @@
       loading="lazy"
       title="Harrisburg Hitters Registration Form">
     </iframe>
-  </section>
-
-  <!-- ===== DRIVE DOCUMENTS ===== -->
-  <section class="card" style="margin-top:16px;">
-    <div class="section-title">Required Forms & Documents</div>
-    <p style="color: var(--muted); margin-top: 0;">
-      Download required documents from our Google Drive folder.
-    </p>
-
-    <a class="btn secondary" href="https://drive.google.com/drive/folders/1IqNWa6oFQ1uYJd4cixn-7j00kX1BNf8q?usp=sharing" target="_blank" rel="noopener">
-      Open Documents Folder
-    </a>
-
-    <hr class="sep" />
-
-    <p style="color: var(--muted); margin: 0;">
-      By submitting registration, parents/guardians acknowledge and agree to the policies listed above.
-    </p>
   </section>
 
 </main>
