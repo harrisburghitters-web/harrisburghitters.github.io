@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us | Harrisburg Hitters</title>
+
+  <link rel="stylesheet" href="assets/style.css" />
+
+  <style>
+    .topbar{position:sticky;top:0;z-index:999;transition:padding 180ms ease,box-shadow 180ms ease;will-change:padding}
+    .brand-row{display:flex;justify-content:center;align-items:center;gap:18px;padding:22px 16px 14px;transition:padding 180ms ease}
+    .brand-text{display:flex;flex-direction:column;align-items:flex-start;margin-right:8px}
+    .brand-title{font-size:50px;font-weight:900;letter-spacing:1.5px;line-height:1.05}
+    .brand-subtitle{font-size:40px;color:var(--muted);margin-top:4px;line-height:1.05}
+    .brand-logo{height:120px;width:auto;object-fit:contain;transition:height 180ms ease}
+    .mobile-brand{display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 12px 10px;transition:padding 180ms ease}
+    .mobile-brand img{height:84px;width:auto;object-fit:contain;transition:height 180ms ease}
+    .mobile-brand .mobile-title{font-weight:900;letter-spacing:1px;font-size:16px;text-align:center;color:var(--text)}
+    .topbar.shrink .brand-row{padding:10px 16px 8px}
+    .topbar.shrink .brand-logo{height:72px}
+    .topbar.shrink .mobile-brand{padding:10px 12px 8px}
+    .topbar.shrink .mobile-brand img{height:58px}
+    .topbar.shrink{box-shadow:0 10px 30px rgba(0,0,0,0.35)}
+    @media (max-width:720px){.brand-row{display:none}.mobile-brand{display:flex}}
+
+    .field{display:flex;flex-direction:column;gap:6px;margin-top:12px}
+    .field label{font-weight:900}
+    .field input,.field textarea{
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:12px 12px;
+      background:rgba(20,20,20,0.75);
+      color:var(--text);
+      outline:none;
+    }
+    .field textarea{min-height:120px;resize:vertical}
+  </style>
+</head>
+<body>
+
+<div class="topbar" id="topbar">
+  <div class="brand-row">
+    <div class="brand-text">
+      <div class="brand-title">HARRISBURG HITTERS</div>
+      <div class="brand-subtitle">Youth Travel Football</div>
+    </div>
+    <img class="brand-logo" src="assets/MainLogo.png" alt="Harrisburg Hitters Logo" />
+  </div>
+
+  <div class="mobile-brand">
+    <img src="assets/MainLogo.png" alt="Harrisburg Hitters Logo" />
+    <div class="mobile-title">Harrisburg Hitters</div>
+  </div>
+
+  <div class="navwrap">
+    <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+  </div>
+
+  <nav id="site-nav" class="nav">
+    <a href="index.html">Home</a>
+    <a href="registration.html">Registration</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="teams.html">Our Teams</a>
+    <a href="about.html">About Us</a>
+  </nav>
+</div>
+
+<main class="container">
+
+  <section class="card">
+    <div class="section-title">About Us</div>
+    <p style="color:var(--muted); margin-top:0;">
+      The Harrisburg Hitters are a youth travel football program committed to development, discipline, and team-first culture.
+    </p>
+  </section>
+
+  <section class="card" style="margin-top:16px;">
+    <div class="section-title">Mission</div>
+    <p style="color:var(--muted); margin-top:0;">
+      Build confident athletes through consistent coaching, accountability, and competitive opportunities—on and off the field.
+    </p>
+
+    <hr class="sep" />
+
+    <div class="section-title">Vision</div>
+    <p style="color:var(--muted); margin-top:0;">
+      Develop a nationally respected program that prepares athletes for the next level by mastering fundamentals, discipline, and leadership.
+    </p>
+
+    <hr class="sep" />
+
+    <div class="section-title">Contact</div>
+    <p style="color:var(--muted); margin-top:0;">
+      Email: HarrisburgHitters@gmail.com
+    </p>
+
+    <!-- Simple mailto contact form (no backend required) -->
+    <form action="mailto:HarrisburgHitters@gmail.com" method="post" enctype="text/plain">
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="Name" type="text" placeholder="Your name" required />
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="Email" type="email" placeholder="you@example.com" required />
+      </div>
+
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="Message" placeholder="How can we help?" required></textarea>
+      </div>
+
+      <div style="margin-top:14px;">
+        <button class="btn" type="submit">Send Message</button>
+      </div>
+
+      <p style="color:var(--muted); margin-top:12px; margin-bottom:0; font-size:12px;">
+        Note: This opens your email app to send the message. If you want a true website form that always works on phones, we can replace this with a Google Form link.
+      </p>
+    </form>
+  </section>
+
+</main>
+
+<div class="footer">Harrisburg Hitters • Harrisburg, PA</div>
+
+<script src="assets/site.js"></script>
+<script>
+  (function () {
+    const topbar = document.getElementById("topbar");
+    function onScroll() {
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      if (y > 30) topbar.classList.add("shrink");
+      else topbar.classList.remove("shrink");
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>
