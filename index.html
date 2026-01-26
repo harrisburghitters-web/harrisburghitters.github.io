@@ -9,14 +9,14 @@
 
   <style>
     /* ===== HEADER: sticky + shrink-on-scroll ===== */
-    .topbar {
+    .topbar{
       position: sticky;
       top: 0;
       z-index: 999;
       transition: padding 180ms ease, box-shadow 180ms ease;
       will-change: padding;
     }
-    .topbar.shrink { box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+    .topbar.shrink{ box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
 
     .program-tagline{
       text-align:center;
@@ -123,6 +123,7 @@
       text-align:center;
     }
 
+    /* Subtle contrast so transparent PNG is visible */
     .split-right{
       flex: 0 0 70%;
       min-height: 420px;
@@ -130,11 +131,20 @@
       align-items:center;
       justify-content:center;
       text-align:center;
+      background: radial-gradient(
+        circle at center,
+        rgba(255,255,255,0.06),
+        rgba(0,0,0,0.0) 70%
+      );
     }
 
     /* When stacked on mobile, allow full width */
     @media (max-width: 900px){
-      .split-left, .split-right{ flex: 1 1 auto; width:100%; min-height: 320px; }
+      .split-left, .split-right{
+        flex: 1 1 auto;
+        width:100%;
+        min-height: 320px;
+      }
     }
 
     /* Clickable tiles with NO border */
@@ -186,10 +196,19 @@
       letter-spacing: 1px;
       font-size: 22px;
       color: var(--text);
-      text-decoration: underline; /* makes it obviously clickable */
+      text-decoration: underline;
     }
     @media (max-width: 900px){
       .register-text{ font-size: 18px; }
+    }
+
+    /* Optional: a tiny helper note when images fail to load */
+    .img-fallback{
+      display:none;
+      margin-top:10px;
+      font-weight:900;
+      color:var(--text);
+      opacity:0.9;
     }
   </style>
 </head>
@@ -239,10 +258,15 @@
 
   <div class="split-wrap">
 
-    <!-- LEFT 30%: FaceWhite + Register Here (both clickable) -->
+    <!-- LEFT 30%: FaceBlack + Register Here (both clickable) -->
     <div class="split-left">
       <a class="tile-link" href="registration.html" aria-label="Register Here">
-        <img class="tile-img tile-left-img" src="assets/FaceWhite.png" alt="Register Here" />
+        <img class="tile-img tile-left-img"
+             src="assets/FaceBlack.png"
+             alt="Register Here"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="img-fallback">Missing image: assets/FaceBlack.png</div>
+
         <div class="register-text">Register Here</div>
       </a>
     </div>
@@ -250,7 +274,11 @@
     <!-- RIGHT 70%: HitVsEveryoneTransparent (clickable to Teams) -->
     <div class="split-right">
       <a class="tile-link" href="teams.html" aria-label="View Teams">
-        <img class="tile-img tile-right-img" src="assets/HitVsEveryoneTransparent.png" alt="View Teams" />
+        <img class="tile-img tile-right-img"
+             src="assets/HitVsEveryoneTransparent.png"
+             alt="Hitters vs Everyone"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="img-fallback">Missing image: assets/HitVsEveryoneTransparent.png</div>
       </a>
     </div>
 
