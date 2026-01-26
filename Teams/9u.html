@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>6U | Harrisburg Hitters</title>
+
+  <!-- NOTE: we are inside /teams so we go up one level -->
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <div class="title">Harrisburg Hitters</div>
+    <div class="subtitle">9u Team</div>
+  </div>
+
+  <div class="navwrap">
+    <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+  </div>
+
+  <nav id="site-nav" class="nav">
+    <a href="../index.html">Home</a>
+    <a href="../registration.html">Registration</a>
+    <a href="../calendar.html">Calendar</a>
+    <a href="../teams.html">Our Teams</a>
+    <a href="../about.html">About Us</a>
+  </nav>
+</div>
+
+<main class="container">
+  <div class="grid two">
+
+    <!-- Coaches -->
+    <section class="card">
+      <div class="section-title">Coaching Staff</div>
+
+      <div class="kv">
+        <b>Head Coach</b>
+        <span>TBD</span>
+      </div>
+
+      <div class="kv" style="margin-top:12px;">
+        <b>Assistant Coaches</b>
+        <span>TBD</span>
+      </div>
+
+      <hr class="sep" />
+
+      <div class="kv">
+        <b>Notes</b>
+        <span>Add short notes here (practice location, reminders). Keep it brief for mobile.</span>
+      </div>
+
+      <div style="margin-top:14px;">
+        <a class="btn secondary" href="../calendar.html">Back to Calendar</a>
+      </div>
+    </section>
+
+    <!-- Calendar -->
+    <section class="card">
+      <div class="section-title">9u Calendar (Read-Only)</div>
+      <p style="color: var(--muted); margin-top:0;">
+        Practices, games, and events for 9u.
+      </p>
+
+      <iframe
+src="https://calendar.google.com/calendar/embed?src=b0a543e10c7bf625c46837e4e106750de4c553d9d73db0288abd72ac673bd234%40group.calendar.google.com&ctz=America%2FNew_York&mode=AGENDA&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0"
+        height="900"
+        loading="lazy"
+        title="9u Calendar">
+      </iframe>
+    </section>
+
+  </div>
+</main>
+
+<div class="footer">Harrisburg Hitters • Harrisburg, PA</div>
+
+<!-- NOTE: we are inside /teams so we go up one level -->
+<script src="../assets/site.js"></script>
+</body>
+</html>
