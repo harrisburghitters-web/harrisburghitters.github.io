@@ -3,30 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Harrisburg Hitters | Youth Football</title>
+  <title>Harrisburg Hitters | Youth Travel Football</title>
 
-  <!-- Site Styles -->
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
 
 <!-- ===== TOP NAV ===== -->
 <div class="topbar">
-  <div class="brand">
-    <img class="site-logo" src="assets/MainLogo.png" alt="Harrisburg Hitters logo" />
-    <div class="title">Harrisburg Hitters</div>
-    <div class="subtitle">Youth Football • Harrisburg, PA</div>
+
+  <!-- BRAND ROW -->
+  <div style="
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:16px;
+    padding:16px 16px 10px;
+  ">
+    <!-- TEXT STACK -->
+    <div style="text-align:center;">
+      <div style="
+        font-size:26px;
+        font-weight:900;
+        letter-spacing:1px;
+      ">
+        HARRISBURG HITTERS
+      </div>
+      <div style="
+        font-size:14px;
+        color:var(--muted);
+        margin-top:2px;
+      ">
+        Youth Travel Football
+      </div>
+    </div>
+
+    <!-- LOGO -->
+    <img
+      src="assets/MainLogo.png"
+      alt="Harrisburg Hitters Logo"
+      style="
+        height:56px;
+        width:auto;
+        object-fit:contain;
+      "
+    />
   </div>
 
+  <!-- MENU BUTTON -->
   <div class="navwrap">
     <button class="menu-btn" onclick="toggleMenu()">Menu</button>
   </div>
 
+  <!-- NAV LINKS -->
   <nav id="site-nav" class="nav">
     <a href="index.html">Home</a>
     <a href="registration.html">Registration</a>
-    <a href="teams.html">Our Teams</a>
     <a href="calendar.html">Calendar</a>
+    <a href="teams.html">Our Teams</a>
     <a href="about.html">About Us</a>
   </nav>
 </div>
@@ -35,39 +69,53 @@
 <main class="container">
 
   <!-- HERO -->
-  <section class="card hero">
-    <h1>Built Different.</h1>
-    <p>Elite youth football program serving Harrisburg, Pennsylvania.</p>
+  <section class="hero-bg">
+    <h1 style="
+      margin:0;
+      font-size:32px;
+      font-weight:900;
+      letter-spacing:-0.5px;
+      text-align:center;
+    ">
+      Built Different.
+    </h1>
 
-    <div style="margin-top:16px;">
+    <p style="
+      margin:8px 0 0;
+      color:var(--muted);
+      text-align:center;
+    ">
+      Elite youth travel football program serving Harrisburg, Pennsylvania.
+    </p>
+
+    <div style="
+      margin-top:20px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
+    ">
       <a class="btn" href="registration.html">Register Now</a>
+      <a class="btn secondary" href="calendar.html">View Calendar</a>
     </div>
   </section>
 
-  <!-- IMAGE PLACEHOLDER -->
+  <!-- INFO CARD -->
   <section class="card" style="margin-top:16px;">
     <div class="section-title">Harrisburg Hitters</div>
-    <p style="color: var(--muted);">
-      Home image will feature a muscular gorilla in all black,
-      wearing a black uniform with “Hitter” on the chest,
-      white numbers, and Super Bowl rings.
+    <p style="color:var(--muted); margin-top:0;">
+      Competitive youth travel football focused on discipline, toughness,
+      development, and team-first culture.
     </p>
-
-    <!-- Image goes here later -->
-    <!-- <img src="/assets/gorilla.jpg" alt="Harrisburg Hitters Gorilla" /> -->
   </section>
 
 </main>
 
 <!-- ===== FOOTER ===== -->
 <div class="footer">
-  © <span id="year"></span> Harrisburg Hitters • Harrisburg, PA
+  Harrisburg Hitters • Harrisburg, PA
 </div>
 
 <script src="assets/site.js"></script>
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
 </body>
 </html>
