@@ -35,6 +35,13 @@
       outline:none;
     }
     .field textarea{min-height:120px;resize:vertical}
+
+    /* Make link buttons size to text only (used for Facebook + Heja buttons) */
+    .btn.inline-btn{
+      display:inline-block;
+      width:auto;
+      align-self:flex-start;
+    }
   </style>
 </head>
 <body>
@@ -62,6 +69,7 @@
     <a href="registration.html">Registration</a>
     <a href="calendar.html">Calendar</a>
     <a href="teams.html">Our Teams</a>
+    <a href="tournaments.html">Tournaments & Games</a>
     <a href="about.html">About Us</a>
   </nav>
 </div>
@@ -90,7 +98,7 @@
     </p>
   </section>
 
-  <!-- New block with links -->
+  <!-- Links block (buttons only as wide as text) -->
   <section class="card" style="margin-top:16px;">
     <div class="section-title">Links</div>
     <p style="color:var(--muted); margin-top:0;">
@@ -98,12 +106,18 @@
     </p>
 
     <div style="display:flex; flex-direction:column; gap:10px; margin-top:12px;">
-      <a class="btn" href="https://www.facebook.com/groups/1161046488166743/" target="_blank" rel="noopener noreferrer">
+      <a class="btn inline-btn"
+         href="https://www.facebook.com/groups/1161046488166743/"
+         target="_blank"
+         rel="noopener noreferrer">
         Join Our Facebook Group
       </a>
 
-      <a class="btn" href="https://heja.io/" target="_blank" rel="noopener noreferrer">
-        Download Heja (Coach & Parent Communication)
+      <a class="btn inline-btn"
+         href="https://heja.io/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Download Heja (Coach &amp; Parent Communication)
       </a>
     </div>
   </section>
