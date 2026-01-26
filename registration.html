@@ -6,28 +6,39 @@
   <title>Registration | Harrisburg Hitters</title>
 
   <link rel="stylesheet" href="assets/style.css" />
+
+  <style>
+    .topbar{position:sticky;top:0;z-index:999;transition:padding 180ms ease,box-shadow 180ms ease;will-change:padding}
+    .brand-row{display:flex;justify-content:center;align-items:center;gap:18px;padding:22px 16px 14px;transition:padding 180ms ease}
+    .brand-text{display:flex;flex-direction:column;align-items:flex-start;margin-right:8px}
+    .brand-title{font-size:50px;font-weight:900;letter-spacing:1.5px;line-height:1.05}
+    .brand-subtitle{font-size:40px;color:var(--muted);margin-top:4px;line-height:1.05}
+    .brand-logo{height:120px;width:auto;object-fit:contain;transition:height 180ms ease}
+    .mobile-brand{display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 12px 10px;transition:padding 180ms ease}
+    .mobile-brand img{height:84px;width:auto;object-fit:contain;transition:height 180ms ease}
+    .mobile-brand .mobile-title{font-weight:900;letter-spacing:1px;font-size:16px;text-align:center;color:var(--text)}
+    .topbar.shrink .brand-row{padding:10px 16px 8px}
+    .topbar.shrink .brand-logo{height:72px}
+    .topbar.shrink .mobile-brand{padding:10px 12px 8px}
+    .topbar.shrink .mobile-brand img{height:58px}
+    .topbar.shrink{box-shadow:0 10px 30px rgba(0,0,0,0.35)}
+    @media (max-width:720px){.brand-row{display:none}.mobile-brand{display:flex}}
+  </style>
 </head>
 <body>
 
-<!-- ===== TOP NAV ===== -->
-<div class="topbar">
-
-  <!-- BRAND ROW -->
-  <div style="display:flex; justify-content:center; align-items:center; padding:22px 16px 14px;">
-    <div style="display:flex; flex-direction:column; align-items:flex-start; margin-right:20px;">
-      <div style="font-size:50px; font-weight:900; letter-spacing:1.5px; line-height:1.05;">
-        HARRISBURG HITTERS
-      </div>
-      <div style="font-size:40px; color:var(--muted); margin-top:4px; line-height:1.05;">
-        Youth Travel Football
-      </div>
+<div class="topbar" id="topbar">
+  <div class="brand-row" aria-label="Harrisburg Hitters Header">
+    <div class="brand-text">
+      <div class="brand-title">HARRISBURG HITTERS</div>
+      <div class="brand-subtitle">Youth Travel Football</div>
     </div>
+    <img class="brand-logo" src="assets/MainLogo.png" alt="Harrisburg Hitters Logo" />
+  </div>
 
-    <img
-      src="assets/MainLogo.png"
-      alt="Harrisburg Hitters Logo"
-      style="height:120px; width:auto; object-fit:contain;"
-    />
+  <div class="mobile-brand" aria-label="Harrisburg Hitters Mobile Header">
+    <img src="assets/MainLogo.png" alt="Harrisburg Hitters Logo" />
+    <div class="mobile-title">Harrisburg Hitters</div>
   </div>
 
   <div class="navwrap">
@@ -45,7 +56,7 @@
 
 <main class="container">
 
-  <!-- ===== BLOCK 1: REGISTRATION INFO HEADER ===== -->
+  <!-- Block 1: Registration Info title only (50% bigger) -->
   <section class="card">
     <div class="section-title" style="font-size:27px;">Registration Info</div>
     <p style="color:var(--muted); margin-top:0;">
@@ -53,7 +64,7 @@
     </p>
   </section>
 
-  <!-- ===== BLOCK 2: FEE + POLICIES ===== -->
+  <!-- Block 2: Fee + policies -->
   <section class="card" style="margin-top:16px;">
     <div class="kv">
       <b>Registration Fee</b>
@@ -82,11 +93,10 @@
     </div>
   </section>
 
-  <!-- ===== BLOCK 3: REQUIRED DOCUMENTS (DOWNLOAD + UPLOAD) ===== -->
+  <!-- Block 3: Required Documents -->
   <section class="card" style="margin-top:16px;">
     <div class="section-title">Required Documents</div>
 
-    <!-- Download -->
     <div class="kv" style="margin-top:8px;">
       <b>Required Documents (Download)</b>
       <span>Access required forms and documents using the button below.</span>
@@ -102,7 +112,6 @@
 
     <hr class="sep" />
 
-    <!-- Upload -->
     <div class="kv">
       <b>Required Documents (Upload)</b>
       <span>Required documents are items like screenshot proof of payment, completed physical forms, and other requested verification documents.</span>
@@ -121,11 +130,10 @@
     </p>
   </section>
 
-  <!-- ===== BLOCK 4: REGISTRATION FORM LINK ===== -->
+  <!-- Block 4: Registration Form link -->
   <section class="card" style="margin-top:16px;">
     <div class="section-title">Registration Form</div>
-
-    <p style="color: var(--muted); margin-top:0;">
+    <p style="color:var(--muted); margin-top:0;">
       Complete the registration form using the link below.
     </p>
 
@@ -138,10 +146,21 @@
 
 </main>
 
-<div class="footer">
-  Harrisburg Hitters • Harrisburg, PA
-</div>
+<div class="footer">Harrisburg Hitters • Harrisburg, PA</div>
 
 <script src="assets/site.js"></script>
+<script>
+  (function () {
+    const topbar = document.getElementById("topbar");
+    function onScroll() {
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      if (y > 30) topbar.classList.add("shrink");
+      else topbar.classList.remove("shrink");
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
 </body>
 </html>
