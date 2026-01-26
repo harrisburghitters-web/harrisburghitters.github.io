@@ -6,56 +6,139 @@
   <title>Harrisburg Hitters | Youth Travel Football</title>
 
   <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- Page-scoped header behavior + responsive header layout -->
+  <style>
+    /* Sticky header that can shrink */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      transition: padding 180ms ease, box-shadow 180ms ease;
+      will-change: padding;
+    }
+
+    /* A wrapper for the brand row that we can scale */
+    .brand-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      padding: 22px 16px 14px;
+      transition: padding 180ms ease;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-right: 8px;
+      transition: opacity 180ms ease;
+    }
+
+    .brand-title {
+      font-size: 50px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      line-height: 1.05;
+    }
+
+    .brand-subtitle {
+      font-size: 40px;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.05;
+    }
+
+    .brand-logo {
+      height: 120px;
+      width: auto;
+      object-fit: contain;
+      transition: height 180ms ease;
+    }
+
+    /* Mobile-only header: logo with small text under it */
+    .mobile-brand {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 12px 10px;
+      transition: padding 180ms ease;
+    }
+
+    .mobile-brand img {
+      height: 84px;
+      width: auto;
+      object-fit: contain;
+      transition: height 180ms ease;
+    }
+
+    .mobile-brand .mobile-title {
+      font-weight: 900;
+      letter-spacing: 1px;
+      font-size: 16px;
+      text-align: center;
+      color: var(--text);
+    }
+
+    /* Make header compact on scroll */
+    .topbar.shrink .brand-row {
+      padding: 10px 16px 8px;
+    }
+
+    .topbar.shrink .brand-logo {
+      height: 72px;
+    }
+
+    .topbar.shrink .mobile-brand {
+      padding: 10px 12px 8px;
+    }
+
+    .topbar.shrink .mobile-brand img {
+      height: 58px;
+    }
+
+    /* Optional: subtle shadow when shrinking */
+    .topbar.shrink {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    /* RESPONSIVE SWITCH: on phones show only mobile-brand, hide desktop brand-row */
+    @media (max-width: 720px) {
+      .brand-row {
+        display: none;
+      }
+      .mobile-brand {
+        display: flex;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <!-- ===== TOP NAV ===== -->
-<div class="topbar">
+<div class="topbar" id="topbar">
 
-  <!-- BRAND ROW -->
-  <div style="
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:22px 16px 14px;
-  ">
-
-    <!-- LEFT-ALIGNED TEXT BLOCK -->
-    <div style="
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      margin-right:20px;
-    ">
-      <div style="
-        font-size:50px;
-        font-weight:900;
-        letter-spacing:1.5px;
-        line-height:1.05;
-      ">
-        HARRISBURG HITTERS
-      </div>
-
-      <div style="
-        font-size:40px;
-        color:var(--muted);
-        margin-top:4px;
-        line-height:1.05;
-      ">
-        Youth Travel Football
-      </div>
+  <!-- Desktop/Tablet Brand Row -->
+  <div class="brand-row" aria-label="Harrisburg Hitters Header">
+    <div class="brand-text">
+      <div class="brand-title">HARRISBURG HITTERS</div>
+      <div class="brand-subtitle">Youth Travel Football</div>
     </div>
 
-    <!-- LOGO (MATCHES TEXT HEIGHT) -->
     <img
+      class="brand-logo"
       src="assets/MainLogo.png"
       alt="Harrisburg Hitters Logo"
-      style="
-        height:120px;
-        width:auto;
-        object-fit:contain;
-      "
     />
+  </div>
+
+  <!-- Mobile Brand Row -->
+  <div class="mobile-brand" aria-label="Harrisburg Hitters Mobile Header">
+    <img src="assets/MainLogo.png" alt="Harrisburg Hitters Logo" />
+    <div class="mobile-title">Harrisburg Hitters</div>
   </div>
 
   <!-- MENU BUTTON -->
@@ -126,5 +209,27 @@
 </div>
 
 <script src="assets/site.js"></script>
+
+<!-- Shrink-on-scroll behavior -->
+<script>
+  (function () {
+    const topbar = document.getElementById("topbar");
+    let lastY = 0;
+
+    function onScroll() {
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+
+      // Shrink after a small threshold to avoid flicker
+      if (y > 30) topbar.classList.add("shrink");
+      else topbar.classList.remove("shrink");
+
+      lastY = y;
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); // set initial state
+  })();
+</script>
+
 </body>
 </html>
