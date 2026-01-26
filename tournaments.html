@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tournaments | Harrisburg Hitters</title>
+
+  <link rel="stylesheet" href="assets/style.css" />
+
+  <style>
+    .topbar{position:sticky;top:0;z-index:999;transition:padding 180ms ease,box-shadow 180ms ease;will-change:padding}
+    .brand-row{display:flex;justify-content:center;align-items:center;gap:18px;padding:22px 16px 14px;transition:padding 180ms ease}
+    .brand-text{display:flex;flex-direction:column;align-items:flex-start;margin-right:8px}
+    .brand-title{font-size:50px;font-weight:900;letter-spacing:1.5px;line-height:1.05}
+    .brand-subtitle{font-size:40px;color:var(--muted);margin-top:4px;line-height:1.05}
+    .brand-logo{height:120px;width:auto;object-fit:contain;transition:height 180ms ease}
+    .mobile-brand{display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 12px 10px}
+    .mobile-brand img{height:84px;width:auto}
+    .mobile-brand .mobile-title{font-weight:900;letter-spacing:1px;font-size:16px}
+    .topbar.shrink{box-shadow:0 10px 30px rgba(0,0,0,0.35)}
+    @media (max-width:720px){.brand-row{display:none}.mobile-brand{display:flex}}
+
+    ul.tournament-list{
+      margin-top:10px;
+      padding-left:20px;
+      color:var(--muted);
+    }
+    ul.tournament-list li{
+      margin-bottom:10px;
+      line-height:1.4;
+    }
+    .note{
+      font-size:14px;
+      color:var(--muted);
+      margin-top:12px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar" id="topbar">
+  <div class="brand-row">
+    <div class="brand-text">
+      <div class="brand-title">HARRISBURG HITTERS</div>
+      <div class="brand-subtitle">Youth Travel Football</div>
+    </div>
+    <img class="brand-logo" src="assets/MainLogo.png" alt="Harrisburg Hitters Logo" />
+  </div>
+
+  <div class="mobile-brand">
+    <img src="assets/MainLogo.png" alt="Harrisburg Hitters Logo" />
+    <div class="mobile-title">Harrisburg Hitters</div>
+  </div>
+
+  <div class="navwrap">
+    <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+  </div>
+
+  <nav id="site-nav" class="nav">
+    <a href="index.html">Home</a>
+    <a href="registration.html">Registration</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="teams.html">Our Teams</a>
+    <a href="tournaments.html">Tournaments</a>
+    <a href="about.html">About Us</a>
+  </nav>
+</div>
+
+<main class="container">
+
+  <!-- D1Nation -->
+  <section class="card">
+    <div class="section-title">Tournament Resources</div>
+    <p style="color:var(--muted); margin-top:0;">
+      Many of our tournament opportunities are coordinated through national organizers.
+    </p>
+
+    <a class="btn" href="https://d1nation.us/" target="_blank" rel="noopener noreferrer">
+      Visit D1Nation Tournament Site
+    </a>
+
+    <p class="note">
+      We strongly recommend checking the D1Nation website and Facebook pages regularly for dates, locations, and updates.
+    </p>
+  </section>
+
+  <!-- 2026 Tournaments -->
+  <section class="card" style="margin-top:16px;">
+    <div class="section-title">2026 Tournaments</div>
+
+    <ul class="tournament-list">
+      <li>
+        <strong>WV Ice Bowl Youth Football Tournament</strong><br />
+        <a href="https://www.facebook.com/wvicebowl/" target="_blank" rel="noopener noreferrer">
+          https://www.facebook.com/wvicebowl/
+        </a>
+      </li>
+
+      <li>
+        <strong>5th Annual Spring Battle in the Mountains</strong><br />
+        <a href="https://www.facebook.com/springbattleinthemountains/" target="_blank" rel="noopener noreferrer">
+          https://www.facebook.com/springbattleinthemountains/
+        </a>
+      </li>
+
+      <li>
+        <strong>Queen City Showdown</strong> <em>(TBD – pending organizer confirmation)</em><br />
+        <a href="https://www.facebook.com/p/QC-Showdown-100076636544896/" target="_blank" rel="noopener noreferrer">
+          https://www.facebook.com/p/QC-Showdown-100076636544896/
+        </a>
+      </li>
+
+      <li>
+        <strong>4th Annual East Coast Spring National Championship</strong><br />
+        <a href="https://www.facebook.com/groups/667866762109725/" target="_blank" rel="noopener noreferrer">
+          https://www.facebook.com/groups/667866762109725/
+        </a>
+      </li>
+    </ul>
+
+    <p class="note">
+      Tournament participation is subject to team qualification, roster availability, and final confirmation by event organizers.
+    </p>
+  </section>
+
+</main>
+
+<div class="footer">Harrisburg Hitters • Harrisburg, PA</div>
+
+<script src="assets/site.js"></script>
+<script>
+  (function () {
+    const topbar = document.getElementById("topbar");
+    function onScroll() {
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      if (y > 30) topbar.classList.add("shrink");
+      else topbar.classList.remove("shrink");
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>
