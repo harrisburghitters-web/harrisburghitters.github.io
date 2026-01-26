@@ -7,145 +7,179 @@
 
   <link rel="stylesheet" href="assets/style.css" />
 
-  <!-- Page-scoped header behavior + responsive header layout -->
   <style>
     /* ===== FULLSCREEN BACKGROUND WATERMARK ===== */
-body {
-  position: relative;
-}
+    body { position: relative; }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:url("assets/HitVsEveryone.png");
+      background-repeat:no-repeat;
+      background-position:center center;
+      background-size:contain;
+      opacity:0.08;              /* watermark strength */
+      z-index:0;
+      pointer-events:none;
+    }
+    .topbar, main, .footer { position: relative; z-index: 1; }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("assets/HitVsEveryone.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain; /* use "cover" if you want edge-to-edge */
-  opacity: 0.08; /* watermark strength – adjust 0.05–0.12 */
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Ensure all actual content sits above the watermark */
-.topbar,
-main,
-.footer {
-  position: relative;
-  z-index: 1;
-}
-
-    /* Sticky header that can shrink */
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 999;
+    /* ===== HEADER: sticky + shrink-on-scroll ===== */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:999;
       transition: padding 180ms ease, box-shadow 180ms ease;
       will-change: padding;
     }
+    .topbar.shrink{ box-shadow:0 10px 30px rgba(0,0,0,0.35); }
 
-    /* A wrapper for the brand row that we can scale */
-    .brand-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 18px;
-      padding: 22px 16px 14px;
+    .program-tagline{
+      text-align:center;
+      font-weight:900;
+      letter-spacing:1px;
+      padding:14px 14px 0;
+      font-size:26px;
+      line-height:1.1;
+    }
+
+    .brand-row{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:18px;
+      padding:14px 16px 14px;
       transition: padding 180ms ease;
     }
 
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin-right: 8px;
-      transition: opacity 180ms ease;
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      margin-right:8px;
     }
 
-    .brand-title {
-      font-size: 50px;
-      font-weight: 900;
-      letter-spacing: 1.5px;
-      line-height: 1.05;
+    .brand-title{
+      font-size:50px;
+      font-weight:900;
+      letter-spacing:1.5px;
+      line-height:1.05;
     }
 
-    .brand-subtitle {
-      font-size: 40px;
-      color: var(--muted);
-      margin-top: 4px;
-      line-height: 1.05;
+    .brand-subtitle{
+      font-size:40px;
+      color:var(--muted);
+      margin-top:4px;
+      line-height:1.05;
     }
 
-    .brand-logo {
-      height: 120px;
-      width: auto;
-      object-fit: contain;
+    .brand-logo{
+      height:120px;
+      width:auto;
+      object-fit:contain;
       transition: height 180ms ease;
     }
 
-    /* Mobile-only header: logo with small text under it */
-    .mobile-brand {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 12px 10px;
+    /* Mobile header (logo + small text) */
+    .mobile-brand{
+      display:none;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:12px 12px 10px;
       transition: padding 180ms ease;
     }
-
-    .mobile-brand img {
-      height: 84px;
-      width: auto;
-      object-fit: contain;
+    .mobile-brand img{
+      height:84px;
+      width:auto;
+      object-fit:contain;
       transition: height 180ms ease;
     }
+    .mobile-brand .mobile-title{
+      font-weight:900;
+      letter-spacing:1px;
+      font-size:16px;
+      text-align:center;
+      color:var(--text);
+    }
 
-    .mobile-brand .mobile-title {
+    /* Shrink states */
+    .topbar.shrink .program-tagline{ font-size:18px; padding:10px 14px 0; }
+    .topbar.shrink .brand-row{ padding:10px 16px 8px; }
+    .topbar.shrink .brand-logo{ height:72px; }
+    .topbar.shrink .mobile-brand{ padding:10px 12px 8px; }
+    .topbar.shrink .mobile-brand img{ height:58px; }
+
+    /* Responsive switch */
+    @media (max-width: 720px){
+      .program-tagline{ font-size:16px; padding:10px 10px 0; }
+      .brand-row{ display:none; }
+      .mobile-brand{ display:flex; }
+    }
+
+    /* ===== MID-SCREEN CTA ===== */
+    .cta-wrap{
+      min-height: calc(100vh - 260px); /* gives room for header; fine across devices */
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 30px 16px 40px;
+    }
+    @media (max-width: 720px){
+      .cta-wrap{ min-height: calc(100vh - 210px); }
+    }
+
+    /* Image-shaped button using the FaceBlack.png icon */
+    .icon-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      border-radius: 999px;
+      padding: 0;
+      border: 2px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.45);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+      transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+      overflow:hidden; /* keeps icon clean */
+    }
+    .icon-cta:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.28);
+      background: rgba(0,0,0,0.55);
+    }
+
+    .icon-cta img{
+      display:block;
+      height: 220px;
+      width: 220px;
+      object-fit: contain;
+    }
+
+    .icon-cta-label{
+      margin-top: 14px;
+      text-align:center;
       font-weight: 900;
-      letter-spacing: 1px;
-      font-size: 16px;
-      text-align: center;
-      color: var(--text);
+      letter-spacing: 0.8px;
+      font-size: 22px;
     }
 
-    /* Make header compact on scroll */
-    .topbar.shrink .brand-row {
-      padding: 10px 16px 8px;
-    }
-
-    .topbar.shrink .brand-logo {
-      height: 72px;
-    }
-
-    .topbar.shrink .mobile-brand {
-      padding: 10px 12px 8px;
-    }
-
-    .topbar.shrink .mobile-brand img {
-      height: 58px;
-    }
-
-    /* Optional: subtle shadow when shrinking */
-    .topbar.shrink {
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-    }
-
-    /* RESPONSIVE SWITCH: on phones show only mobile-brand, hide desktop brand-row */
-    @media (max-width: 720px) {
-      .brand-row {
-        display: none;
-      }
-      .mobile-brand {
-        display: flex;
-      }
+    @media (max-width: 720px){
+      .icon-cta img{ height: 180px; width: 180px; }
+      .icon-cta-label{ font-size: 18px; }
     }
   </style>
 </head>
+
 <body>
 
 <!-- ===== TOP NAV ===== -->
 <div class="topbar" id="topbar">
+
+  <div class="program-tagline">
+    NATIONALLY RANKED TRAVEL YOUTH FOOTBALL PROGRAM
+  </div>
 
   <!-- Desktop/Tablet Brand Row -->
   <div class="brand-row" aria-label="Harrisburg Hitters Header">
@@ -154,11 +188,7 @@ main,
       <div class="brand-subtitle">Youth Travel Football</div>
     </div>
 
-    <img
-      class="brand-logo"
-      src="assets/MainLogo.png"
-      alt="Harrisburg Hitters Logo"
-    />
+    <img class="brand-logo" src="assets/MainLogo.png" alt="Harrisburg Hitters Logo" />
   </div>
 
   <!-- Mobile Brand Row -->
@@ -184,49 +214,14 @@ main,
 
 <!-- ===== MAIN CONTENT ===== -->
 <main class="container">
-
-  <!-- HERO -->
-  <section class="hero-bg">
-    <h1 style="
-      margin:0;
-      font-size:38px;
-      font-weight:900;
-      letter-spacing:-0.5px;
-      text-align:center;
-    ">
-      BROTHERHOOD.
-    </h1>
-
-    <p style="
-      margin:12px 0 0;
-      color:var(--muted);
-      text-align:center;
-      font-size:18px;
-    ">
-      Nationally ranked youth travel football program serving Harrisburg, PA and surrounding areas.
-    </p>
-
-    <div style="
-      margin-top:24px;
-      display:flex;
-      gap:16px;
-      flex-wrap:wrap;
-      justify-content:center;
-    ">
-      <a class="btn" href="registration.html">Register Now</a>
-      <a class="btn secondary" href="calendar.html">View Calendar</a>
+  <div class="cta-wrap">
+    <div style="text-align:center;">
+      <a class="icon-cta" href="registration.html" aria-label="Register Now">
+        <img src="assets/FaceBlack.png" alt="Register Now" />
+      </a>
+      <div class="icon-cta-label">REGISTER NOW</div>
     </div>
-  </section>
-
-  <!-- INFO CARD -->
-  <section class="card" style="margin-top:20px;">
-    <div class="section-title">Harrisburg Hitters</div>
-    <p style="color:var(--muted); margin-top:0;">
-      Competitive youth travel football focused on discipline, toughness,
-      development, and team-first culture.
-    </p>
-  </section>
-
+  </div>
 </main>
 
 <!-- ===== FOOTER ===== -->
@@ -236,24 +231,17 @@ main,
 
 <script src="assets/site.js"></script>
 
-<!-- Shrink-on-scroll behavior -->
 <script>
+  // Shrink-on-scroll behavior
   (function () {
     const topbar = document.getElementById("topbar");
-    let lastY = 0;
-
     function onScroll() {
       const y = window.scrollY || document.documentElement.scrollTop || 0;
-
-      // Shrink after a small threshold to avoid flicker
       if (y > 30) topbar.classList.add("shrink");
       else topbar.classList.remove("shrink");
-
-      lastY = y;
     }
-
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll(); // set initial state
+    onScroll();
   })();
 </script>
 
