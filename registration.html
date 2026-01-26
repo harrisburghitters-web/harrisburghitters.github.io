@@ -23,6 +23,21 @@
     .topbar.shrink .mobile-brand img{height:58px}
     .topbar.shrink{box-shadow:0 10px 30px rgba(0,0,0,0.35)}
     @media (max-width:720px){.brand-row{display:none}.mobile-brand{display:flex}}
+
+    /* Cash App payment button */
+    .cashapp-btn{
+      background:#00D632;
+      color:#000;
+      font-weight:900;
+      padding:10px 18px;
+      border-radius:6px;
+      text-transform:uppercase;
+      letter-spacing:0.8px;
+      font-size:13px;
+      white-space:nowrap;
+      display:inline-block;
+    }
+    .cashapp-btn:hover{ background:#00c12d; }
   </style>
 </head>
 <body>
@@ -66,10 +81,24 @@
 
   <!-- Block 2: Fee + policies -->
   <section class="card" style="margin-top:16px;">
-    <div class="kv">
+    <div class="kv" style="align-items:center;">
       <b>Registration Fee</b>
-      <span>$150 per player</span>
+      <span style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+        $150 per player
+        <a
+          class="cashapp-btn"
+          href="https://cash.app/$LLCEnterprisesBD/150"
+          target="_blank"
+          rel="noopener"
+        >
+          Pay with Cash App
+        </a>
+      </span>
     </div>
+
+    <p style="color:var(--muted); font-size:12px; margin-top:8px; margin-bottom:0;">
+      In Cash App, include <b>Player Name</b> and <b>Age Group</b> in the note (example: “Jordan Smith – 10U”).
+    </p>
 
     <hr class="sep" />
 
@@ -88,7 +117,7 @@
     <hr class="sep" />
 
     <div class="kv">
-      <b>Practice & Playing Time</b>
+      <b>Practice &amp; Playing Time</b>
       <span>Attendance matters. Players earn playing time through practice participation, effort, and readiness. Athletes who miss practices should expect reduced playing time during games.</span>
     </div>
   </section>
