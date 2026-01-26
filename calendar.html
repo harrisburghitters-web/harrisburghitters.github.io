@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calendar | Harrisburg Hitters</title>
+
+  <!-- Relative path for GitHub project pages -->
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<div class="topbar">
+  <div class="brand">
+    <div class="title">Harrisburg Hitters</div>
+    <div class="subtitle">Team Calendar (Read-Only)</div>
+  </div>
+
+  <div class="navwrap">
+    <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+  </div>
+
+  <nav id="site-nav" class="nav">
+    <a href="index.html">Home</a>
+    <a href="registration.html">Registration</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="teams.html">Our Teams</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="about.html">About Us</a>
+  </nav>
+</div>
+
+<!-- ===== CONTENT ===== -->
+<main class="container">
+
+  <section class="card">
+    <div class="section-title">Harrisburg Hitters Calendar</div>
+    <p style="color: var(--muted); margin-top: 0;">
+      This calendar displays all practices, games, and events. It is read-only.
+    </p>
+
+    <!-- Google Calendar Embed -->
+    <iframe
+      src="https://calendar.google.com/calendar/embed?src=harrisburghitters%40gmail.com&ctz=America%2FNew_York"
+      height="800"
+      loading="lazy"
+      title="Harrisburg Hitters Calendar">
+    </iframe>
+
+    <p style="color: var(--muted); margin-bottom: 0;">
+      Parents may add this calendar to their personal calendar for updates.
+    </p>
+  </section>
+
+</main>
+
+<div class="footer">
+  Harrisburg Hitters • Harrisburg, PA
+</div>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
