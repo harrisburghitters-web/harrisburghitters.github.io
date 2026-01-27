@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YouTube | Harrisburg Hitters</title>
+
+  <link rel="stylesheet" href="assets/style.css" />
+
+  <style>
+    .topbar{position:sticky;top:0;z-index:999;transition:padding 180ms ease,box-shadow 180ms ease;will-change:padding}
+    .brand-row{display:flex;justify-content:center;align-items:center;gap:18px;padding:22px 16px 14px}
+    .brand-text{display:flex;flex-direction:column;align-items:flex-start;margin-right:8px}
+    .brand-title{font-size:50px;font-weight:900;letter-spacing:1.5px;line-height:1.05}
+    .brand-subtitle{font-size:40px;color:var(--muted);margin-top:4px;line-height:1.05}
+    .brand-logo{height:120px;width:auto;object-fit:contain}
+    .mobile-brand{display:none;flex-direction:column;align-items:center;gap:8px;padding:14px 12px 10px}
+    .mobile-brand img{height:84px;width:auto}
+    .mobile-brand .mobile-title{font-weight:900;font-size:16px}
+    .topbar.shrink{box-shadow:0 10px 30px rgba(0,0,0,0.35)}
+    @media (max-width:720px){.brand-row{display:none}.mobile-brand{display:flex}}
+
+    /* Responsive YouTube embed */
+    .yt-wrap{
+      position:relative;
+      width:100%;
+      padding-top:56.25%; /* 16:9 */
+      border-radius:16px;
+      overflow:hidden;
+      background:#000;
+    }
+    .yt-wrap iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar" id="topbar">
+  <div class="brand-row">
+    <div class="brand-text">
+      <div class="brand-title">HARRISBURG HITTERS</div>
+      <div class="brand-subtitle">Youth Travel Football</div>
+    </div>
+    <img class="brand-logo" src="assets/MainLogo.png" alt="Harrisburg Hitters Logo" />
+  </div>
+
+  <div class="mobile-brand">
+    <img src="assets/MainLogo.png" alt="Harrisburg Hitters Logo" />
+    <div class="mobile-title">Harrisburg Hitters</div>
+  </div>
+
+  <div class="navwrap">
+    <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+  </div>
+
+  <nav id="site-nav" class="nav">
+    <a href="index.html">Home</a>
+    <a href="registration.html">Registration</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="teams.html">Our Teams</a>
+    <a href="tournaments.html">Tournaments & Games</a>
+    <a href="youtube.html">YouTube</a>
+    <a href="about.html">About Us</a>
+  </nav>
+</div>
+
+<main class="container">
+
+  <section class="card">
+    <div class="section-title">Harrisburg Hitters YouTube</div>
+    <p style="color:var(--muted); margin-top:0;">
+      Game highlights, practices, tournaments, and team content from the Harrisburg Hitters.
+    </p>
+
+    <div class="yt-wrap">
+      <iframe
+        src="https://www.youtube.com/embed?listType=user_uploads&list=HarrisburgHitters"
+        title="Harrisburg Hitters YouTube Channel"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <p style="margin-top:14px;">
+      <a class="btn" href="https://www.youtube.com/@HarrisburgHitters" target="_blank" rel="noopener">
+        Open Channel on YouTube
+      </a>
+    </p>
+  </section>
+
+</main>
+
+<div class="footer">Harrisburg Hitters • Harrisburg, PA</div>
+
+<script src="assets/site.js"></script>
+<script>
+  (function () {
+    const topbar = document.getElementById("topbar");
+    function onScroll() {
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      if (y > 30) topbar.classList.add("shrink");
+      else topbar.classList.remove("shrink");
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>
