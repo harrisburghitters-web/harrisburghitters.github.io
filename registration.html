@@ -24,6 +24,17 @@
     .topbar.shrink{box-shadow:0 10px 30px rgba(0,0,0,0.35)}
     @media (max-width:720px){.brand-row{display:none}.mobile-brand{display:flex}}
 
+    /* Registration Flow image - responsive */
+    .flow-wrap{
+      margin:0 0 16px 0;
+    }
+    .flow-img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:14px;
+    }
+
     /* Cash App payment button */
     .cashapp-btn{
       background:#00D632;
@@ -71,6 +82,16 @@
 </div>
 
 <main class="container">
+
+  <!-- NEW: Registration Flow Image (top, responsive) -->
+  <section class="card flow-wrap">
+    <img
+      class="flow-img"
+      src="assets/RegistrationFlow.png"
+      alt="Harrisburg Hitters Registration Flow: Commit, Download & Complete Forms, Upload Forms, Officially Register, Pay Registration Fee, Download Heja, Attend Practice Regularly"
+      loading="lazy"
+    />
+  </section>
 
   <!-- Block 1: Registration Info title only (50% bigger) -->
   <section class="card">
@@ -160,7 +181,7 @@
     </a>
   </section>
 
-  <!-- NEW Block 5: Heja App prompt (below registration form) -->
+  <!-- Block 5: Heja App prompt (below registration form) -->
   <section class="card" style="margin-top:16px;">
     <div class="section-title">Team Communication (Heja App)</div>
     <p style="color:var(--muted); margin-top:0;">
@@ -178,7 +199,7 @@
     </p>
   </section>
 
-  <!-- NEW Block 6: Payment block ($150 per player) with Cash App button + instructions -->
+  <!-- Block 6: Payment block ($150 per player) with Cash App button + instructions -->
   <section class="card" style="margin-top:16px;">
     <div class="section-title">Registration Payment</div>
 
