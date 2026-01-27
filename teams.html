@@ -24,13 +24,59 @@
     .topbar.shrink{box-shadow:0 10px 30px rgba(0,0,0,0.35)}
     @media (max-width:720px){.brand-row{display:none}.mobile-brand{display:flex}}
 
-    .teams-grid{display:grid;gap:14px;margin-top:14px;grid-template-columns:1fr}
-    @media (min-width:860px){.teams-grid{grid-template-columns:repeat(3,1fr)}}
-    .team-tile{display:block;padding:18px;border-radius:18px;border:1px solid var(--border);background:rgba(20,20,20,0.92);
-      transition:transform 120ms ease,background 120ms ease,border-color 120ms ease}
-    .team-tile:hover{background:rgba(27,27,27,0.95);transform:translateY(-2px);border-color:rgba(255,255,255,0.18)}
-    .team-age{font-size:34px;font-weight:900;letter-spacing:0.6px}
-    .team-sub{margin-top:6px;color:var(--muted);font-weight:700}
+    /* 2 tiles per row on larger screens, 1 per row on mobile */
+    .teams-grid{
+      display:grid;
+      gap:16px;
+      margin-top:14px;
+      grid-template-columns:1fr;
+    }
+    @media (min-width:720px){
+      .teams-grid{ grid-template-columns:repeat(2,1fr); }
+    }
+
+    /* Tile with photo */
+    .team-tile{
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      border-radius:18px;
+      border:1px solid var(--border);
+      background:rgba(20,20,20,0.92);
+      transition:transform 120ms ease,background 120ms ease,border-color 120ms ease;
+      text-decoration:none;
+    }
+    .team-tile:hover{
+      background:rgba(27,27,27,0.95);
+      transform:translateY(-2px);
+      border-color:rgba(255,255,255,0.18);
+    }
+
+    .team-photo{
+      width:100%;
+      height:190px;              /* bigger tile look */
+      object-fit:cover;
+      display:block;
+      background:#111;
+    }
+    @media (min-width:720px){
+      .team-photo{ height:220px; }
+    }
+
+    .team-body{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .team-age{font-size:38px;font-weight:900;letter-spacing:0.6px;color:var(--text);line-height:1}
+    .team-sub{color:var(--muted);font-weight:700}
+
+    /* Optional: subtle bottom divider between image and text */
+    .team-divider{
+      height:1px;
+      background:rgba(255,255,255,0.08);
+    }
   </style>
 </head>
 <body>
@@ -66,18 +112,102 @@
 <main class="container">
   <section class="card">
     <div class="section-title">Our Teams</div>
-    <p style="color:var(--muted); margin-top:0;">Select your age group to view coaching staff and the team calendar.</p>
+    <p style="color:var(--muted); margin-top:0;">
+      Select your age group to view coaching staff and the team calendar.
+    </p>
 
     <div class="teams-grid">
-      <a class="team-tile" href="Teams/14u.html"><div class="team-age">14U</div><div class="team-sub">Team Page</div></a>
-      <a class="team-tile" href="Teams/13u.html"><div class="team-age">13U</div><div class="team-sub">Team Page</div></a>
-      <a class="team-tile" href="Teams/12u.html"><div class="team-age">12U</div><div class="team-sub">Team Page</div></a>
-      <a class="team-tile" href="Teams/11u.html"><div class="team-age">11U</div><div class="team-sub">Team Page</div></a>
-      <a class="team-tile" href="Teams/10u.html"><div class="team-age">10U</div><div class="team-sub">Team Page</div></a>
-      <a class="team-tile" href="Teams/9u.html"><div class="team-age">9U</div><div class="team-sub">Team Page</div></a>
-      <a class="team-tile" href="Teams/8u.html"><div class="team-age">8U</div><div class="team-sub">Team Page</div></a>
-      <a class="team-tile" href="Teams/7u.html"><div class="team-age">7U</div><div class="team-sub">Team Page</div></a>
-      <a class="team-tile" href="Teams/6u.html"><div class="team-age">6U</div><div class="team-sub">Team Page</div></a>
+
+      <a class="team-tile" href="Teams/14u.html">
+        <img class="team-photo" src="assets/14uTeam.png" alt="Harrisburg Hitters 14U Team" loading="lazy"
+             onerror="this.onerror=null;this.src='assets/HitterLitter.jpg';" />
+        <div class="team-divider"></div>
+        <div class="team-body">
+          <div class="team-age">14U</div>
+          <div class="team-sub">Team Page</div>
+        </div>
+      </a>
+
+      <a class="team-tile" href="Teams/13u.html">
+        <img class="team-photo" src="assets/13uTeam.png" alt="Harrisburg Hitters 13U Team" loading="lazy"
+             onerror="this.onerror=null;this.src='assets/HitterLitter.jpg';" />
+        <div class="team-divider"></div>
+        <div class="team-body">
+          <div class="team-age">13U</div>
+          <div class="team-sub">Team Page</div>
+        </div>
+      </a>
+
+      <a class="team-tile" href="Teams/12u.html">
+        <img class="team-photo" src="assets/12uTeam.png" alt="Harrisburg Hitters 12U Team" loading="lazy"
+             onerror="this.onerror=null;this.src='assets/HitterLitter.jpg';" />
+        <div class="team-divider"></div>
+        <div class="team-body">
+          <div class="team-age">12U</div>
+          <div class="team-sub">Team Page</div>
+        </div>
+      </a>
+
+      <a class="team-tile" href="Teams/11u.html">
+        <img class="team-photo" src="assets/11uTeam.png" alt="Harrisburg Hitters 11U Team" loading="lazy"
+             onerror="this.onerror=null;this.src='assets/HitterLitter.jpg';" />
+        <div class="team-divider"></div>
+        <div class="team-body">
+          <div class="team-age">11U</div>
+          <div class="team-sub">Team Page</div>
+        </div>
+      </a>
+
+      <a class="team-tile" href="Teams/10u.html">
+        <img class="team-photo" src="assets/10uTeam.png" alt="Harrisburg Hitters 10U Team" loading="lazy"
+             onerror="this.onerror=null;this.src='assets/HitterLitter.jpg';" />
+        <div class="team-divider"></div>
+        <div class="team-body">
+          <div class="team-age">10U</div>
+          <div class="team-sub">Team Page</div>
+        </div>
+      </a>
+
+      <a class="team-tile" href="Teams/9u.html">
+        <img class="team-photo" src="assets/9uTeam.png" alt="Harrisburg Hitters 9U Team" loading="lazy"
+             onerror="this.onerror=null;this.src='assets/HitterLitter.jpg';" />
+        <div class="team-divider"></div>
+        <div class="team-body">
+          <div class="team-age">9U</div>
+          <div class="team-sub">Team Page</div>
+        </div>
+      </a>
+
+      <a class="team-tile" href="Teams/8u.html">
+        <img class="team-photo" src="assets/8uTeam.png" alt="Harrisburg Hitters 8U Team" loading="lazy"
+             onerror="this.onerror=null;this.src='assets/HitterLitter.jpg';" />
+        <div class="team-divider"></div>
+        <div class="team-body">
+          <div class="team-age">8U</div>
+          <div class="team-sub">Team Page</div>
+        </div>
+      </a>
+
+      <a class="team-tile" href="Teams/7u.html">
+        <img class="team-photo" src="assets/7uTeam.png" alt="Harrisburg Hitters 7U Team" loading="lazy"
+             onerror="this.onerror=null;this.src='assets/HitterLitter.jpg';" />
+        <div class="team-divider"></div>
+        <div class="team-body">
+          <div class="team-age">7U</div>
+          <div class="team-sub">Team Page</div>
+        </div>
+      </a>
+
+      <a class="team-tile" href="Teams/6u.html">
+        <img class="team-photo" src="assets/6uTeam.png" alt="Harrisburg Hitters 6U Team" loading="lazy"
+             onerror="this.onerror=null;this.src='assets/HitterLitter.jpg';" />
+        <div class="team-divider"></div>
+        <div class="team-body">
+          <div class="team-age">6U</div>
+          <div class="team-sub">Team Page</div>
+        </div>
+      </a>
+
     </div>
   </section>
 </main>
