@@ -24,15 +24,36 @@
     .topbar.shrink{box-shadow:0 10px 30px rgba(0,0,0,0.35)}
     @media (max-width:720px){.brand-row{display:none}.mobile-brand{display:flex}}
 
-    /* Registration Flow image - responsive */
-    .flow-wrap{
-      margin:0 0 16px 0;
-    }
-    .flow-img{
-      width:100%;
-      height:auto;
-      display:block;
+    /* NEW: Registration Flow (gold on black) */
+    .flow-wrap{ margin:0 0 16px 0; }
+    .flow-bar{
+      background:#000;
+      padding:18px 14px;
       border-radius:14px;
+      text-align:center;
+      font-family:Arial, sans-serif;
+      overflow-x:auto;              /* allows scroll on very small screens */
+      -webkit-overflow-scrolling:touch;
+      white-space:nowrap;           /* keep it one horizontal line */
+    }
+    .flow-step{
+      color:#D4AF37;
+      font-weight:900;
+      letter-spacing:0.6px;
+      font-size:14px;
+      text-transform:uppercase;
+      display:inline-block;
+      vertical-align:middle;
+    }
+    .flow-arrow{
+      color:#888;
+      font-weight:900;
+      margin:0 10px;
+      display:inline-block;
+      vertical-align:middle;
+    }
+    @media (min-width:860px){
+      .flow-step{ font-size:15px; }
     }
 
     /* Cash App payment button */
@@ -83,14 +104,19 @@
 
 <main class="container">
 
-  <!-- NEW: Registration Flow Image (top, responsive) -->
+  <!-- NEW: Registration Flow (replaces assets/RegistrationFlow.png) -->
   <section class="card flow-wrap">
-    <img
-      class="flow-img"
-      src="assets/RegistrationFlow.png"
-      alt="Harrisburg Hitters Registration Flow: Commit, Download & Complete Forms, Upload Forms, Officially Register, Pay Registration Fee, Download Heja, Attend Practice Regularly"
-      loading="lazy"
-    />
+    <div class="flow-bar" aria-label="Harrisburg Hitters Registration Flow">
+      <span class="flow-step">COMMIT TO HITTERS</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">COMPLETE FORMS</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">PAY REGISTRATION</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">ATTEND PRACTICE REGULARLY</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">WIN</span>
+    </div>
   </section>
 
   <!-- Block 1: Registration Info title only (50% bigger) -->
