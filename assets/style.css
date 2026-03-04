@@ -273,7 +273,14 @@ iframe{
 .form-wrap{
   width:100%;
 }
-
+/* RANK BADGE */
+.rank-badge{
+  text-align:center;
+  font-weight:900;
+  font-size:22px;
+  margin-top:12px;
+  color:#D4AF37;
+}
 /* ---------- Footer ---------- */
 .footer{
   margin-top:28px;
