@@ -1,109 +1,13 @@
-Skip to content
-harrisburghitters-web
-harrisburghitters.github.io
-Repository navigation
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-Files
-Go to file
-t
-Teams content loaded
-Teams
-10u.html
-11u.html
-12u.html
-13u.html
-14u.html
-6u.html
-7u.html
-8u.html
-9u.html
-assets
-image
-site.js
-style.css
-CNAME
-README.md
-about.html
-calendar.html
-index.html
-registration.html
-swag.html
-teams.html
-tournaments.html
-youtube.html
-harrisburghitters.github.io
-/
-about.html
-in
-main
-
-Edit
-
-Preview
-Indent mode
-
-Spaces
-Indent size
-
-2
-Line wrap mode
-
-No wrap
-Editing about.html file contents
-  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
-<link rel="icon" type="image/x-icon" href="assets/image/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/image/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/image/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/image/apple-touch-icon.png">
-<meta name="theme-color" content="#000000">
-  
+  <link rel="icon" type="image/x-icon" href="assets/image/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/image/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/image/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/image/apple-touch-icon.png">
+  <meta name="theme-color" content="#000000">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About Us | Harrisburg Hitters</title>
@@ -127,9 +31,194 @@ Editing about.html file contents
     .topbar.shrink{box-shadow:0 10px 30px rgba(0,0,0,0.35)}
     @media (max-width:720px){.brand-row{display:none}.mobile-brand{display:flex}}
 
-    .field{display:flex;flex-direction:column;gap:6px;margin-top:12px}
-    .field label{font-weight:900}
-    .field input,.field textarea{
-Use Control + Shift + m to toggle the tab key moving focus. Alternatively, use esc then tab to move to the next interactive element on the page.
- 
-Teams content loaded
+    /* Make link buttons size to text only */
+    .btn.inline-btn{
+      display:inline-block;
+      width:auto;
+      align-self:flex-start;
+    }
+
+    /* Simple board list */
+    .board-list{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      margin-top:10px;
+    }
+    .board-row{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      flex-wrap:wrap;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      background:rgba(20,20,20,0.55);
+    }
+    .board-role{
+      font-weight:900;
+      min-width:170px;
+      color:var(--text);
+    }
+    .board-name{
+      color:var(--muted);
+      font-weight:800;
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar" id="topbar">
+  <div class="brand-row">
+    <div class="brand-text">
+      <div class="brand-title">HARRISBURG HITTERS</div>
+      <div class="brand-subtitle">Youth Travel Football</div>
+    </div>
+    <img class="brand-logo" src="assets/image/MainLogo.png" alt="Harrisburg Hitters Logo" />
+  </div>
+
+  <div class="mobile-brand">
+    <img src="assets/image/MainLogo.png" alt="Harrisburg Hitters Logo" />
+    <div class="mobile-title">Harrisburg Hitters</div>
+  </div>
+
+  <div class="navwrap">
+    <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+  </div>
+
+  <nav id="site-nav" class="nav">
+    <a href="index.html">Home</a>
+    <a href="registration.html">Registration</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="teams.html">Our Teams</a>
+    <a href="tournaments.html">Tournaments &amp; Games</a>
+    <a href="swag.html" style="color:#D4AF37;font-weight:900;">HITTERS SWAG SHOP</a>
+    <a href="about.html">About Us</a>
+  </nav>
+</div>
+
+<main class="container">
+
+  <!-- About + Mission + Vision (IRS-friendly charitable purpose language) -->
+  <section class="card">
+    <div class="section-title">About Us</div>
+    <p style="color:var(--muted); margin-top:0;">
+      The Harrisburg Hitters are a youth football organization serving children and families in and around Harrisburg, Pennsylvania.
+      Our program is designed to support the healthy development of youth through structured athletics, mentorship, character building,
+      and positive community engagement.
+    </p>
+
+    <hr class="sep" />
+
+    <div class="section-title">Our Charitable Purpose</div>
+    <p style="color:var(--muted); margin-top:0;">
+      Harrisburg Hitters Youth Football Association exists for charitable and educational purposes. We aim to improve the lives of youth
+      by providing a safe, structured environment that promotes leadership, accountability, and teamwork while encouraging academic success
+      and positive decision-making. Through coaching, mentorship, and community involvement, we work to:
+    </p>
+
+    <ul style="color:var(--muted); margin:10px 0 0 18px; line-height:1.7;">
+      <li><b style="color:var(--text);">Support academics</b> by reinforcing the importance of school performance, attendance, and personal responsibility.</li>
+      <li><b style="color:var(--text);">Reduce youth trouble</b> by keeping participants engaged in supervised, constructive activities and positive peer groups.</li>
+      <li><b style="color:var(--text);">Provide mentorship</b> through trained coaches and volunteers who model discipline, respect, and leadership.</li>
+      <li><b style="color:var(--text);">Promote health and wellness</b> through fitness, fundamentals, and age-appropriate athletic training.</li>
+      <li><b style="color:var(--text);">Strengthen community</b> by involving families, encouraging volunteerism, and creating opportunities for service and outreach.</li>
+    </ul>
+
+    <hr class="sep" />
+
+    <div class="section-title">Mission</div>
+    <p style="color:var(--muted); margin-top:0;">
+      Provide youth in and around Harrisburg with coaching, mentorship, and competitive opportunities that build character, discipline,
+      teamwork, and academic-minded habits—on and off the field.
+    </p>
+
+    <hr class="sep" />
+
+    <div class="section-title">Vision</div>
+    <p style="color:var(--muted); margin-top:0;">
+      Create a nationally respected youth football program and nonprofit community resource that develops confident student-athletes,
+      prepares them for future success, and contributes to safer neighborhoods through positive youth development.
+    </p>
+  </section>
+
+  <!-- NEW: Nonprofit section + officers -->
+  <section class="card" style="margin-top:16px;">
+    <div class="section-title">Harrisburg Hitters Youth Football Association</div>
+    <p style="color:var(--muted); margin-top:0;">
+      Harrisburg Hitters Youth Football Association is our nonprofit organization focused on charitable and educational youth development
+      in the Harrisburg, PA area. We are committed to transparency, responsible stewardship, and community impact through athletics,
+      mentorship, and family engagement.
+    </p>
+
+    <hr class="sep" />
+
+    <div class="section-title">Board &amp; Officers</div>
+    <div class="board-list" aria-label="Nonprofit Board and Officers">
+      <div class="board-row">
+        <div class="board-role">President</div>
+        <div class="board-name">Naji H. Selvey Sr.</div>
+      </div>
+      <div class="board-row">
+        <div class="board-role">Vice President</div>
+        <div class="board-name">Brandon Boyd</div>
+      </div>
+      <div class="board-row">
+        <div class="board-role">Secretary</div>
+        <div class="board-name">Margaret Ellison</div>
+      </div>
+      <div class="board-row">
+        <div class="board-role">Treasurer</div>
+        <div class="board-name">Barry Daniels</div>
+      </div>
+      <div class="board-row">
+        <div class="board-role">Director of Communications</div>
+        <div class="board-name">Samuel Kephart</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Links block -->
+  <section class="card" style="margin-top:16px;">
+    <div class="section-title">Links</div>
+    <p style="color:var(--muted); margin-top:0;">
+      Stay connected and get team updates through the resources below.
+    </p>
+
+    <div style="display:flex; flex-direction:column; gap:10px; margin-top:12px;">
+      <a class="btn inline-btn"
+         href="https://www.facebook.com/groups/1161046488166743/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Join Our Facebook Group
+      </a>
+
+      <a class="btn inline-btn"
+         href="https://heja.io/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Download Heja (Coach &amp; Parent Communication)
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<div class="footer">Harrisburg Hitters • Harrisburg, PA</div>
+
+<script src="assets/site.js"></script>
+<script>
+  (function () {
+    const topbar = document.getElementById("topbar");
+    function onScroll() {
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      if (y > 30) topbar.classList.add("shrink");
+      else topbar.classList.remove("shrink");
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>
