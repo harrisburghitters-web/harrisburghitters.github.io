@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/x-icon" href="assets/image/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/image/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/image/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/image/apple-touch-icon.png">
-<meta name="theme-color" content="#000000">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Harrisburg Hitters | Youth Travel Football</title>
@@ -200,12 +195,8 @@
     }
 
     /* ===== SPONSORS: make text gray ===== */
-    #sponsors{
-      color:#666666; /* sponsor block text in gray */
-    }
-    #sponsors h2{
-      color:#666666; /* ensure heading is also gray */
-    }
+    #sponsors{ color:#666666; }
+    #sponsors h2{ color:#666666; }
   </style>
 </head>
 
@@ -240,15 +231,15 @@
   </div>
 
   <!-- NAV LINKS -->
- <nav id="site-nav" class="nav">
-  <a href="index.html">Home</a>
-  <a href="registration.html">Registration</a>
-  <a href="calendar.html">Calendar</a>
-  <a href="teams.html">Our Teams</a>
-  <a href="tournaments.html">Tournaments & Games</a>
-  <a href="swag.html" style="color:#D4AF37;font-weight:900;">HITTERS SWAG SHOP</a>
-  <a href="about.html">About Us</a>
-</nav>
+  <nav id="site-nav" class="nav">
+    <a href="index.html">Home</a>
+    <a href="registration.html">Registration</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="teams.html">Our Teams</a>
+    <a href="tournaments.html">Tournaments & Games</a>
+    <a href="swag.html" style="color:#D4AF37;font-weight:900;">HITTERS SWAG SHOP</a>
+    <a href="about.html">About Us</a>
+  </nav>
 </div>
 
 <!-- ===== MAIN CONTENT ===== -->
@@ -256,7 +247,7 @@
 
   <div class="split-wrap">
 
-    <!-- LEFT 50%: FaceBlack + White Button -->
+    <!-- LEFT 50%: FaceBlack + White Button (clickable to Registration) -->
     <div class="split-left">
       <a class="tile-link" href="registration.html" aria-label="Register Here">
         <img
@@ -268,13 +259,15 @@
       </a>
     </div>
 
-    <!-- RIGHT 50%: HitVsEveryoneTransparent (clickable to Teams) -->
+    <!-- RIGHT 50%: Swag image (clickable to Swag Shop) -->
     <div class="split-right">
-      <a class="tile-link" href="teams.html" aria-label="View Teams">
+      <a class="tile-link" href="swag.html" aria-label="Hitters Swag Shop">
         <img
           class="tile-right-img"
-          src="assets/image/hitters_01.png"
-          alt="Hitters vs Everyone"
+          src="assets/image/swag.png"
+          alt="Hitters Swag Shop"
+          loading="lazy"
+          onerror="this.onerror=null;this.style.display='none';"
         />
       </a>
     </div>
