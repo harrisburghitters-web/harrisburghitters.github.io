@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hitters Swag Shop | Harrisburg Hitters</title>
+
+  <link rel="stylesheet" href="assets/style.css" />
+
+  <style>
+    .topbar{position:sticky;top:0;z-index:999;transition:padding 180ms ease,box-shadow 180ms ease;will-change:padding}
+    .brand-row{display:flex;justify-content:center;align-items:center;gap:18px;padding:22px 16px 14px;transition:padding 180ms ease}
+    .brand-text{display:flex;flex-direction:column;align-items:flex-start;margin-right:8px}
+    .brand-title{font-size:50px;font-weight:900;letter-spacing:1.5px;line-height:1.05}
+    .brand-subtitle{font-size:40px;color:var(--muted);margin-top:4px;line-height:1.05}
+    .brand-logo{height:120px;width:auto;object-fit:contain;transition:height 180ms ease}
+    .mobile-brand{display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 12px 10px;transition:padding 180ms ease}
+    .mobile-brand img{height:84px;width:auto;object-fit:contain;transition:height 180ms ease}
+    .mobile-brand .mobile-title{font-weight:900;letter-spacing:1px;font-size:16px;text-align:center;color:var(--text)}
+    .topbar.shrink .brand-row{padding:10px 16px 8px}
+    .topbar.shrink .brand-logo{height:72px}
+    .topbar.shrink .mobile-brand{padding:10px 12px 8px}
+    .topbar.shrink .mobile-brand img{height:58px}
+    .topbar.shrink{box-shadow:0 10px 30px rgba(0,0,0,0.35)}
+    @media (max-width:720px){.brand-row{display:none}.mobile-brand{display:flex}}
+
+    /* Swag header image */
+    .swag-hero{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:10px 0 4px;
+    }
+    .swag-hero img{
+      max-width:520px;
+      width:100%;
+      height:auto;
+      display:block;
+      object-fit:contain;
+    }
+
+    /* Proofs grid */
+    .proofs-note{
+      color:var(--muted);
+      margin:0 0 12px 0;
+    }
+    .proofs-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+    @media (min-width:720px){
+      .proofs-grid{ grid-template-columns:repeat(2,1fr); }
+    }
+    .proofs-grid img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:#111;
+      object-fit:cover;
+    }
+
+    /* Payment callout */
+    .pay-callout{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .cashapp-btn{
+      background:#00D632;
+      color:#000;
+      font-weight:900;
+      padding:12px 18px;
+      border-radius:8px;
+      text-transform:uppercase;
+      letter-spacing:0.8px;
+      font-size:13px;
+      white-space:nowrap;
+      display:inline-block;
+      width:fit-content;
+    }
+    .cashapp-btn:hover{ background:#00c12d; }
+
+    /* Responsive iframe */
+    .form-wrap{
+      margin-top:12px;
+    }
+    .form-wrap iframe{
+      width:100%;
+      max-width:900px;
+      height:900px;
+      border:0;
+      display:block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar" id="topbar">
+  <div class="brand-row" aria-label="Harrisburg Hitters Header">
+    <div class="brand-text">
+      <div class="brand-title">HARRISBURG HITTERS</div>
+      <div class="brand-subtitle">Youth Travel Football</div>
+    </div>
+    <img class="brand-logo" src="assets/image/MainLogo.png" alt="Harrisburg Hitters Logo" />
+  </div>
+
+  <div class="mobile-brand" aria-label="Harrisburg Hitters Mobile Header">
+    <img src="assets/image/MainLogo.png" alt="Harrisburg Hitters Logo" />
+    <div class="mobile-title">Harrisburg Hitters</div>
+  </div>
+
+  <div class="navwrap">
+    <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+  </div>
+
+  <nav id="site-nav" class="nav">
+    <a href="index.html">Home</a>
+    <a href="registration.html">Registration</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="teams.html">Our Teams</a>
+    <a href="tournaments.html">Tournaments &amp; Games</a>
+    <a href="swag.html" style="color:#D4AF37;font-weight:900;">HITTERS SWAG SHOP</a>
+    <a href="about.html">About Us</a>
+  </nav>
+</div>
+
+<main class="container">
+
+  <!-- HERO: swag.png at top center -->
+  <section class="card">
+    <div class="swag-hero">
+      <img src="assets/image/swag.png" alt="Hitters Swag Shop" loading="lazy" />
+    </div>
+
+    <p style="color:var(--muted); margin:10px 0 0; text-align:center;">
+      <b style="color:#D4AF37;">Orders will not be placed until paid in full.</b>
+    </p>
+  </section>
+
+  <!-- Proofs block -->
+  <section class="card" style="margin-top:16px;">
+    <div class="section-title">Swag Proofs</div>
+    <p class="proofs-note">
+      Items shown below are <b>proofs</b>. Final production may vary <b>very slightly</b> based on printing and materials.
+    </p>
+
+    <div class="proofs-grid">
+      <img src="assets/image/springswag01.png" alt="Spring Swag Proof 01" loading="lazy"
+           onerror="this.onerror=null;this.style.display='none';" />
+      <img src="assets/image/springswag02.png" alt="Spring Swag Proof 02" loading="lazy"
+           onerror="this.onerror=null;this.style.display='none';" />
+      <img src="assets/image/springswag03.png" alt="Spring Swag Proof 03" loading="lazy"
+           onerror="this.onerror=null;this.style.display='none';" />
+      <img src="assets/image/springswag04.png" alt="Spring Swag Proof 04" loading="lazy"
+           onerror="this.onerror=null;this.style.display='none';" />
+    </div>
+  </section>
+
+  <!-- Payment + Request Form -->
+  <section class="card" style="margin-top:16px;">
+    <div class="section-title">Pay &amp; Request Your Swag</div>
+
+    <div class="pay-callout">
+      <div style="color:var(--muted);">
+        Step 1: Pay for your order via Cash App (paid in full).
+      </div>
+
+      <!-- TODO: paste your Cash App link here -->
+      <a class="cashapp-btn" href="#" target="_blank" rel="noopener">
+        Pay with Cash App
+      </a>
+
+      <div style="color:var(--muted); margin-top:6px;">
+        Step 2: Submit your request using the form below.
+      </div>
+    </div>
+
+    <div class="form-wrap">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSelLWRG7Fat3hYlKVULKblRFqw2_qi5aRMA-crjnVhsu1xMAA/viewform?embedded=true"
+        width="640"
+        height="595"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        loading="lazy"
+        title="Hitters Swag Request Form"
+      >Loading…</iframe>
+    </div>
+
+    <p style="color:var(--muted); font-size:12px; margin:12px 0 0;">
+      Tip: In Cash App, include <b>your name</b> and <b>player age group</b> in the note (example: “Jordan Smith – 10U”).
+    </p>
+  </section>
+
+</main>
+
+<div class="footer">Harrisburg Hitters • Harrisburg, PA</div>
+
+<script src="assets/site.js"></script>
+<script>
+  (function () {
+    const topbar = document.getElementById("topbar");
+    function onScroll() {
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      if (y > 30) topbar.classList.add("shrink");
+      else topbar.classList.remove("shrink");
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>
