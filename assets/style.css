@@ -230,6 +230,35 @@ a:hover{ opacity:0.9; }
   display:block;
 }
 
+/* Team selector navigation */
+.team-nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  margin-top:14px;
+}
+
+.team-nav a{
+  padding:8px 14px;
+  border-radius:10px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  font-weight:800;
+  font-size:14px;
+}
+
+.team-nav a:hover{
+  background:var(--surface-2);
+}
+
+/* highlight current page */
+.team-nav a.active{
+  background:#D4AF37;
+  color:#000;
+  border-color:#D4AF37;
+}
+
 /* ---------- Iframes (Google Forms / Calendar) ---------- */
 /* NOTE: Removes the "empty space" issue by letting iframe always fill the card width */
 iframe{
