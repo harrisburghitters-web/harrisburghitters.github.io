@@ -7,309 +7,272 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/image/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/image/apple-touch-icon.png">
 <meta name="theme-color" content="#000000">
-  
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Harrisburg Hitters | Youth Travel Football</title>
 
-  <link rel="stylesheet" href="assets/style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Harrisburg Hitters | Youth Travel Football</title>
 
-  <style>
-    /* ===== HEADER: sticky + shrink-on-scroll ===== */
-    .topbar{
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      transition: padding 180ms ease, box-shadow 180ms ease;
-      will-change: padding;
-    }
-    .topbar.shrink{ box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+<link rel="stylesheet" href="assets/style.css" />
 
-    .program-tagline{
-      text-align:center;
-      font-weight:900;
-      letter-spacing:1px;
-      padding:14px 14px 0;
-      font-size:26px;
-      line-height:1.1;
-      transition: font-size 180ms ease, padding 180ms ease;
-    }
+<style>
 
-    .brand-row{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:18px;
-      padding:14px 16px 14px;
-      transition: padding 180ms ease;
-    }
-    .brand-text{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      margin-right:8px;
-    }
-    .brand-title{
-      font-size:50px;
-      font-weight:900;
-      letter-spacing:1.5px;
-      line-height:1.05;
-    }
-    .brand-subtitle{
-      font-size:40px;
-      color:var(--muted);
-      margin-top:4px;
-      line-height:1.05;
-    }
-    .brand-logo{
-      height:120px;
-      width:auto;
-      object-fit:contain;
-      transition: height 180ms ease;
-    }
+/* Fundraiser banner */
+.fundraiser-banner{
+  margin:18px auto 0;
+  padding:18px;
+  text-align:center;
+  border-radius:16px;
+  font-weight:900;
+  font-size:20px;
+  background:#141414;
+  border:1px solid #262626;
+}
 
-    /* Mobile header (logo + small text) */
-    .mobile-brand{
-      display:none;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:12px 12px 10px;
-      transition: padding 180ms ease;
-    }
-    .mobile-brand img{
-      height:84px;
-      width:auto;
-      object-fit:contain;
-      transition: height 180ms ease;
-    }
-    .mobile-brand .mobile-title{
-      font-weight:900;
-      letter-spacing:1px;
-      font-size:16px;
-      text-align:center;
-      color:var(--text);
-    }
+.fundraiser-banner a{
+  color:#D4AF37;
+  text-decoration:none;
+}
 
-    /* Shrink states */
-    .topbar.shrink .program-tagline{ font-size:18px; padding:10px 14px 0; }
-    .topbar.shrink .brand-row{ padding:10px 16px 8px; }
-    .topbar.shrink .brand-logo{ height:72px; }
-    .topbar.shrink .mobile-brand{ padding:10px 12px 8px; }
-    .topbar.shrink .mobile-brand img{ height:58px; }
+.fundraiser-banner:hover{
+  background:#1b1b1b;
+}
 
-    /* Responsive switch */
-    @media (max-width: 720px){
-      .program-tagline{ font-size:16px; padding:10px 10px 0; }
-      .brand-row{ display:none; }
-      .mobile-brand{ display:flex; }
-    }
+/* Header styles */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:999;
+  transition:padding 180ms ease, box-shadow 180ms ease;
+}
 
-    /* ===== MAIN: 50 / 50 SPLIT ===== */
-    .split-wrap{
-      width:100%;
-      display:flex;
-      gap:20px;
-      align-items:stretch;
-      justify-content:center;
-      padding:30px 0;
-    }
-    @media (max-width: 900px){
-      .split-wrap{ flex-direction:column; }
-    }
+.topbar.shrink{
+  box-shadow:0 10px 30px rgba(0,0,0,0.35);
+}
 
-    .split-left,
-    .split-right{
-      flex: 0 0 50%;
-      min-height: 520px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-    }
+.program-tagline{
+  text-align:center;
+  font-weight:900;
+  letter-spacing:1px;
+  padding:14px 14px 0;
+  font-size:26px;
+}
 
-    /* Subtle contrast so transparent PNG is visible */
-    .split-right{
-      background: radial-gradient(
-        circle at center,
-        rgba(255,255,255,0.06),
-        rgba(0,0,0,0.0) 70%
-      );
-    }
+.brand-row{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:18px;
+  padding:14px 16px;
+}
 
-    @media (max-width: 900px){
-      .split-left, .split-right{
-        width:100%;
-        min-height: 360px;
-      }
-    }
+.brand-title{
+  font-size:50px;
+  font-weight:900;
+}
 
-    /* Clickable tiles (borderless) */
-    .tile-link{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      width:100%;
-      height:100%;
-      text-decoration:none;
-      padding:24px;
-      transition: transform 120ms ease, opacity 120ms ease;
-    }
-    .tile-link:hover{ transform: translateY(-3px); opacity:0.96; }
+.brand-subtitle{
+  font-size:40px;
+  color:var(--muted);
+}
 
-    /* Left image sizing (bigger) */
-    .tile-left-img{
-      max-width: 380px;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      display:block;
-      margin-bottom: 22px;
-    }
-    @media (max-width: 900px){
-      .tile-left-img{ max-width: 280px; }
-    }
+.brand-logo{
+  height:120px;
+}
 
-    /* Right image sizing */
-    .tile-right-img{
-      max-width:100%;
-      width:100%;
-      max-height:560px;
-      object-fit:contain;
-      display:block;
-    }
+.mobile-brand{
+  display:none;
+}
 
-    /* White CTA button */
-    .register-btn{
-      display:inline-block;
-      background:#ffffff;
-      color:#000000;
-      font-weight:900;
-      font-size:20px;
-      padding:14px 34px;
-      border-radius:8px;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      border:none;
-      cursor:pointer;
-      transition: transform 120ms ease, background 120ms ease;
-    }
-    .register-btn:hover{
-      background:#f2f2f2;
-      transform: translateY(-1px);
-    }
+@media (max-width:720px){
+  .brand-row{display:none}
+  .mobile-brand{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+}
 
-    /* ===== SPONSORS: make text gray ===== */
-    #sponsors{ color:#666666; }
-    #sponsors h2{ color:#666666; }
-  </style>
+/* Main split layout */
+
+.split-wrap{
+  width:100%;
+  display:flex;
+  gap:20px;
+  align-items:stretch;
+  justify-content:center;
+  padding:30px 0;
+}
+
+@media (max-width:900px){
+  .split-wrap{flex-direction:column}
+}
+
+.split-left,
+.split-right{
+  flex:0 0 50%;
+  min-height:520px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.tile-link{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:100%;
+  padding:24px;
+}
+
+.tile-left-img{
+  max-width:380px;
+  width:100%;
+}
+
+.tile-right-img{
+  max-width:100%;
+  max-height:560px;
+}
+
+.register-btn{
+  display:inline-block;
+  background:#ffffff;
+  color:#000;
+  font-weight:900;
+  font-size:20px;
+  padding:14px 34px;
+  border-radius:8px;
+  margin-top:20px;
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- ===== TOP NAV ===== -->
 <div class="topbar" id="topbar">
 
-  <div class="program-tagline">
-    NATIONALLY RANKED TRAVEL YOUTH FOOTBALL PROGRAM
-  </div>
-
-  <!-- Desktop/Tablet Brand Row -->
-  <div class="brand-row" aria-label="Harrisburg Hitters Header">
-    <div class="brand-text">
-      <div class="brand-title">HARRISBURG HITTERS</div>
-      <div class="brand-subtitle">Youth Travel Football</div>
-    </div>
-
-    <img class="brand-logo" src="assets/image/MainLogo.png" alt="Harrisburg Hitters Logo" />
-  </div>
-
-  <!-- Mobile Brand Row -->
-  <div class="mobile-brand" aria-label="Harrisburg Hitters Mobile Header">
-    <img src="assets/image/MainLogo.png" alt="Harrisburg Hitters Logo" />
-    <div class="mobile-title">Harrisburg Hitters</div>
-  </div>
-
-  <!-- MENU BUTTON -->
-  <div class="navwrap">
-    <button class="menu-btn" onclick="toggleMenu()">Menu</button>
-  </div>
-
-  <!-- NAV LINKS -->
-  <nav id="site-nav" class="nav">
-    <a href="index.html">Home</a>
-    <a href="registration.html">Registration</a>
-    <a href="calendar.html">Calendar</a>
-    <a href="teams.html">Our Teams</a>
-    <a href="tournaments.html">Tournaments & Games</a>
-    <a href="swag.html" style="color:#D4AF37;font-weight:900;">HITTERS SWAG SHOP</a>
-    <a href="about.html">About Us</a>
-  </nav>
+<div class="program-tagline">
+NATIONALLY RANKED TRAVEL YOUTH FOOTBALL PROGRAM
 </div>
 
-<!-- ===== MAIN CONTENT ===== -->
+<div class="brand-row">
+<div>
+<div class="brand-title">HARRISBURG HITTERS</div>
+<div class="brand-subtitle">Youth Travel Football</div>
+</div>
+
+<img class="brand-logo" src="assets/image/MainLogo.png" alt="Harrisburg Hitters Logo"/>
+</div>
+
+<div class="mobile-brand">
+<img src="assets/image/MainLogo.png" height="70"/>
+<div style="font-weight:900">Harrisburg Hitters</div>
+</div>
+
+<div class="navwrap">
+<button class="menu-btn" onclick="toggleMenu()">Menu</button>
+</div>
+
+<nav id="site-nav" class="nav">
+<a href="index.html">Home</a>
+<a href="registration.html">Registration</a>
+<a href="calendar.html">Calendar</a>
+<a href="teams.html">Our Teams</a>
+<a href="tournaments.html">Tournaments & Games</a>
+<a href="swag.html" style="color:#D4AF37;font-weight:900;">HITTERS SWAG SHOP</a>
+<a href="about.html">About Us</a>
+</nav>
+
+</div>
+
 <main class="container">
 
-  <div class="split-wrap">
+<!-- FUNDRAISER -->
+<div class="fundraiser-banner">
+🍿 🍿 🍿 <br>
+<a id="fundraiserLink" href="#">
+OUR CURRENT FUNDRAISER – WE APPRECIATE YOUR SUPPORT
+</a>
+</div>
 
-    <!-- LEFT 50%: FaceBlack + White Button (clickable to Registration) -->
-    <div class="split-left">
-      <a class="tile-link" href="registration.html" aria-label="Register Here">
-        <img
-          class="tile-left-img"
-          src="assets/image/FaceBlack.png"
-          alt="Register Here"
-        />
-        <span class="register-btn">Register Here</span>
-      </a>
-    </div>
+<div class="split-wrap">
 
-    <!-- RIGHT 50%: Swag image (clickable to Swag Shop) -->
-    <div class="split-right">
-      <a class="tile-link" href="swag.html" aria-label="Hitters Swag Shop">
-        <img
-          class="tile-right-img"
-          src="assets/image/swag.png"
-          alt="Hitters Swag Shop"
-          loading="lazy"
-          onerror="this.onerror=null;this.style.display='none';"
-        />
-      </a>
-    </div>
+<div class="split-left">
+<a class="tile-link" href="registration.html">
 
-  </div>
+<img
+class="tile-left-img"
+src="assets/image/FaceBlack.png"
+alt="Register Here"
+/>
+
+<span class="register-btn">Register Here</span>
+
+</a>
+</div>
+
+<div class="split-right">
+<a class="tile-link" href="swag.html">
+
+<img
+class="tile-right-img"
+src="assets/image/swag.png"
+alt="Hitters Swag Shop"
+/>
+
+</a>
+</div>
+
+</div>
 
 </main>
 
-<!-- ===== SPONSORS SECTION ===== -->
-<section id="sponsors" style="padding:40px 20px; background-color:#f9f9f9; text-align:center;">
-  <h2 style="margin-bottom:20px; font-size:28px;">Meet Our Sponsor</h2>
-  <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:20px;">
-    <img src="assets/image/tio_01.png" alt="Sponsor: TIO" style="max-width:200px; height:auto;">
-  </div>
+<section id="sponsors" style="padding:40px 20px;background:#f9f9f9;text-align:center;">
+<h2 style="margin-bottom:20px;font-size:28px;">Meet Our Sponsor</h2>
+
+<div style="display:flex;justify-content:center;flex-wrap:wrap;gap:20px;">
+<img src="assets/image/tio_01.png" style="max-width:200px;">
+</div>
 </section>
 
-<!-- ===== FOOTER (single) ===== -->
 <footer class="footer">
-  Harrisburg Hitters • Harrisburg, PA
+Harrisburg Hitters • Harrisburg, PA
 </footer>
 
 <script src="assets/site.js"></script>
 
 <script>
-  // Shrink-on-scroll behavior
-  (function () {
-    const topbar = document.getElementById("topbar");
-    function onScroll() {
-      const y = window.scrollY || document.documentElement.scrollTop || 0;
-      if (y > 30) topbar.classList.add("shrink");
-      else topbar.classList.remove("shrink");
-    }
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-  })();
+
+/* shrink header */
+(function(){
+const topbar=document.getElementById("topbar");
+function onScroll(){
+const y=window.scrollY||document.documentElement.scrollTop||0;
+if(y>30)topbar.classList.add("shrink");
+else topbar.classList.remove("shrink");
+}
+window.addEventListener("scroll",onScroll,{passive:true});
+onScroll();
+})();
+
+/* fundraiser redirect */
+const fundraiserLink=document.getElementById("fundraiserLink");
+
+const fundraiserURL="https://poppinpopcornonline.com/store/store.php?sID=00882162&fbclid=IwdGRjcAQVZcljbGNrBBVlxmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHspIigWBP_bhlFKBJ7PI3imWjylBEAGbl1ETpjLxX9GeKPFNKFdnq7R2ONrt_aem_p2EvjTaYmeuVSxfM-NCVSA";
+
+const today=new Date();
+const cutoff=new Date("2026-03-27");
+
+if(today<=cutoff){
+fundraiserLink.href=fundraiserURL;
+}else{
+fundraiserLink.href="swag.html";
+}
+
 </script>
 
 </body>
