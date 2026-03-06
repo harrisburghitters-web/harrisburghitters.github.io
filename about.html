@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <link rel="icon" type="image/x-icon" href="assets/image/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/image/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/image/favicon-16x16.png">
@@ -31,20 +30,19 @@
     .topbar.shrink{box-shadow:0 10px 30px rgba(0,0,0,0.35)}
     @media (max-width:720px){.brand-row{display:none}.mobile-brand{display:flex}}
 
-    /* Make link buttons size to text only */
     .btn.inline-btn{
       display:inline-block;
       width:auto;
       align-self:flex-start;
     }
 
-    /* Simple board list */
     .board-list{
       display:flex;
       flex-direction:column;
       gap:8px;
       margin-top:10px;
     }
+
     .board-row{
       display:flex;
       gap:10px;
@@ -55,14 +53,39 @@
       border-radius:12px;
       background:rgba(20,20,20,0.55);
     }
+
     .board-role{
       font-weight:900;
       min-width:170px;
       color:var(--text);
     }
+
     .board-name{
       color:var(--muted);
       font-weight:800;
+    }
+
+    .board-row.stack-name{
+      flex-direction:column;
+      gap:4px;
+    }
+
+    .board-row.stack-name .board-role{
+      min-width:auto;
+    }
+
+    .about-list{
+      color:var(--muted);
+      margin:10px 0 0 18px;
+      line-height:1.7;
+    }
+
+    .about-list li{
+      margin-bottom:8px;
+    }
+
+    .about-list b{
+      color:var(--text);
     }
   </style>
 </head>
@@ -92,69 +115,57 @@
     <a href="calendar.html">Calendar</a>
     <a href="teams.html">Our Teams</a>
     <a href="tournaments.html">Tournaments &amp; Games</a>
-    <a href="swag.html">Hitters SWAG</a>    <a href="about.html">About Us</a>
+    <a href="swag.html">Hitters SWAG</a>
+    <a href="about.html">About Us</a>
   </nav>
 </div>
 
 <main class="container">
 
-  <!-- About + Mission + Vision (IRS-friendly charitable purpose language) -->
   <section class="card">
-    <div class="section-title">About Us</div>
+    <div class="section-title">About Harrisburg Hitters</div>
     <p style="color:var(--muted); margin-top:0;">
-      The Harrisburg Hitters are a youth football organization serving children and families in and around Harrisburg, Pennsylvania.
-      Our program is designed to support the healthy development of youth through structured athletics, mentorship, character building,
-      and positive community engagement.
+      The Harrisburg Hitters Youth Football Association is a nonprofit youth football organization serving children and families in and around Harrisburg, Pennsylvania. Our program supports the healthy development of youth through structured athletics, mentorship, character building, and positive community engagement.
     </p>
 
-    <hr class="sep" />
-
-    <div class="section-title">Our Charitable Purpose</div>
-    <p style="color:var(--muted); margin-top:0;">
-      Harrisburg Hitters Youth Football Association exists for charitable and educational purposes. We aim to improve the lives of youth
-      by providing a safe, structured environment that promotes leadership, accountability, and teamwork while encouraging academic success
-      and positive decision-making. Through coaching, mentorship, and community involvement, we work to:
+    <p style="color:var(--muted);">
+      Through coaching, mentorship, and community involvement, the organization works to:
     </p>
 
-    <ul style="color:var(--muted); margin:10px 0 0 18px; line-height:1.7;">
-      <li><b style="color:var(--text);">Support academics</b> by reinforcing the importance of school performance, attendance, and personal responsibility.</li>
-      <li><b style="color:var(--text);">Reduce youth trouble</b> by keeping participants engaged in supervised, constructive activities and positive peer groups.</li>
-      <li><b style="color:var(--text);">Provide mentorship</b> through trained coaches and volunteers who model discipline, respect, and leadership.</li>
-      <li><b style="color:var(--text);">Promote health and wellness</b> through fitness, fundamentals, and age-appropriate athletic training.</li>
-      <li><b style="color:var(--text);">Strengthen community</b> by involving families, encouraging volunteerism, and creating opportunities for service and outreach.</li>
+    <ul class="about-list">
+      <li><b>Support academics</b> by reinforcing the importance of school performance, attendance, and personal responsibility.</li>
+      <li><b>Reduce youth trouble</b> by keeping participants engaged in supervised, constructive activities and positive peer environments.</li>
+      <li><b>Provide mentorship</b> through trained coaches and volunteers who model discipline, respect, and leadership.</li>
+      <li><b>Promote health and wellness</b> through fitness, football fundamentals, and age-appropriate athletic training.</li>
+      <li><b>Strengthen community</b> by involving families, encouraging volunteerism, and creating opportunities for service and outreach.</li>
     </ul>
 
     <hr class="sep" />
 
     <div class="section-title">Mission</div>
     <p style="color:var(--muted); margin-top:0;">
-      Provide youth in and around Harrisburg with coaching, mentorship, and competitive opportunities that build character, discipline,
-      teamwork, and academic-minded habits—on and off the field.
+      Provide youth in and around Harrisburg with coaching, mentorship, and competitive opportunities that build character, discipline, teamwork, and academic-minded habits—on and off the field.
     </p>
 
     <hr class="sep" />
 
     <div class="section-title">Vision</div>
     <p style="color:var(--muted); margin-top:0;">
-      Create a nationally respected youth football program and nonprofit community resource that develops confident student-athletes,
-      prepares them for future success, and contributes to safer neighborhoods through positive youth development.
+      To build a nationally respected youth football program and nonprofit community resource that develops confident student-athletes, expands opportunities for underserved youth, and strengthens our community through sports, mentorship, and education.
     </p>
   </section>
 
-  <!-- NEW: Nonprofit section + officers -->
   <section class="card" style="margin-top:16px;">
-    <div class="section-title">Harrisburg Hitters Youth Football Association</div>
+    <div class="section-title">Nonprofit Organization</div>
     <p style="color:var(--muted); margin-top:0;">
-      Harrisburg Hitters Youth Football Association is our nonprofit organization focused on charitable and educational youth development
-      in the Harrisburg, PA area. We are committed to transparency, responsible stewardship, and community impact through athletics,
-      mentorship, and family engagement.
+      Harrisburg Hitters Youth Football Association is the nonprofit entity responsible for overseeing the organization’s charitable and educational youth programs in the Harrisburg, Pennsylvania area. The organization is committed to transparency, responsible stewardship, and positive community impact through athletics, mentorship, and family engagement.
     </p>
 
     <hr class="sep" />
 
-    <div class="section-title">Board &amp; Officers</div>
-    <div class="board-list" aria-label="Nonprofit Board and Officers">
-      <div class="board-row">
+    <div class="section-title">Board of Directors &amp; Officers</div>
+    <div class="board-list" aria-label="Board of Directors and Officers">
+      <div class="board-row stack-name">
         <div class="board-role">President</div>
         <div class="board-name">Naji H. Selvey Sr.</div>
       </div>
@@ -177,7 +188,6 @@
     </div>
   </section>
 
-  <!-- Links block -->
   <section class="card" style="margin-top:16px;">
     <div class="section-title">Links</div>
     <p style="color:var(--muted); margin-top:0;">
