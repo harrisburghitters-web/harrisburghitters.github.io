@@ -112,6 +112,10 @@
       align-items:stretch;
     }
 
+    .two-col-top > .card{
+      height:100%;
+    }
+
     @media (max-width:900px){
       .two-col-top{
         grid-template-columns:1fr;
@@ -124,13 +128,21 @@
       margin-bottom:10px;
     }
 
+    .notes-card{
+      display:flex;
+      flex-direction:column;
+    }
+
     .notes-frame-wrap{
+      flex:1;
       overflow:hidden;
+      min-height:100%;
     }
 
     .notes-frame{
       width:100%;
-      height:210px;
+      height:100%;
+      min-height:100%;
       border:0;
       display:block;
       background:transparent;
@@ -254,20 +266,18 @@
       </div>
 
       <!-- Notes from Coach -->
-      <div class="card">
-        <div class="card-title">Notes from Coach</div>
+<div class="card notes-card">
+  <div class="card-title">Notes from Coach</div>
 
-        <div class="notes-frame-wrap">
-          <iframe
-            class="notes-frame"
-            src="https://drive.google.com/file/d/150SaxQhIhl7Lk5w1pM2AHp9TjDtSPh0m/preview"
-            loading="lazy"
-            title="Notes from Coach">
-          </iframe>
-        </div>
-      </div>
-
-    </section>
+  <div class="notes-frame-wrap">
+    <iframe
+      class="notes-frame"
+      src="https://docs.google.com/document/d/1HYkTa6Fj71vOyMScQe0ZPZc9R2mc4Ur3Ii73cquf2wY/preview"
+      loading="lazy"
+      title="Notes from Coach">
+    </iframe>
+  </div>
+</div>
 
     <!-- Locations -->
     <section class="card section-spacer">
