@@ -1,239 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/x-icon" href="../assets/image/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/image/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/image/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/image/apple-touch-icon.png">
+  <meta name="theme-color" content="#000000">
 
-<link rel="icon" type="image/x-icon" href="../assets/image/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="../assets/image/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../assets/image/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="../assets/image/apple-touch-icon.png">
-<meta name="theme-color" content="#000000">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>10U | Harrisburg Hitters</title>
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>10u | Harrisburg Hitters</title>
+  <link rel="stylesheet" href="../assets/style.css" />
 
-<link rel="stylesheet" href="../assets/style.css" />
+  <style>
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:999;
+      transition:padding 180ms ease, box-shadow 180ms ease;
+      will-change:padding;
+    }
 
-<style>
+    .brand-row{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:18px;
+      padding:22px 16px 14px;
+      transition:padding 180ms ease;
+    }
 
-.topbar{position:sticky;top:0;z-index:999;transition:padding 180ms ease,box-shadow 180ms ease;will-change:padding}
-.brand-row{display:flex;justify-content:center;align-items:center;gap:18px;padding:22px 16px 14px;transition:padding 180ms ease}
-.brand-text{display:flex;flex-direction:column;align-items:flex-start;margin-right:8px}
-.brand-title{font-size:50px;font-weight:900;letter-spacing:1.5px;line-height:1.05}
-.brand-subtitle{font-size:40px;color:var(--muted);margin-top:4px;line-height:1.05}
-.brand-logo{height:120px;width:auto;object-fit:contain;transition:height 180ms ease}
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      margin-right:8px;
+    }
 
-.mobile-brand{display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 12px 10px;transition:padding 180ms ease}
-.mobile-brand img{height:84px;width:auto;object-fit:contain;transition:height 180ms ease}
-.mobile-brand .mobile-title{font-weight:900;letter-spacing:1px;font-size:16px;text-align:center;color:var(--text)}
+    .brand-title{
+      font-size:50px;
+      font-weight:900;
+      letter-spacing:1.5px;
+      line-height:1.05;
+    }
 
-.topbar.shrink .brand-row{padding:10px 16px 8px}
-.topbar.shrink .brand-logo{height:72px}
-.topbar.shrink .mobile-brand{padding:10px 12px 8px}
-.topbar.shrink .mobile-brand img{height:58px}
-.topbar.shrink{box-shadow:0 10px 30px rgba(0,0,0,0.35)}
+    .brand-subtitle{
+      font-size:40px;
+      color:var(--muted);
+      margin-top:4px;
+      line-height:1.05;
+    }
 
-@media (max-width:720px){
-.brand-row{display:none}
-.mobile-brand{display:flex}
-}
+    .brand-logo{
+      height:120px;
+      width:auto;
+      object-fit:contain;
+      transition:height 180ms ease;
+    }
 
-/* National Ranking Badge */
-.rank-badge{
-text-align:center;
-font-weight:900;
-font-size:20px;
-color:#D4AF37;
-margin-top:8px;
-letter-spacing:1px;
-}
+    .mobile-brand{
+      display:none;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:14px 12px 10px;
+      transition:padding 180ms ease;
+    }
 
-</style>
+    .mobile-brand img{
+      height:84px;
+      width:auto;
+      object-fit:contain;
+      transition:height 180ms ease;
+    }
+
+    .mobile-brand .mobile-title{
+      font-weight:900;
+      letter-spacing:1px;
+      font-size:16px;
+      text-align:center;
+      color:var(--text);
+    }
+
+    .topbar.shrink .brand-row{padding:10px 16px 8px}
+    .topbar.shrink .brand-logo{height:72px}
+    .topbar.shrink .mobile-brand{padding:10px 12px 8px}
+    .topbar.shrink .mobile-brand img{height:58px}
+    .topbar.shrink{box-shadow:0 10px 30px rgba(0,0,0,0.35)}
+
+    @media (max-width:720px){
+      .brand-row{display:none}
+      .mobile-brand{display:flex}
+    }
+
+    .rank-badge{
+      text-align:center;
+      font-weight:900;
+      font-size:20px;
+      color:#D4AF37;
+      margin-top:8px;
+      letter-spacing:1px;
+    }
+
+    .two-col-top{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-top:16px;
+      align-items:stretch;
+    }
+
+    @media (max-width:900px){
+      .two-col-top{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .card-title{
+      font-weight:900;
+      font-size:27px;
+      margin-bottom:10px;
+    }
+
+    .notes-frame-wrap{
+      border:1px solid rgba(212,175,55,0.25);
+      border-radius:12px;
+      overflow:hidden;
+      background:#111;
+      min-height:420px;
+    }
+
+    .notes-frame{
+      width:100%;
+      height:420px;
+      border:0;
+      display:block;
+      background:#fff;
+    }
+
+    .notes-help{
+      color:var(--muted);
+      margin-top:10px;
+      font-size:14px;
+      line-height:1.5;
+    }
+
+    .section-spacer{
+      margin-top:16px;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="topbar" id="topbar">
+  <div class="topbar" id="topbar">
 
-<div class="brand-row">
-<div class="brand-text">
-<div class="brand-title">HARRISBURG HITTERS</div>
-<div class="brand-subtitle">Youth Football Association</div>
-</div>
-<img class="brand-logo" src="../assets/image/MainLogo.png" alt="Harrisburg Hitters Logo" />
-</div>
+    <div class="brand-row">
+      <div class="brand-text">
+        <div class="brand-title">HARRISBURG HITTERS</div>
+        <div class="brand-subtitle">Youth Football Association</div>
+      </div>
+      <img class="brand-logo" src="../assets/image/MainLogo.png" alt="Harrisburg Hitters Logo" />
+    </div>
 
-<div class="mobile-brand">
-<img src="../assets/image/MainLogo.png" alt="Harrisburg Hitters Logo" />
-<div class="mobile-title">Harrisburg Hitters</div>
-</div>
+    <div class="mobile-brand">
+      <img src="../assets/image/MainLogo.png" alt="Harrisburg Hitters Logo" />
+      <div class="mobile-title">Harrisburg Hitters</div>
+    </div>
 
-<div class="navwrap">
-<button class="menu-btn" onclick="toggleMenu()">Menu</button>
-</div>
+    <div class="navwrap">
+      <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+    </div>
 
-<nav id="site-nav" class="nav">
-<a href="../index.html">Home</a>
-<a href="../registration.html">Registration</a>
-<a href="../calendar.html">Calendar</a>
-<a href="../teams.html">Our Teams</a>
-<a href="../tournaments.html">Tournaments &amp; Games</a>
-<a href="../swag.html" style="color:#D4AF37;font-weight:900;">HITTERS SWAG SHOP</a>
-<a href="../about.html">About Us</a>
-</nav>
-
-</div>
-
-<main class="container">
-
-<!-- Team Quick Navigation -->
-<section class="card" style="margin-bottom:16px;">
-  <div class="team-nav">
-
-    <a href="6u.html">6U</a>
-    <a href="7u.html">7U</a>
-    <a href="8u.html">8U</a>
-    <a href="9u.html">9U</a>
-    <a class="active" href="10u.html">10U</a>
-    <a href="11u.html">11U</a>
-    <a href="12u.html">12U</a>
-    <a href="13u.html">13U</a>
-    <a href="14u.html">14U</a>
+    <nav id="site-nav" class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../registration.html">Registration</a>
+      <a href="../calendar.html">Calendar</a>
+      <a href="../teams.html">Our Teams</a>
+      <a href="../tournaments.html">Tournaments &amp; Games</a>
+      <a href="../swag.html">HITTERS SWAG SHOP</a>
+      <a href="../about.html">About Us</a>
+    </nav>
 
   </div>
-</section>
-  
-<!-- Block 1: Team title -->
-<section class="card">
 
-<div style="text-align:center;font-weight:900;font-size:60px;letter-spacing:0.6px;line-height:1.05;">
-10U Team
-</div>
+  <main class="container">
 
-<div class="rank-badge">
+    <!-- Team Quick Navigation -->
+    <section class="card" style="margin-bottom:16px;">
+      <div class="team-nav">
+        <a href="6u.html">6U</a>
+        <a href="7u.html">7U</a>
+        <a href="8u.html">8U</a>
+        <a href="9u.html">9U</a>
+        <a class="active" href="10u.html">10U</a>
+        <a href="11u.html">11U</a>
+        <a href="12u.html">12U</a>
+        <a href="13u.html">13U</a>
+        <a href="14u.html">14U</a>
+      </div>
+    </section>
 
-<div class="rank-title">
-NATIONALLY RANKED
-</div>
+    <!-- Team title -->
+    <section class="card">
+      <div style="text-align:center;font-weight:900;font-size:60px;letter-spacing:0.6px;line-height:1.05;">
+        10U Team
+      </div>
 
-<div class="rank-list">
-🏆 2023 Ice Bowl Champions - 7u 🏆<br>
-🥈 2023 Queen City Showdown Runner-Up - 7u 🥈</br>
-🥉 2023 5Star Nation Spring Nationals 3rd Place - 8u 🥉</br>  
-🏆 2024 Ice Bowl Co-Champions - 8u 🏆<br>
-🏆 2025 Ice Bowl Champions - 9u 🏆<br>
-🏆 2025 Queen City Showdown Champions - 9u 🏆<br>
-🏆 2026 Ice Bowl Champions - 10u 🏆
-</div>
+      <div class="rank-badge">
+        <div class="rank-title">NATIONALLY RANKED</div>
+        <div class="rank-list">
+          🏆 2023 Ice Bowl Champions - 7U 🏆<br>
+          🥈 2023 Queen City Showdown Runner-Up - 7U 🥈<br>
+          🥉 2023 5Star Nation Spring Nationals 3rd Place - 8U 🥉<br>
+          🏆 2024 Ice Bowl Co-Champions - 8U 🏆<br>
+          🏆 2025 Ice Bowl Champions - 9U 🏆<br>
+          🏆 2025 Queen City Showdown Champions - 9U 🏆<br>
+          🏆 2026 Ice Bowl Champions - 10U 🏆
+        </div>
+      </div>
+    </section>
 
-</div>
+    <!-- Coaching Staff + Notes from Coach side by side -->
+    <section class="two-col-top">
 
-</section>
+      <!-- Coaching Staff -->
+      <div class="card">
+        <div class="card-title">Coaching Staff</div>
 
-<!-- Block 2: Coaching staff -->
-<section class="card" style="margin-top:16px;">
+        <div style="font-weight:900;margin-top:6px;">Head Coach:</div>
+        <div style="color:var(--muted);margin-top:6px;">
+          Boulder<br />
+          HarrisburgHitters@gmail.com
+        </div>
 
-<div style="font-weight:900;font-size:27px;margin-bottom:10px;">Coaching Staff</div>
+        <div style="height:14px;"></div>
 
-<div style="font-weight:900;margin-top:6px;">Head Coach:</div>
-<div style="color:var(--muted);margin-top:6px;">
-Boulder<br />
-HarrisburgHitters@gmail.com
-</div>
+        <div style="font-weight:900;">Assistant Coaches:</div>
+        <div style="color:var(--muted);margin-top:6px;">
+          1. BBoy<br />
+          2. Naji<br />
+          3. Finley<br />
+          4. Samuel<br />
+          5. Josh<br />
+          6. Billy<br />
+          7. Sanks
+        </div>
 
-<div style="height:14px;"></div>
+        <div style="height:14px;"></div>
 
-<div style="font-weight:900;">Assistant Coaches:</div>
-<div style="color:var(--muted);margin-top:6px;">
-1. BBoy<br />
-2. Naji<br />
-3. Finley<br />
-4. Samuel<br />
-5. Josh<br />
-6. Billy<br />
-7. Sanks
-</div>
+        <div style="font-weight:900;">Team Mom:</div>
+        <div style="color:var(--muted);margin-top:6px;">
+          1. Ashley
+        </div>
 
-<div style="height:14px;"></div>
+        <div style="height:14px;"></div>
 
-<div style="font-weight:900;">Team Mom:</div>
-<div style="color:var(--muted);margin-top:6px;">
-1. Ashley
-</div>
-<br>
-  <div style="font-weight:900;">Hitters Administrator:</div>
-<div style="color:var(--muted);margin-top:6px;">
-1. Maggie
-</div>
+        <div style="font-weight:900;">Hitters Administrator:</div>
+        <div style="color:var(--muted);margin-top:6px;">
+          1. Maggie
+        </div>
+      </div>
 
-</section>
+      <!-- Notes from Coach -->
+      <div class="card">
+        <div class="card-title">Notes from Coach</div>
 
-<!-- Block 3: Locations -->
-<section class="card" style="margin-top:16px;">
+        <div class="notes-frame-wrap">
+          <iframe
+            class="notes-frame"
+            src="https://drive.google.com/file/d/150SaxQhIhl7Lk5w1pM2AHp9TjDtSPh0m/preview"
+            loading="lazy"
+            title="Notes from Coach">
+          </iframe>
+        </div>
 
-<div style="font-weight:900;">Our main practice location is:</div>
-<div style="color:var(--muted);margin-top:6px;">
-Sunshine Park - 901 N 12th St, Harrisburg, PA 17103
-</div>
+        <div class="notes-help">
+          This block is pulling live from your Google Drive file. If the text does not display cleanly,
+          make sure the file is shared to <strong>Anyone with the link</strong>. For an even cleaner text-only
+          presentation, convert the file to a Google Doc and publish it.
+        </div>
+      </div>
 
-<div style="height:14px;"></div>
+    </section>
 
-<div style="font-weight:900;">Our main Home Game locations are:</div>
-<div style="margin-top:6px;color:var(--muted);"><i>*These are subject to change</i></div>
+    <!-- Locations -->
+    <section class="card section-spacer">
+      <div style="font-weight:900;">Our main practice location is:</div>
+      <div style="color:var(--muted);margin-top:6px;">
+        Sunshine Park - 901 N 12th St, Harrisburg, PA 17103
+      </div>
 
-<div style="margin-top:10px;line-height:1.6;">
-<a href="https://www.google.com/maps/search/?api=1&query=Sunshine+Park+901+N+12th+St+Harrisburg+PA+17103" target="_blank">
-Sunshine Park - 901 N 12th St, Harrisburg, PA 17103
-</a>
-<br />
-<a href="https://www.google.com/maps/search/?api=1&query=Ivy+Ridge+Park+850+Yale+St+Harrisburg+PA+17104" target="_blank">
-Ivy Ridge Park - 850 Yale St, Harrisburg, PA 17104
-</a>
-</div>
+      <div style="height:14px;"></div>
 
-</section>
+      <div style="font-weight:900;">Our main Home Game locations are:</div>
+      <div style="margin-top:6px;color:var(--muted);"><i>*These are subject to change</i></div>
 
-<!-- Notes -->
-<section class="card" style="margin-top:16px;">
-<div style="font-weight:900;">Notes:</div>
-<div style="color:var(--muted);margin-top:6px;">
-Add short notes here (main practice location, reminders).
-</div>
-</section>
+      <div style="margin-top:10px;line-height:1.6;">
+        <a href="https://www.google.com/maps/search/?api=1&query=Sunshine+Park+901+N+12th+St+Harrisburg+PA+17103" target="_blank">
+          Sunshine Park - 901 N 12th St, Harrisburg, PA 17103
+        </a>
+        <br />
+        <a href="https://www.google.com/maps/search/?api=1&query=Ivy+Ridge+Park+850+Yale+St+Harrisburg+PA+17104" target="_blank">
+          Ivy Ridge Park - 850 Yale St, Harrisburg, PA 17104
+        </a>
+      </div>
+    </section>
 
-<!-- Calendar -->
-<section class="card" style="margin-top:16px;">
+    <!-- Calendar -->
+    <section class="card section-spacer">
+      <div class="section-title">Team Calendar (Read-Only)</div>
 
-<div class="section-title">Team Calendar (Read-Only)</div>
+      <iframe
+        src="https://calendar.google.com/calendar/embed?src=a1d4a1bd09b997e3beaacd2556779817c87baecf2a5bb3c2dee4d31115c0e4ce@group.calendar.google.com&ctz=America/New_York&mode=AGENDA"
+        style="border:0;"
+        height="900"
+        loading="lazy"
+        title="10U Team Calendar">
+      </iframe>
+    </section>
 
-<iframe
-src="https://calendar.google.com/calendar/embed?src=a1d4a1bd09b997e3beaacd2556779817c87baecf2a5bb3c2dee4d31115c0e4ce@group.calendar.google.com&ctz=America/New_York&mode=AGENDA"
-style="border:0;"
-height="900"
-loading="lazy"
-title="10u Team Calendar">
-</iframe>
+  </main>
 
-</section>
+  <div class="footer">Harrisburg Hitters Youth Football Association • Harrisburg, PA</div>
 
-</main>
+  <script src="../assets/site.js"></script>
 
-<div class="footer">Harrisburg Hitters Youth Football Association • Harrisburg, PA</div>
-
-<script src="../assets/site.js"></script>
-
-<script>
-(function () {
-const topbar = document.getElementById("topbar");
-function onScroll() {
-const y = window.scrollY || document.documentElement.scrollTop || 0;
-if (y > 30) topbar.classList.add("shrink");
-else topbar.classList.remove("shrink");
-}
-window.addEventListener("scroll", onScroll, { passive: true });
-onScroll();
-})();
-</script>
+  <script>
+    (function () {
+      const topbar = document.getElementById("topbar");
+      function onScroll() {
+        const y = window.scrollY || document.documentElement.scrollTop || 0;
+        if (y > 30) topbar.classList.add("shrink");
+        else topbar.classList.remove("shrink");
+      }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
 
 </body>
 </html>
