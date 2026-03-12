@@ -7,56 +7,176 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/image/apple-touch-icon.png">
   <meta name="theme-color" content="#000000">
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About Us | Harrisburg Hitters</title>
+  <meta name="description" content="Learn about Harrisburg Hitters Youth Football Association, our mission, vision, nonprofit purpose, board of directors, and ways to stay connected.">
 
-  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="assets/style.css">
 
   <style>
-    .topbar{position:sticky;top:0;z-index:999;transition:padding 180ms ease,box-shadow 180ms ease;will-change:padding}
-    .brand-row{display:flex;justify-content:center;align-items:center;gap:18px;padding:22px 16px 14px;transition:padding 180ms ease}
-    .brand-text{display:flex;flex-direction:column;align-items:flex-start;margin-right:8px}
-    .brand-title{font-size:50px;font-weight:900;letter-spacing:1.5px;line-height:1.05}
-    .brand-subtitle{font-size:40px;color:var(--muted);margin-top:4px;line-height:1.05}
-    .brand-logo{height:120px;width:auto;object-fit:contain;transition:height 180ms ease}
-    .mobile-brand{display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 12px 10px;transition:padding 180ms ease}
-    .mobile-brand img{height:84px;width:auto;object-fit:contain;transition:height 180ms ease}
-    .mobile-brand .mobile-title{font-weight:900;letter-spacing:1px;font-size:16px;text-align:center;color:var(--text)}
-    .topbar.shrink .brand-row{padding:10px 16px 8px}
-    .topbar.shrink .brand-logo{height:72px}
-    .topbar.shrink .mobile-brand{padding:10px 12px 8px}
-    .topbar.shrink .mobile-brand img{height:58px}
-    .topbar.shrink{box-shadow:0 10px 30px rgba(0,0,0,0.35)}
-    @media (max-width:720px){.brand-row{display:none}.mobile-brand{display:flex}}
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:999;
+      transition:padding 180ms ease, box-shadow 180ms ease;
+      will-change:padding;
+    }
 
-    .btn.inline-btn{
-      display:inline-block;
+    .topbar.shrink{
+      box-shadow:0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    .brand-row{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:18px;
+      padding:22px 16px 14px;
+      transition:padding 180ms ease;
+    }
+
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      margin-right:8px;
+    }
+
+    .brand-title{
+      font-size:50px;
+      font-weight:900;
+      letter-spacing:1.5px;
+      line-height:1.05;
+    }
+
+    .brand-subtitle{
+      font-size:40px;
+      color:var(--muted);
+      margin-top:4px;
+      line-height:1.05;
+    }
+
+    .brand-logo{
+      height:120px;
       width:auto;
-      align-self:flex-start;
+      object-fit:contain;
+      transition:height 180ms ease;
+    }
+
+    .mobile-brand{
+      display:none;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:14px 12px 10px;
+      transition:padding 180ms ease;
+    }
+
+    .mobile-brand img{
+      height:84px;
+      width:auto;
+      object-fit:contain;
+      transition:height 180ms ease;
+    }
+
+    .mobile-brand .mobile-title{
+      font-weight:900;
+      letter-spacing:1px;
+      font-size:16px;
+      text-align:center;
+      color:var(--text);
+    }
+
+    .topbar.shrink .brand-row{
+      padding:10px 16px 8px;
+    }
+
+    .topbar.shrink .brand-logo{
+      height:72px;
+    }
+
+    .topbar.shrink .mobile-brand{
+      padding:10px 12px 8px;
+    }
+
+    .topbar.shrink .mobile-brand img{
+      height:58px;
+    }
+
+    @media (max-width:720px){
+      .brand-row{display:none}
+      .mobile-brand{display:flex}
+    }
+
+    .page-hero{
+      margin-bottom:16px;
+      text-align:center;
+    }
+
+    .page-hero h1{
+      margin:0 0 8px;
+      font-size:clamp(30px, 5vw, 46px);
+      line-height:1.05;
+    }
+
+    .page-hero p{
+      margin:0 auto;
+      max-width:900px;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.7;
+    }
+
+    .content-stack{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    .text-block{
+      color:var(--muted);
+      line-height:1.8;
+      margin-top:0;
+    }
+
+    .about-list{
+      color:var(--muted);
+      margin:10px 0 0 20px;
+      line-height:1.8;
+      padding:0;
+    }
+
+    .about-list li{
+      margin-bottom:10px;
+    }
+
+    .about-list strong{
+      color:var(--text);
     }
 
     .board-list{
       display:flex;
       flex-direction:column;
-      gap:8px;
-      margin-top:10px;
+      gap:10px;
+      margin-top:12px;
     }
 
     .board-row{
       display:flex;
-      gap:10px;
-      align-items:flex-start;
-      flex-wrap:wrap;
-      padding:10px 12px;
+      align-items:center;
+      justify-content:flex-start;
+      gap:12px;
+      padding:12px 14px;
       border:1px solid var(--border);
       border-radius:12px;
       background:rgba(20,20,20,0.55);
     }
 
     .board-role{
+      min-width:190px;
       font-weight:900;
-      min-width:170px;
       color:var(--text);
     }
 
@@ -65,169 +185,192 @@
       font-weight:800;
     }
 
-    .board-row.stack-name{
+    .links-wrap{
+      display:flex;
       flex-direction:column;
-      gap:4px;
+      gap:10px;
+      margin-top:12px;
     }
 
-    .board-row.stack-name .board-role{
-      min-width:auto;
+    .btn.inline-btn{
+      display:inline-block;
+      width:auto;
+      align-self:flex-start;
     }
 
-    .about-list{
-      color:var(--muted);
-      margin:10px 0 0 18px;
-      line-height:1.7;
-    }
+    @media (max-width:720px){
+      .board-row{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:4px;
+      }
 
-    .about-list li{
-      margin-bottom:8px;
-    }
+      .board-role{
+        min-width:auto;
+      }
 
-    .about-list b{
-      color:var(--text);
+      .page-hero p{
+        font-size:16px;
+      }
     }
   </style>
 </head>
 <body>
 
-<div class="topbar" id="topbar">
-  <div class="brand-row">
-    <div class="brand-text">
-      <div class="brand-title">HARRISBURG HITTERS</div>
-      <div class="brand-subtitle">Youth Football Association</div>
+  <div class="topbar" id="topbar">
+    <div class="brand-row">
+      <div class="brand-text">
+        <div class="brand-title">HARRISBURG HITTERS</div>
+        <div class="brand-subtitle">Youth Football Association</div>
+      </div>
+      <img class="brand-logo" src="assets/image/MainLogo.png" alt="Harrisburg Hitters Logo">
     </div>
-    <img class="brand-logo" src="assets/image/MainLogo.png" alt="Harrisburg Hitters Logo" />
+
+    <div class="mobile-brand">
+      <img src="assets/image/MainLogo.png" alt="Harrisburg Hitters Logo">
+      <div class="mobile-title">Harrisburg Hitters</div>
+    </div>
+
+    <div class="navwrap">
+      <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+    </div>
+
+    <nav id="site-nav" class="nav">
+      <a href="index.html">Home</a>
+      <a href="registration.html">Registration</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="teams.html">Our Teams</a>
+      <a href="tournaments.html">Tournaments &amp; Games</a>
+      <a href="swag.html">Hitters SWAG</a>
+      <a href="about.html">About Us</a>
+    </nav>
   </div>
 
-  <div class="mobile-brand">
-    <img src="assets/image/MainLogo.png" alt="Harrisburg Hitters Logo" />
-    <div class="mobile-title">Harrisburg Hitters</div>
-  </div>
+  <main class="container">
+    <section class="page-hero card">
+      <h1>About Harrisburg Hitters</h1>
+      <p>
+        The Harrisburg Hitters Youth Football Association is a nonprofit youth football organization serving children and families in and around Harrisburg, Pennsylvania. Our program supports the healthy development of youth through structured athletics, mentorship, character building, and positive community engagement.
+      </p>
+    </section>
 
-  <div class="navwrap">
-    <button class="menu-btn" onclick="toggleMenu()">Menu</button>
-  </div>
+    <div class="content-stack">
+      <section class="card">
+        <div class="section-title">What We Do</div>
 
-  <nav id="site-nav" class="nav">
-    <a href="index.html">Home</a>
-    <a href="registration.html">Registration</a>
-    <a href="calendar.html">Calendar</a>
-    <a href="teams.html">Our Teams</a>
-    <a href="tournaments.html">Tournaments &amp; Games</a>
-    <a href="swag.html">Hitters SWAG</a>
-    <a href="about.html">About Us</a>
-  </nav>
-</div>
+        <p class="text-block">
+          Through coaching, mentorship, and community involvement, the organization works to:
+        </p>
 
-<main class="container">
+        <ul class="about-list">
+          <li><strong>Support academics</strong> by reinforcing the importance of school performance, attendance, and personal responsibility.</li>
+          <li><strong>Reduce youth trouble</strong> by keeping participants engaged in supervised, constructive activities and positive peer environments.</li>
+          <li><strong>Provide mentorship</strong> through trained coaches and volunteers who model discipline, respect, and leadership.</li>
+          <li><strong>Promote health and wellness</strong> through fitness, football fundamentals, and age-appropriate athletic training.</li>
+          <li><strong>Strengthen community</strong> by involving families, encouraging volunteerism, and creating opportunities for service and outreach.</li>
+        </ul>
 
-  <section class="card">
-    <div class="section-title">About Harrisburg Hitters</div>
-    <p style="color:var(--muted); margin-top:0;">
-      The Harrisburg Hitters Youth Football Association is a nonprofit youth football organization serving children and families in and around Harrisburg, Pennsylvania. Our program supports the healthy development of youth through structured athletics, mentorship, character building, and positive community engagement.
-    </p>
+        <hr class="sep">
 
-    <p style="color:var(--muted);">
-      Through coaching, mentorship, and community involvement, the organization works to:
-    </p>
+        <div class="section-title">Mission</div>
+        <p class="text-block">
+          Provide youth in and around Harrisburg with coaching, mentorship, and competitive opportunities that build character, discipline, teamwork, and academic-minded habits—on and off the field.
+        </p>
 
-    <ul class="about-list">
-      <li><b>Support academics</b> by reinforcing the importance of school performance, attendance, and personal responsibility.</li>
-      <li><b>Reduce youth trouble</b> by keeping participants engaged in supervised, constructive activities and positive peer environments.</li>
-      <li><b>Provide mentorship</b> through trained coaches and volunteers who model discipline, respect, and leadership.</li>
-      <li><b>Promote health and wellness</b> through fitness, football fundamentals, and age-appropriate athletic training.</li>
-      <li><b>Strengthen community</b> by involving families, encouraging volunteerism, and creating opportunities for service and outreach.</li>
-    </ul>
+        <hr class="sep">
 
-    <hr class="sep" />
+        <div class="section-title">Vision</div>
+        <p class="text-block">
+          To build a nationally respected youth football program and nonprofit community resource that develops confident student-athletes, expands opportunities for underserved youth, and strengthens our community through sports, mentorship, and education.
+        </p>
+      </section>
 
-    <div class="section-title">Mission</div>
-    <p style="color:var(--muted); margin-top:0;">
-      Provide youth in and around Harrisburg with coaching, mentorship, and competitive opportunities that build character, discipline, teamwork, and academic-minded habits—on and off the field.
-    </p>
+      <section class="card">
+        <div class="section-title">Nonprofit Organization</div>
+        <p class="text-block">
+          Harrisburg Hitters Youth Football Association is the nonprofit entity responsible for overseeing the organization’s charitable and educational youth programs in the Harrisburg, Pennsylvania area. The organization is committed to transparency, responsible stewardship, and positive community impact through athletics, mentorship, and family engagement.
+        </p>
 
-    <hr class="sep" />
+        <hr class="sep">
 
-    <div class="section-title">Vision</div>
-    <p style="color:var(--muted); margin-top:0;">
-      To build a nationally respected youth football program and nonprofit community resource that develops confident student-athletes, expands opportunities for underserved youth, and strengthens our community through sports, mentorship, and education.
-    </p>
-  </section>
+        <div class="section-title">Board of Directors &amp; Officers</div>
+        <div class="board-list" aria-label="Board of Directors and Officers">
+          <div class="board-row">
+            <div class="board-role">President</div>
+            <div class="board-name">Naji Selvey</div>
+          </div>
 
-  <section class="card" style="margin-top:16px;">
-    <div class="section-title">Nonprofit Organization</div>
-    <p style="color:var(--muted); margin-top:0;">
-      Harrisburg Hitters Youth Football Association is the nonprofit entity responsible for overseeing the organization’s charitable and educational youth programs in the Harrisburg, Pennsylvania area. The organization is committed to transparency, responsible stewardship, and positive community impact through athletics, mentorship, and family engagement.
-    </p>
+          <div class="board-row">
+            <div class="board-role">Vice President</div>
+            <div class="board-name">Brandon Boyd</div>
+          </div>
 
-    <hr class="sep" />
+          <div class="board-row">
+            <div class="board-role">Secretary</div>
+            <div class="board-name">Maggie Ellison</div>
+          </div>
 
-    <div class="section-title">Board of Directors &amp; Officers</div>
-    <div class="board-list" aria-label="Board of Directors and Officers">
-      <div class="board-row stack-name">
-        <div class="board-role">President</div>
-        <div class="board-name">Naji Selvey</div>
-      </div>
-      <div class="board-row">
-        <div class="board-role">Vice President</div>
-        <div class="board-name">Brandon Boyd</div>
-      </div>
-      <div class="board-row">
-        <div class="board-role">Secretary</div>
-        <div class="board-name">Maggie Ellison</div>
-      </div>
-      <div class="board-row">
-        <div class="board-role">Treasurer</div>
-        <div class="board-name">Barry Daniels</div>
-      </div>
-      <div class="board-row">
-        <div class="board-role">Dir. of Comm.</div>
-        <div class="board-name">Samuel Kephart</div>
-      </div>
+          <div class="board-row">
+            <div class="board-role">Treasurer</div>
+            <div class="board-name">Barry Daniels</div>
+          </div>
+
+          <div class="board-row">
+            <div class="board-role">Director, Comm.</div>
+            <div class="board-name">Samuel Kephart</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title">Links</div>
+        <p class="text-block">
+          Stay connected and get team updates through the resources below.
+        </p>
+
+        <div class="links-wrap">
+          <a
+            class="btn inline-btn"
+            href="https://www.facebook.com/groups/1161046488166743/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Join Our Facebook Group
+          </a>
+
+          <a
+            class="btn inline-btn"
+            href="https://heja.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download Heja (Coach &amp; Parent Communication)
+          </a>
+        </div>
+      </section>
     </div>
-  </section>
+  </main>
 
-  <section class="card" style="margin-top:16px;">
-    <div class="section-title">Links</div>
-    <p style="color:var(--muted); margin-top:0;">
-      Stay connected and get team updates through the resources below.
-    </p>
+  <div class="footer">Harrisburg Hitters Youth Football Association • Harrisburg, PA</div>
 
-    <div style="display:flex; flex-direction:column; gap:10px; margin-top:12px;">
-      <a class="btn inline-btn"
-         href="https://www.facebook.com/groups/1161046488166743/"
-         target="_blank"
-         rel="noopener noreferrer">
-        Join Our Facebook Group
-      </a>
+  <script src="assets/site.js"></script>
+  <script>
+    (function () {
+      const topbar = document.getElementById("topbar");
 
-      <a class="btn inline-btn"
-         href="https://heja.io/"
-         target="_blank"
-         rel="noopener noreferrer">
-        Download Heja (Coach &amp; Parent Communication)
-      </a>
-    </div>
-  </section>
+      function onScroll() {
+        const y = window.scrollY || document.documentElement.scrollTop || 0;
+        if (y > 30) {
+          topbar.classList.add("shrink");
+        } else {
+          topbar.classList.remove("shrink");
+        }
+      }
 
-</main>
-
-<div class="footer">Harrisburg Hitters Youth Football Association • Harrisburg, PA</div>
-
-<script src="assets/site.js"></script>
-<script>
-  (function () {
-    const topbar = document.getElementById("topbar");
-    function onScroll() {
-      const y = window.scrollY || document.documentElement.scrollTop || 0;
-      if (y > 30) topbar.classList.add("shrink");
-      else topbar.classList.remove("shrink");
-    }
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-  })();
-</script>
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
 
 </body>
 </html>
