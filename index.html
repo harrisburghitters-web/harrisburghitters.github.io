@@ -1,291 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta name="description" content="Harrisburg Hitters is a nationally ranked youth travel football program based in Harrisburg, Pennsylvania. Competing in elite tournaments and developing young athletes through discipline, teamwork, and leadership.">
-
-<meta name="keywords" content="Harrisburg youth football, Harrisburg Hitters, PA travel football, youth football Harrisburg PA, youth football tournaments Pennsylvania">
-
-<meta name="author" content="Harrisburg Hitters Youth Football Association">
-
+  <meta name="description" content="Harrisburg Hitters is a nationally ranked youth travel football program based in Harrisburg, Pennsylvania. Competing in elite tournaments and developing young athletes through discipline, teamwork, and leadership.">
+  <meta name="keywords" content="Harrisburg youth football, Harrisburg Hitters, PA travel football, youth football Harrisburg PA, youth football tournaments Pennsylvania">
+  <meta name="author" content="Harrisburg Hitters Youth Football Association">
 
   <meta property="og:title" content="Harrisburg Hitters Youth Football">
-<meta property="og:description" content="Nationally ranked youth travel football program based in Harrisburg, PA.">
-<meta property="og:image" content="https://www.harrisburghitters.com/assets/image/MainLogo.png">
-<meta property="og:url" content="https://www.harrisburghitters.com">
-<meta property="og:type" content="website">
-  
-<link rel="icon" type="image/x-icon" href="assets/image/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/image/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/image/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/image/apple-touch-icon.png">
-<meta name="theme-color" content="#000000">
+  <meta property="og:description" content="Nationally ranked youth travel football program based in Harrisburg, PA.">
+  <meta property="og:image" content="https://www.harrisburghitters.com/assets/image/MainLogo.png">
+  <meta property="og:url" content="https://www.harrisburghitters.com">
+  <meta property="og:type" content="website">
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Harrisburg Hitters | Youth Football Association</title>
+  <link rel="icon" type="image/x-icon" href="assets/image/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/image/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/image/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/image/apple-touch-icon.png">
+  <meta name="theme-color" content="#000000">
 
-<link rel="stylesheet" href="assets/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harrisburg Hitters | Youth Football Association</title>
 
-<style>
+  <link rel="stylesheet" href="assets/style.css">
 
-/* Fundraiser banner */
-.fundraiser-banner{
-  margin:18px auto 0;
-  padding:18px;
-  text-align:center;
-  border-radius:16px;
-  font-weight:900;
-  font-size:20px;
-  background:#141414;
-  border:1px solid #262626;
-}
+  <style>
+    /* Fundraiser banner */
+    .fundraiser-banner{
+      margin:18px auto 0;
+      padding:18px;
+      text-align:center;
+      border-radius:16px;
+      font-weight:900;
+      font-size:20px;
+      background:#141414;
+      border:1px solid #262626;
+    }
 
-.fundraiser-banner a{
-  color:#D4AF37;
-  text-decoration:none;
-}
+    .fundraiser-banner a{
+      color:#D4AF37;
+      text-decoration:none;
+    }
 
-.fundraiser-banner:hover{
-  background:#1b1b1b;
-}
+    .fundraiser-banner:hover{
+      background:#1b1b1b;
+    }
 
-/* Header styles */
-.topbar{
-  position:sticky;
-  top:0;
-  z-index:999;
-  transition:padding 180ms ease, box-shadow 180ms ease;
-}
+    /* Header styles */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:999;
+      transition:padding 180ms ease, box-shadow 180ms ease;
+    }
 
-.topbar.shrink{
-  box-shadow:0 10px 30px rgba(0,0,0,0.35);
-}
+    .topbar.shrink{
+      box-shadow:0 10px 30px rgba(0,0,0,0.35);
+    }
 
-.program-tagline{
-  text-align:center;
-  font-weight:900;
-  letter-spacing:1px;
-  padding:14px 14px 0;
-  font-size:26px;
-}
+    .program-tagline{
+      text-align:center;
+      font-weight:900;
+      letter-spacing:1px;
+      padding:14px 14px 0;
+      font-size:26px;
+    }
 
-.brand-row{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:18px;
-  padding:14px 16px;
-}
+    .brand-row{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:18px;
+      padding:14px 16px;
+    }
 
-.brand-title{
-  font-size:50px;
-  font-weight:900;
-}
+    .brand-title{
+      font-size:50px;
+      font-weight:900;
+    }
 
-.brand-subtitle{
-  font-size:40px;
-  color:var(--muted);
-}
+    .brand-subtitle{
+      font-size:40px;
+      color:var(--muted);
+    }
 
-.brand-logo{
-  height:120px;
-}
+    .brand-logo{
+      height:120px;
+    }
 
-.mobile-brand{
-  display:none;
-}
+    .mobile-brand{
+      display:none;
+    }
 
-@media (max-width:720px){
-  .brand-row{display:none}
-  .mobile-brand{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-  }
-}
+    @media (max-width:720px){
+      .brand-row{display:none}
+      .mobile-brand{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+      }
+    }
 
-/* Main split layout */
+    /* Main split layout */
+    .split-wrap{
+      width:100%;
+      display:flex;
+      gap:20px;
+      align-items:stretch;
+      justify-content:center;
+      padding:30px 0;
+    }
 
-.split-wrap{
-  width:100%;
-  display:flex;
-  gap:20px;
-  align-items:stretch;
-  justify-content:center;
-  padding:30px 0;
-}
+    @media (max-width:900px){
+      .split-wrap{flex-direction:column}
+    }
 
-@media (max-width:900px){
-  .split-wrap{flex-direction:column}
-}
+    .split-left,
+    .split-right{
+      flex:0 0 50%;
+      min-height:520px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
 
-.split-left,
-.split-right{
-  flex:0 0 50%;
-  min-height:520px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
+    .tile-link{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      height:100%;
+      padding:24px;
+    }
 
-.tile-link{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  width:100%;
-  height:100%;
-  padding:24px;
-}
+    .tile-left-img{
+      max-width:380px;
+      width:100%;
+    }
 
-.tile-left-img{
-  max-width:380px;
-  width:100%;
-}
+    .tile-right-img{
+      max-width:100%;
+      max-height:560px;
+    }
 
-.tile-right-img{
-  max-width:100%;
-  max-height:560px;
-}
+    .register-btn{
+      display:inline-block;
+      background:#ffffff;
+      color:#000;
+      font-weight:900;
+      font-size:20px;
+      padding:14px 34px;
+      border-radius:8px;
+      margin-top:20px;
+    }
 
-.register-btn{
-  display:inline-block;
-  background:#ffffff;
-  color:#000;
-  font-weight:900;
-  font-size:20px;
-  padding:14px 34px;
-  border-radius:8px;
-  margin-top:20px;
-}
+    /* Sponsors */
+    .sponsors-section{
+      padding:40px 20px;
+      background:#141414;
+      text-align:center;
+    }
 
-</style>
+    .sponsors-section h2{
+      margin-bottom:20px;
+      font-size:28px;
+      color:#ffffff;
+    }
+
+    .sponsor-logos{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+
+    .sponsor-logos img{
+      max-width:200px;
+      height:auto;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="topbar" id="topbar">
+    <div class="program-tagline">
+      THE Nationally Ranked Harrisbug Hitters
+    </div>
 
-<div class="topbar" id="topbar">
+    <br>
 
-<div class="program-tagline">
-THE Nationally Ranked Harrisbug Hitters
-</div>
-<br>
-<div class="brand-row">
-<div>
-<div class="brand-title">HARRISBURG HITTERS</div>
-<div class="brand-subtitle">Youth Football Association</div>
-</div>
+    <div class="brand-row">
+      <div>
+        <div class="brand-title">HARRISBURG HITTERS</div>
+        <div class="brand-subtitle">Youth Football Association</div>
+      </div>
 
-<img class="brand-logo" src="assets/image/MainLogo.png" alt="Harrisburg Hitters Logo"/>
-</div>
+      <img class="brand-logo" src="assets/image/MainLogo.png" alt="Harrisburg Hitters Logo">
+    </div>
 
-<div class="mobile-brand">
-<img src="assets/image/MainLogo.png" height="70"/>
-<div style="font-weight:900">Harrisburg Hitters</div>
-</div>
+    <div class="mobile-brand">
+      <img src="assets/image/MainLogo.png" height="70" alt="Harrisburg Hitters Logo">
+      <div style="font-weight:900">Harrisburg Hitters</div>
+    </div>
 
-<div class="navwrap">
-<button class="menu-btn" onclick="toggleMenu()">Menu</button>
-</div>
+    <div class="navwrap">
+      <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+    </div>
 
-<nav id="site-nav" class="nav">
-<a href="index.html">Home</a>
-<a href="registration.html">Registration</a>
-<a href="calendar.html">Calendar</a>
-<a href="teams.html">Our Teams</a>
-<a href="tournaments.html">Tournaments & Games</a>
-<a href="swag.html">Hitters SWAG</a>
-  <a href="about.html">About Us</a>
-</nav>
+    <nav id="site-nav" class="nav">
+      <a href="index.html">Home</a>
+      <a href="registration.html">Registration</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="teams.html">Our Teams</a>
+      <a href="tournaments.html">Tournaments & Games</a>
+      <a href="swag.html">Hitters SWAG</a>
+      <a href="about.html">About Us</a>
+    </nav>
+  </div>
 
-</div>
+  <main class="container">
+    <!-- FUNDRAISER -->
+    <div class="fundraiser-banner">
+      <a id="fundraiserLink" href="#">
+        Check Out Our Current Fundraiser
+      </a>
+    </div>
 
-<main class="container">
+    <div class="split-wrap">
+      <div class="split-left">
+        <a class="tile-link" href="registration.html">
+          <img
+            class="tile-left-img"
+            src="assets/image/FaceBlack.png"
+            alt="Register Here"
+          >
+          <span class="register-btn">Register Here</span>
+        </a>
+      </div>
 
-<!-- FUNDRAISER -->
-<div class="fundraiser-banner">
-<a id="fundraiserLink" href="#">
-Check Out Our Current Fundraiser
-</a>
-</div>
+      <div class="split-right">
+        <a class="tile-link" href="swag.html">
+          <img
+            class="tile-right-img"
+            src="assets/image/swag.png"
+            alt="Hitters Swag Shop"
+          >
+        </a>
+      </div>
+    </div>
+  </main>
 
-<div class="split-wrap">
+  <section id="sponsors" class="sponsors-section">
+    <h2>Meet Our Sponsor</h2>
+    <div class="sponsor-logos">
+      <img src="assets/image/tio_01.png" alt="Sponsor Logo">
+    </div>
+  </section>
 
-<div class="split-left">
-<a class="tile-link" href="registration.html">
+  <footer class="footer">
+    <div class="footer">Harrisburg Hitters Youth Football Association • Harrisburg, PA</div>
+  </footer>
 
-<img
-class="tile-left-img"
-src="assets/image/FaceBlack.png"
-alt="Register Here"
-/>
+  <script src="assets/site.js"></script>
 
-<span class="register-btn">Register Here</span>
+  <script>
+    /* shrink header */
+    (function(){
+      const topbar = document.getElementById("topbar");
 
-</a>
-</div>
+      function onScroll(){
+        const y = window.scrollY || document.documentElement.scrollTop || 0;
+        if(y > 30) topbar.classList.add("shrink");
+        else topbar.classList.remove("shrink");
+      }
 
-<div class="split-right">
-<a class="tile-link" href="swag.html">
+      window.addEventListener("scroll", onScroll, { passive:true });
+      onScroll();
+    })();
 
-<img
-class="tile-right-img"
-src="assets/image/swag.png"
-alt="Hitters Swag Shop"
-/>
+    /* fundraiser redirect */
+    const fundraiserLink = document.getElementById("fundraiserLink");
+    const fundraiserURL = "https://poppinpopcornonline.com/store/store.php?sID=00451307";
 
-</a>
-</div>
+    const today = new Date();
+    const cutoff = new Date("2026-03-27");
 
-</div>
-
-</main>
-
-<section id="sponsors" style="padding:40px 20px;background:#141414;text-align:center;">  <h2 style="margin-bottom:20px;font-size:28px;color:#ffffff;">Meet Our Sponsor</h2>  <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:20px;"> <img src="assets/image/tio_01.png" style="max-width:200px;height:auto;"> </div>  </section>
-<h2 style="margin-bottom:20px;font-size:28px;">Meet Our Sponsor</h2>
-
-<div style="display:flex;justify-content:center;flex-wrap:wrap;gap:20px;">
-<img src="assets/image/tio_01.png" style="max-width:200px;">
-</div>
-</section>
-
-<footer class="footer">
-<div class="footer">Harrisburg Hitters Youth Football Association • Harrisburg, PA</div>
-</footer>
-
-<script src="assets/site.js"></script>
-
-<script>
-
-/* shrink header */
-(function(){
-const topbar=document.getElementById("topbar");
-function onScroll(){
-const y=window.scrollY||document.documentElement.scrollTop||0;
-if(y>30)topbar.classList.add("shrink");
-else topbar.classList.remove("shrink");
-}
-window.addEventListener("scroll",onScroll,{passive:true});
-onScroll();
-})();
-
-/* fundraiser redirect */
-const fundraiserLink=document.getElementById("fundraiserLink");
-
-const fundraiserURL="https://poppinpopcornonline.com/store/store.php?sID=00451307";
-
-const today=new Date();
-const cutoff=new Date("2026-03-27");
-
-if(today<=cutoff){
-fundraiserLink.href=fundraiserURL;
-}else{
-fundraiserLink.href="swag.html";
-}
-
-</script>
-
+    if (today <= cutoff) {
+      fundraiserLink.href = fundraiserURL;
+    } else {
+      fundraiserLink.href = "swag.html";
+    }
+  </script>
 </body>
 </html>
