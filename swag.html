@@ -2,218 +2,780 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hitters Swag Shop | Harrisburg Hitters</title>
-
-  <link rel="stylesheet" href="assets/style.css" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harrisburg Hitters | Swag Shop</title>
+  <meta name="description" content="Shop Harrisburg Hitters swag. Submit your order, then send payment. Orders will not be placed until paid in full." />
   <style>
-    .topbar{position:sticky;top:0;z-index:999;transition:padding 180ms ease,box-shadow 180ms ease;will-change:padding}
-    .brand-row{display:flex;justify-content:center;align-items:center;gap:18px;padding:22px 16px 14px;transition:padding 180ms ease}
-    .brand-text{display:flex;flex-direction:column;align-items:flex-start;margin-right:8px}
-    .brand-title{font-size:50px;font-weight:900;letter-spacing:1.5px;line-height:1.05}
-    .brand-subtitle{font-size:40px;color:var(--muted);margin-top:4px;line-height:1.05}
-    .brand-logo{height:120px;width:auto;object-fit:contain;transition:height 180ms ease}
-    .mobile-brand{display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 12px 10px;transition:padding 180ms ease}
-    .mobile-brand img{height:84px;width:auto;object-fit:contain;transition:height 180ms ease}
-    .mobile-brand .mobile-title{font-weight:900;letter-spacing:1px;font-size:16px;text-align:center;color:var(--text)}
-    .topbar.shrink .brand-row{padding:10px 16px 8px}
-    .topbar.shrink .brand-logo{height:72px}
-    .topbar.shrink .mobile-brand{padding:10px 12px 8px}
-    .topbar.shrink .mobile-brand img{height:58px}
-    .topbar.shrink{box-shadow:0 10px 30px rgba(0,0,0,0.35)}
-    @media (max-width:720px){.brand-row{display:none}.mobile-brand{display:flex}}
+    :root{
+      --bg:#0a0a0a;
+      --bg2:#111111;
+      --panel:#171717;
+      --panel2:#1f1f1f;
+      --text:#ffffff;
+      --muted:#c9c9c9;
+      --line:rgba(255,255,255,.10);
+      --gold:#D4AF37;
+      --gold-dark:#a88619;
+      --danger:#ff4d4f;
+      --shadow:0 12px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1280px;
+    }
 
-    /* Swag header image */
-    .swag-hero{
+    *{ box-sizing:border-box; }
+
+    html{ scroll-behavior:smooth; }
+
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(212,175,55,.08), transparent 30%),
+        linear-gradient(180deg, #050505 0%, #101010 100%);
+      color:var(--text);
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    img{
+      display:block;
+      max-width:100%;
+      height:auto;
+    }
+
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(10px);
+      background:rgba(8,8,8,.88);
+      border-bottom:1px solid var(--line);
+    }
+
+    .topbar-inner{
+      min-height:72px;
       display:flex;
-      justify-content:center;
       align-items:center;
-      padding:10px 0 4px;
-    }
-    .swag-hero img{
-      max-width:520px;
-      width:100%;
-      height:auto;
-      display:block;
-      object-fit:contain;
+      justify-content:space-between;
+      gap:16px;
+      padding:12px 0;
     }
 
-    /* Proofs grid */
-    .proofs-note{ color:var(--muted); margin:0 0 12px 0; }
-    .proofs-grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:12px;
-      margin-top:12px;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
     }
-    @media (min-width:720px){
-      .proofs-grid{ grid-template-columns:repeat(2,1fr); }
-    }
-    .proofs-grid img{
-      width:100%;
-      height:auto;
-      display:block;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background:#111;
+
+    .brand-logo{
+      width:52px;
+      height:52px;
+      border-radius:50%;
       object-fit:cover;
+      border:2px solid var(--gold);
+      background:#000;
     }
 
-    /* Payment callout */
-    .pay-callout{ display:flex; flex-direction:column; gap:10px; }
-    .cashapp-btn{
-      background:#00D632;
-      color:#000;
+    .brand-text{
+      line-height:1.05;
+    }
+
+    .brand-text .title{
+      font-size:1.15rem;
       font-weight:900;
-      padding:12px 18px;
-      border-radius:8px;
       text-transform:uppercase;
-      letter-spacing:0.8px;
-      font-size:13px;
-      white-space:nowrap;
-      display:inline-block;
-      width:fit-content;
+      letter-spacing:.06em;
     }
-    .cashapp-btn:hover{ background:#00c12d; }
 
-    /* Steps styling */
-    .steps{
-      margin:10px 0 0;
-      padding-left:22px;
+    .brand-text .sub{
+      font-size:.78rem;
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:.10em;
+      margin-top:4px;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      font-size:.95rem;
+      font-weight:700;
+      color:var(--muted);
+    }
+
+    .nav a:hover{
+      color:var(--gold);
+    }
+
+    .cta-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 18px;
+      border-radius:999px;
+      background:var(--gold);
+      color:#111;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      box-shadow:var(--shadow);
+    }
+
+    .hero{
+      padding:44px 0 26px;
+    }
+
+    .hero-card{
+      border:1px solid var(--line);
+      border-radius:26px;
+      overflow:hidden;
+      background:
+        linear-gradient(180deg, rgba(212,175,55,.12), rgba(212,175,55,.02)),
+        rgba(20,20,20,.95);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:0;
+    }
+
+    .hero-copy{
+      padding:40px 34px;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:14px;
+      color:var(--gold);
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:.8rem;
+    }
+
+    .hero h1{
+      margin:0 0 14px;
+      font-size:clamp(2rem, 4vw, 3.5rem);
+      line-height:.95;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+    }
+
+    .hero p{
+      margin:0;
+      color:var(--muted);
+      font-size:1.02rem;
+      line-height:1.65;
+      max-width:760px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:24px;
+    }
+
+    .btn-secondary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 18px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      color:var(--text);
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      background:rgba(255,255,255,.04);
+    }
+
+    .hero-side{
+      min-height:100%;
+      padding:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border-left:1px solid var(--line);
+      display:flex;
+      align-items:center;
+    }
+
+    .side-note{
+      width:100%;
+      border:1px solid rgba(212,175,55,.25);
+      background:rgba(0,0,0,.28);
+      border-radius:20px;
+      padding:22px;
+    }
+
+    .side-note h2{
+      margin:0 0 12px;
+      font-size:1.2rem;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+    }
+
+    .side-note p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:.98rem;
+    }
+
+    .warning{
+      margin-top:14px;
+      padding:14px 16px;
+      border-radius:14px;
+      border:1px solid rgba(255,77,79,.35);
+      background:rgba(255,77,79,.10);
+      color:#ffd3d4;
+      font-weight:800;
+      line-height:1.5;
+    }
+
+    .section{
+      padding:22px 0 10px;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+
+    .section-head h2{
+      margin:0;
+      font-size:clamp(1.5rem, 2.4vw, 2.2rem);
+      text-transform:uppercase;
+      letter-spacing:.05em;
+    }
+
+    .section-head p{
+      margin:6px 0 0;
       color:var(--muted);
       line-height:1.6;
     }
-    .steps li b{ color:#D4AF37; }
 
-    /* Responsive iframe */
-    .form-wrap{ margin-top:12px; }
-    .form-wrap iframe{
+    .products{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:20px;
+    }
+
+    .product{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid var(--line);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .product-image-wrap{
+      background:#0d0d0d;
+      aspect-ratio: 4 / 4.2;
+      overflow:hidden;
+      border-bottom:1px solid var(--line);
+    }
+
+    .product-image{
       width:100%;
-      max-width:900px;
-      height:1000px; /* match your embed */
-      border:0;
-      display:block;
+      height:100%;
+      object-fit:cover;
+      transition:transform .35s ease;
+    }
+
+    .product:hover .product-image{
+      transform:scale(1.03);
+    }
+
+    .product-body{
+      padding:20px;
+    }
+
+    .product-body h3{
+      margin:0 0 8px;
+      font-size:1.2rem;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+    }
+
+    .product-body p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.65;
+    }
+
+    .tag-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin:14px 0 0;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      padding:8px 10px;
+      border-radius:999px;
+      background:rgba(212,175,55,.12);
+      border:1px solid rgba(212,175,55,.22);
+      color:#f3df98;
+      font-size:.8rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:18px;
+      margin-top:8px;
+    }
+
+    .step{
+      padding:22px;
+      border-radius:20px;
+      background:var(--panel);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    .step-num{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--gold);
+      color:#111;
+      font-weight:900;
+      margin-bottom:14px;
+    }
+
+    .step h3{
+      margin:0 0 8px;
+      font-size:1.05rem;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+    }
+
+    .step p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.65;
+    }
+
+    .form-card{
+      margin-top:20px;
+      padding:24px;
+      border-radius:22px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(212,175,55,.08), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+    }
+
+    .form-links{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .cashapp{
+      padding:12px 18px;
+      border-radius:999px;
+      background:#00d632;
+      color:#071b09;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+    }
+
+    .faq{
+      display:grid;
+      gap:14px;
+      margin-top:10px;
+    }
+
+    .faq-item{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:var(--panel);
+      overflow:hidden;
+    }
+
+    .faq-item summary{
+      cursor:pointer;
+      list-style:none;
+      padding:18px 18px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.03em;
+    }
+
+    .faq-item summary::-webkit-details-marker{
+      display:none;
+    }
+
+    .faq-item .answer{
+      padding:0 18px 18px;
+      color:var(--muted);
+      line-height:1.65;
+    }
+
+    .footer{
+      margin-top:34px;
+      border-top:1px solid var(--line);
+      padding:26px 0 40px;
+      color:var(--muted);
+    }
+
+    .footer strong{
+      color:var(--gold);
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,
+      .products,
+      .steps{
+        grid-template-columns:1fr;
+      }
+
+      .hero-side{
+        border-left:none;
+        border-top:1px solid var(--line);
+      }
+    }
+
+    @media (max-width: 720px){
+      .topbar-inner{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .nav{
+        width:100%;
+      }
+
+      .hero-copy{
+        padding:28px 20px;
+      }
+
+      .hero-side{
+        padding:14px;
+      }
+
+      .section-head{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .form-card,
+      .step,
+      .product-body{
+        padding:18px;
+      }
+
+      .container{
+        width:min(var(--max), calc(100% - 22px));
+      }
     }
   </style>
 </head>
-
 <body>
 
-<div class="topbar" id="topbar">
-  <div class="brand-row" aria-label="Harrisburg Hitters Header">
-    <div class="brand-text">
-      <div class="brand-title">HARRISBURG HITTERS</div>
-      <div class="brand-subtitle">Youth Travel Football</div>
-    </div>
-    <img class="brand-logo" src="assets/image/swag.png" alt="Harrisburg Hitters Logo" />
-  </div>
-
-  <div class="mobile-brand" aria-label="Harrisburg Hitters Mobile Header">
-    <img src="assets/image/swag.png" alt="Harrisburg Hitters Logo" />
-    <div class="mobile-title">Harrisburg Hitters</div>
-  </div>
-
-  <div class="navwrap">
-    <button class="menu-btn" onclick="toggleMenu()">Menu</button>
-  </div>
-
-  <nav id="site-nav" class="nav">
-    <a href="index.html">Home</a>
-    <a href="registration.html">Registration</a>
-    <a href="calendar.html">Calendar</a>
-    <a href="teams.html">Our Teams</a>
-    <a href="tournaments.html">Tournaments &amp; Games</a>
-    <a href="swag.html" style="color:#D4AF37;font-weight:900;">HITTERS SWAG SHOP</a>
-    <a href="about.html">About Us</a>
-  </nav>
-</div>
-
-<main class="container">
-
-  <!-- HERO -->
-  <section class="card">
-
-  <div style="text-align:center; font-size:20px; line-height:1.6; font-weight:900; color:#D4AF37;">
-
-    STEP 1 - Use the form below to request your swag<br>
-    STEP 2 - Pay for your swag using the CashApp link<br>
-    NOTE - Orders will not be placed until paid in full
-
-  </div>
-
-</section>
-
-  <!-- Proofs -->
-  <section class="card" style="margin-top:16px;">
-    <div class="section-title">Swag Proofs</div>
-    <p class="proofs-note">
-      Items shown below are <b>proofs</b>. Final production may <b>very slightly</b> based on printing and materials.
-    </p>
-
-    <div class="proofs-grid">
-      <img src="assets/image/springswagfinal02.png" alt="Spring Swag Proof 02" loading="lazy"
-           onerror="this.onerror=null;this.style.display='none';" />
-      <img src="assets/image/springswagfinal01.png" alt="Spring Swag Proof 01" loading="lazy"
-           onerror="this.onerror=null;this.style.display='none';" />
-      
-    </div>
-  </section>
-
-  <!-- Request Form + Pay -->
-  <section class="card" style="margin-top:16px;">
-    <div class="section-title">Request Form &amp; Payment</div>
-
-    <div class="pay-callout">
-      <div style="color:var(--muted);">
-        Step 1: Submit your swag request using the form below.
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <img class="brand-logo" src="MainLogo.png" alt="Harrisburg Hitters logo">
+        <div class="brand-text">
+          <div class="title">Harrisburg Hitters</div>
+          <div class="sub">Swag Shop</div>
+        </div>
       </div>
 
-      <div class="form-wrap">
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSeglzQ9fZlPGntiFr7BVck2um5oUdwlnvVqNVYkZYSdgeAD3Q/viewform?embedded=true"
-          width="640"
-          height="1794"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-          loading="lazy"
-          title="Hitters Swag Request Form"
-        >Loading…</iframe>
-      </div>
-
-      <div style="color:var(--muted); margin-top:8px;">
-        Step 2: Pay for your swag via Cash App (paid in full).
-      </div>
-
-      <!-- TODO: paste your Cash App link here -->
-      <a class="cashapp-btn" href="https://cash.app/$LLCEnterprisesBD/150" target="_blank" rel="noopener">
-  Pay with Cash App
-</a>
-
-      <p style="color:var(--muted); font-size:12px; margin:6px 0 0;">
-        Tip: In Cash App, include <b>your name</b> and <b>player age group</b> in the note (example: “Jordan Smith – 10U”).
-      </p>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="teams.html">Teams</a>
+        <a href="registration.html">Registration</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="about.html">About</a>
+        <a class="cta-btn" href="#order">Order Now</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-</main>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">Official Hitters Gear</span>
+              <h1>Hitters Swag Shop</h1>
+              <p>
+                Rep the brotherhood with official Harrisburg Hitters gear. Check out the available swag below,
+                submit your order, then send payment to lock it in.
+              </p>
 
-<div class="footer">Harrisburg Hitters Youth Football Association • Harrisburg, PA</div>
+              <div class="warning">
+                IMPORTANT: ORDERS WILL NOT BE PLACED UNTIL PAID IN FULL.
+              </div>
 
-<script src="assets/site.js"></script>
-<script>
-  (function () {
-    const topbar = document.getElementById("topbar");
-    function onScroll() {
-      const y = window.scrollY || document.documentElement.scrollTop || 0;
-      if (y > 30) topbar.classList.add("shrink");
-      else topbar.classList.remove("shrink");
-    }
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-  })();
-</script>
+              <div class="hero-actions">
+                <a class="cta-btn" href="#order">Submit Order</a>
+                <a class="btn-secondary" href="#products">View Swag</a>
+              </div>
+            </div>
+
+            <div class="hero-side">
+              <div class="side-note">
+                <h2>How Ordering Works</h2>
+                <p>
+                  First fill out the swag request form with the items, sizes, and quantities you want.
+                  After that, send payment. Once payment is received, your order can be included.
+                </p>
+                <div class="warning">
+                  No payment = no order submission to production.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Available Swag</h2>
+            <p>Preview the current Harrisburg Hitters gear options below.</p>
+          </div>
+        </div>
+
+        <div class="products">
+          <article class="product">
+            <div class="product-image-wrap">
+              <img class="product-image" src="Hitters12Coming2026.jpg" alt="Hitters 12U Coming 2026 design">
+            </div>
+            <div class="product-body">
+              <h3>Hitters 12U Coming 2026</h3>
+              <p>
+                New 12U design for the 2026 season. Great for players, families, and supporters wanting to rep the next wave.
+              </p>
+              <div class="tag-row">
+                <span class="tag">2026 Design</span>
+                <span class="tag">Team Gear</span>
+                <span class="tag">Supporter Favorite</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-image-wrap">
+              <img class="product-image" src="HittersShirtShort2026.jpg" alt="Hitters shirt and shorts 2026 set">
+            </div>
+            <div class="product-body">
+              <h3>Hitters Shirt + Shorts 2026</h3>
+              <p>
+                Matching shirt and shorts set built for game day energy, training days, and traveling in Hitters style.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Matching Set</span>
+                <span class="tag">2026 Gear</span>
+                <span class="tag">Travel Ready</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-image-wrap">
+              <img class="product-image" src="springswag01.png" alt="Harrisburg Hitters spring swag option 1">
+            </div>
+            <div class="product-body">
+              <h3>Spring Swag Option 1</h3>
+              <p>
+                One of the current Harrisburg Hitters spring gear options. Use the order form to request this item and specify sizes.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Spring Gear</span>
+                <span class="tag">Hitters Style</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-image-wrap">
+              <img class="product-image" src="springswag02.png" alt="Harrisburg Hitters spring swag option 2">
+            </div>
+            <div class="product-body">
+              <h3>Spring Swag Option 2</h3>
+              <p>
+                Another current spring swag option for Harrisburg Hitters families, players, and supporters.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Spring Gear</span>
+                <span class="tag">Fan Favorite</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-image-wrap">
+              <img class="product-image" src="springswag03.png" alt="Harrisburg Hitters spring swag option 3">
+            </div>
+            <div class="product-body">
+              <h3>Spring Swag Option 3</h3>
+              <p>
+                Add this item to your order form if this is the design you want included in your purchase request.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Spring Gear</span>
+                <span class="tag">Team Look</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-image-wrap">
+              <img class="product-image" src="springswag04.png" alt="Harrisburg Hitters spring swag option 4">
+            </div>
+            <div class="product-body">
+              <h3>Spring Swag Option 4</h3>
+              <p>
+                Complete the swag order form and list this item if you want this design and sizing added to your order.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Spring Gear</span>
+                <span class="tag">Brotherhood</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>How To Order</h2>
+            <p>Simple process. Submit your request first, then send payment.</p>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Fill Out The Form</h3>
+            <p>
+              Complete the swag order form with your name, player name, item choices, sizes, and quantities.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>Send Payment</h3>
+            <p>
+              After submitting the form, send your payment through Cash App using the payment details provided by the program.
+            </p>
+          </div>
+
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>Order Gets Placed</h3>
+            <p>
+              Once payment is confirmed, your swag order can be included. Unpaid requests will not be sent in.
+            </p>
+          </div>
+        </div>
+
+        <div class="form-card" id="order">
+          <h2 style="margin:0 0 10px; text-transform:uppercase; letter-spacing:.05em;">Place Your Swag Order</h2>
+          <p style="margin:0; color:var(--muted); line-height:1.65;">
+            Use the form below to request your items. Be sure to include item names, sizes, and quantities clearly.
+            Then send payment right away so your order can be included.
+          </p>
+
+          <div class="warning">
+            Orders will not be placed until paid in full.
+          </div>
+
+          <div class="form-links">
+            <a class="cta-btn" href="https://forms.gle/" target="_blank" rel="noopener noreferrer">Open Swag Form</a>
+            <a class="cashapp" href="#" aria-label="Cash App payment link">Pay with Cash App</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Swag Shop Questions</h2>
+            <p>Common answers for parents, players, and supporters.</p>
+          </div>
+        </div>
+
+        <div class="faq">
+          <details class="faq-item">
+            <summary>When is my order officially in?</summary>
+            <div class="answer">
+              Your order is officially in once the order form is submitted and payment is received in full.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can I submit the form now and pay later?</summary>
+            <div class="answer">
+              You can submit the form first, but the order will not be placed until payment is fully received.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What should I include on the order form?</summary>
+            <div class="answer">
+              Include your name, player name if applicable, the item name or design, size, quantity, and any other requested details.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Who do I contact if I have a question?</summary>
+            <div class="answer">
+              Reach out to Harrisburg Hitters through the team contact information or the program’s main communication channels.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div><strong>Harrisburg Hitters</strong> — Elite. Nationally Ranked. Brotherhood.</div>
+      <div style="margin-top:8px;">Orders will not be placed until paid in full.</div>
+    </div>
+  </footer>
 
 </body>
 </html>
