@@ -350,6 +350,23 @@ textarea{
   color:var(--text);
 }
 
+/* ---------- SWAG STORE ---------- */
+
+.proof-item {
+  text-align: center;
+}
+
+.proof-item img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.proof-text {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #D4AF37; /* gold accent */
+}
 /* ---------- Board of Directors ---------- */
 .board-list{
   display:flex;
