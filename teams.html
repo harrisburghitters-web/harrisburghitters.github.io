@@ -1,367 +1,855 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1" />
+
   <title>Our Teams | Harrisburg Hitters</title>
 
   <link rel="stylesheet" href="assets/style.css" />
 
-  <!-- Favicons -->
-  <link rel="icon" type="image/x-icon" href="assets/image/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/image/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/image/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/image/apple-touch-icon.png">
+  <!-- FAVICONS -->
+  <link rel="icon"
+        type="image/x-icon"
+        href="assets/image/favicon.ico">
+
+  <link rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="assets/image/favicon-32x32.png">
+
+  <link rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="assets/image/favicon-16x16.png">
+
+  <link rel="apple-touch-icon"
+        sizes="180x180"
+        href="assets/image/apple-touch-icon.png">
+
   <meta name="theme-color" content="#000000">
 
   <style>
-    :root{
-      --gold:#D4AF37;
-      --muted:#9aa0a6;
-      --black-card:#0b0b0b;
-      --card-border:rgba(255,255,255,0.06);
-      --section-bg:#ffffff;
-      --text-dark:#0b0b0b;
-      --text-light:#ffffff;
+
+    :root {
+      --gold: #D4AF37;
+      --muted: #9aa0a6;
+      --black-card: #0b0b0b;
+      --card-border: rgba(255,255,255,0.06);
+      --section-bg: #ffffff;
+      --text-dark: #0b0b0b;
+      --text-light: #ffffff;
     }
 
-    /* Header / topbar */
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:999;
-      transition:padding 180ms ease,box-shadow 180ms ease;
-      will-change:padding;
-      background:#000;
-      color:var(--text-light);
-    }
-    .brand-row{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:18px;
-      padding:22px 16px;
-      transition:padding 180ms ease;
-    }
-    .brand-text{display:flex;flex-direction:column;align-items:flex-start;margin-right:8px}
-    .brand-title{font-size:44px;font-weight:900;letter-spacing:1.5px;line-height:1.05;color:var(--text-light)}
-    .brand-subtitle{font-size:18px;color:var(--muted);margin-top:4px;line-height:1.05}
-    .brand-logo{height:84px;width:auto;object-fit:contain;transition:height 180ms ease}
+    /* HEADER */
 
-    .mobile-brand{display:none;flex-direction:column;align-items:center;gap:8px;padding:12px}
-    .mobile-brand img{height:64px;width:auto;object-fit:contain}
-    .mobile-brand .mobile-title{font-weight:900;letter-spacing:1px;font-size:16px;text-align:center;color:var(--text-light)}
-
-    @media (max-width:720px){
-      .brand-row{display:none}
-      .mobile-brand{display:flex}
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      transition:
+        padding 180ms ease,
+        box-shadow 180ms ease;
+      background: #000;
+      color: var(--text-light);
     }
 
-    /* NAV + MOBILE COLLAPSE */
-    .navwrap{
-      display:none;
-      text-align:center;
-      padding:0 0 10px;
-      background:#000;
-    }
-    .menu-btn{
-      display:none;
-      background:#000;
-      color:#fff;
-      border:1px solid #333;
-      padding:8px 14px;
-      border-radius:6px;
-      font-weight:900;
-      letter-spacing:0.6px;
-      text-transform:uppercase;
+    .brand-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      padding: 22px 16px;
+      transition: padding 180ms ease;
     }
 
-    nav.nav{
-      display:flex;
-      justify-content:center;
-      gap:14px;
-      padding:8px 12px 18px;
-      flex-wrap:wrap;
-      background:#000;
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-right: 8px;
     }
-    nav.nav a{
-      color:var(--text-light);
-      text-decoration:none;
-      font-weight:700;
-      padding:6px 8px;
+
+    .brand-title {
+      font-size: 44px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      line-height: 1.05;
+      color: var(--text-light);
     }
-    nav.nav a[aria-current="page"]{color:var(--gold)}
-    nav.nav a.swag{color:var(--gold);font-weight:900}
 
-    @media (max-width:720px){
-      .navwrap{display:block}
-      .menu-btn{display:inline-block}
+    .brand-subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.05;
+    }
 
-      nav.nav{
-        display:none;                /* collapsed by default */
-        flex-direction:column;
-        align-items:center;
-        gap:10px;
-        padding:10px 0 18px;
-        flex-wrap:nowrap;
+    .brand-logo {
+      height: 84px;
+      width: auto;
+      object-fit: contain;
+      transition: height 180ms ease;
+    }
+
+    .mobile-brand {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 12px;
+    }
+
+    .mobile-brand img {
+      height: 64px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .mobile-brand .mobile-title {
+      font-weight: 900;
+      letter-spacing: 1px;
+      font-size: 16px;
+      text-align: center;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 720px) {
+
+      .brand-row {
+        display: none;
       }
-      nav.nav.open{display:flex}     /* opened state */
+
+      .mobile-brand {
+        display: flex;
+      }
+
     }
 
-    /* Main container */
-    .container{max-width:1200px;margin:24px auto;padding:0 16px}
+    /* NAVIGATION */
 
-    /* Our Teams section - white background */
-    .teams-section{
-      background:var(--section-bg);
-      padding:22px;
-      border-radius:16px;
-      box-shadow:0 6px 28px rgba(15,15,15,0.06);
+    .navwrap {
+      display: none;
+      text-align: center;
+      padding: 0 0 10px;
+      background: #000;
     }
 
-    .section-title{
-      font-size:22px;
-      font-weight:900;
-      margin-bottom:6px;
-      color:var(--text-dark);
-    }
-    .section-desc{color:var(--muted);margin-top:0;margin-bottom:14px}
-
-    /* Grid layout */
-    .teams-grid{
-      display:grid;
-      gap:16px;
-      grid-template-columns:1fr;
-    }
-    @media (min-width:720px){
-      .teams-grid{grid-template-columns:repeat(2,1fr)}
+    .menu-btn {
+      display: none;
+      background: #000;
+      color: #fff;
+      border: 1px solid #333;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-weight: 900;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      cursor: pointer;
     }
 
-    /* Team tile (black card) */
-    .team-tile{
-      position:relative;
-      display:flex;
-      flex-direction:column;
-      overflow:hidden;
-      border-radius:14px;
-      border:1px solid var(--card-border);
-      background:var(--black-card);
-      transition:transform 120ms ease, box-shadow 120ms ease;
-      text-decoration:none;
-      color:var(--text-light);
-      min-height:260px;
-    }
-    .team-tile:hover{
-      transform:translateY(-6px);
-      box-shadow:0 18px 36px rgba(3,3,3,0.35);
+    nav.nav {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      padding: 8px 12px 18px;
+      flex-wrap: wrap;
+      background: #000;
     }
 
-    .team-photo{
-      width:100%;
-      height:180px;
-      object-fit:cover;
-      display:block;
-      background:#010101;
-    }
-    @media (min-width:720px){
-      .team-photo{height:200px}
+    nav.nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 700;
+      padding: 6px 8px;
     }
 
-    .team-divider{height:1px;background:rgba(255,255,255,0.04)}
-    .team-body{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1 1 auto}
-    .team-age{font-size:34px;font-weight:900;letter-spacing:0.6px;color:var(--text-light);line-height:1}
-    .team-sub{color:var(--muted);font-weight:700}
-
-    /* Nationally ranked badge (bottom-right of 10U card) */
-    .team-badge{
-      position:absolute;
-      right:12px;
-      bottom:12px;
-      background:rgba(212,175,55,0.06);
-      color:var(--gold);
-      border:1px solid rgba(212,175,55,0.22);
-      padding:6px 10px;
-      border-radius:999px;
-      font-weight:900;
-      font-size:13px;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      backdrop-filter:blur(2px);
+    nav.nav a[aria-current="page"] {
+      color: var(--gold);
     }
-    .team-badge .emoji{font-size:16px;line-height:1}
 
-    /* Footer */
-    .footer{text-align:center;padding:18px 0;color:var(--muted);margin-top:18px}
+    nav.nav a.swag {
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    @media (max-width: 720px) {
+
+      .navwrap {
+        display: block;
+      }
+
+      .menu-btn {
+        display: inline-block;
+      }
+
+      nav.nav {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 0 18px;
+        flex-wrap: nowrap;
+      }
+
+      nav.nav.open {
+        display: flex;
+      }
+
+    }
+
+    /* MAIN CONTAINER */
+
+    .container {
+      max-width: 1200px;
+      margin: 24px auto;
+      padding: 0 16px;
+    }
+
+    /* TEAMS SECTION */
+
+    .teams-section {
+      background: var(--section-bg);
+      padding: 22px;
+      border-radius: 16px;
+      box-shadow:
+        0 6px 28px rgba(15,15,15,0.06);
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 6px;
+      color: var(--text-dark);
+    }
+
+    .section-desc {
+      color: var(--muted);
+      margin-top: 0;
+      margin-bottom: 14px;
+    }
+
+    /* TEAM GRID */
+
+    .teams-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 720px) {
+
+      .teams-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+    /* TEAM CARDS */
+
+    .team-tile {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      background: var(--black-card);
+      transition:
+        transform 120ms ease,
+        box-shadow 120ms ease;
+      text-decoration: none;
+      color: var(--text-light);
+      min-height: 260px;
+    }
+
+    .team-tile:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 18px 36px rgba(3,3,3,0.35);
+    }
+
+    .team-photo {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      background: #010101;
+    }
+
+    @media (min-width: 720px) {
+
+      .team-photo {
+        height: 200px;
+      }
+
+    }
+
+    .team-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .team-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1 1 auto;
+    }
+
+    .team-age {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: 0.6px;
+      color: var(--text-light);
+      line-height: 1;
+    }
+
+    .team-sub {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    /* NATIONALLY RANKED BADGE */
+
+    .team-badge {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      background: rgba(212,175,55,0.10);
+      color: var(--gold);
+      border:
+        1px solid rgba(212,175,55,0.35);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      backdrop-filter: blur(3px);
+      max-width: calc(100% - 24px);
+      box-sizing: border-box;
+    }
+
+    .team-badge .emoji {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    /* HIDDEN AGE GROUPS */
+
+    .team-tile.hidden-team {
+      display: none !important;
+    }
+
+    /* FOOTER */
+
+    .footer {
+      text-align: center;
+      padding: 18px 0;
+      color: var(--muted);
+      margin-top: 18px;
+    }
+
   </style>
+
 </head>
 
 <body>
 
-  <div class="topbar" id="topbar" role="banner">
+  <!-- HEADER -->
 
-    <div class="brand-row" aria-label="Harrisburg Hitters Header">
+  <div class="topbar"
+       id="topbar"
+       role="banner">
+
+    <div class="brand-row"
+         aria-label="Harrisburg Hitters Header">
+
       <div class="brand-text">
-        <div class="brand-title">HARRISBURG HITTERS</div>
-        <div class="brand-subtitle">Youth Travel Football</div>
+
+        <div class="brand-title">
+          HARRISBURG HITTERS
+        </div>
+
+        <div class="brand-subtitle">
+          Youth Travel Football
+        </div>
+
       </div>
-      <img class="brand-logo" src="assets/image/MainLogo.png" alt="Harrisburg Hitters Logo" />
+
+      <img
+        class="brand-logo"
+        src="assets/image/MainLogo.png"
+        alt="Harrisburg Hitters Logo"
+      />
+
     </div>
 
-    <div class="mobile-brand" aria-label="Harrisburg Hitters Mobile Header">
-      <img src="assets/image/MainLogo.png" alt="Harrisburg Hitters Logo" />
-      <div class="mobile-title">Harrisburg Hitters</div>
+    <!-- MOBILE HEADER -->
+
+    <div class="mobile-brand"
+         aria-label="Harrisburg Hitters Mobile Header">
+
+      <img
+        src="assets/image/MainLogo.png"
+        alt="Harrisburg Hitters Logo"
+      />
+
+      <div class="mobile-title">
+        Harrisburg Hitters
+      </div>
+
     </div>
 
-    <!-- Mobile Menu Button -->
+    <!-- MOBILE MENU -->
+
     <div class="navwrap">
-      <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+
+      <button
+        class="menu-btn"
+        type="button"
+        onclick="toggleMenu()"
+        aria-controls="site-nav"
+        aria-expanded="false"
+      >
+        Menu
+      </button>
+
     </div>
 
-    <!-- NAV LINKS -->
-    <nav class="nav" id="site-nav" role="navigation" aria-label="Main menu">
-      <a href="index.html">Home</a>
-      <a href="registration.html">Registration</a>
-      <a href="calendar.html">Calendar</a>
-      <a href="teams.html" aria-current="page">Our Teams</a>
-      <a href="tournaments.html">Tournaments &amp; Games</a>
-      <a class="swag" href="swag.html">HITTERS SWAG SHOP</a>
-      <a href="about.html">About Us</a>
+    <!-- NAVIGATION -->
+
+    <nav class="nav"
+         id="site-nav"
+         role="navigation"
+         aria-label="Main menu">
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="registration.html">
+        Registration
+      </a>
+
+      <a href="calendar.html">
+        Calendar
+      </a>
+
+      <a href="teams.html"
+         aria-current="page">
+        Our Teams
+      </a>
+
+      <a href="tournaments.html">
+        Tournaments &amp; Games
+      </a>
+
+      <a class="swag"
+         href="swag.html">
+        HITTERS SWAG SHOP
+      </a>
+
+      <a href="about.html">
+        About Us
+      </a>
+
     </nav>
 
   </div>
 
+  <!-- MAIN CONTENT -->
+
   <main class="container" role="main">
 
-    <section class="teams-section card" aria-labelledby="teams-heading">
-      <h1 id="teams-heading" class="section-title">Our Teams</h1>
+    <section
+      class="teams-section card"
+      aria-labelledby="teams-heading"
+    >
+
+      <h1
+        id="teams-heading"
+        class="section-title"
+      >
+        Our Teams
+      </h1>
+
       <p class="section-desc">
-        Select your age group to view coaching staff and the team calendar.
+        Select your age group to view
+        coaching staff and the team calendar.
       </p>
 
       <div class="teams-grid" role="list">
 
-        <a class="team-tile" role="listitem" href="Teams/14u.html" aria-label="14U team page">
-          <img class="team-photo" src="assets/image/14uTeam.png" alt="Harrisburg Hitters 14U Team" loading="lazy"
-               onerror="this.onerror=null;this.src='assets/image/HitterLitter.jpg';" />
-          <div class="team-divider" aria-hidden="true"></div>
+        <!-- ===================== -->
+        <!-- 14U - HIDDEN          -->
+        <!-- ===================== -->
+
+        <a
+          class="team-tile hidden-team"
+          role="listitem"
+          href="Teams/14u.html"
+          aria-label="14U team page"
+        >
+
+          <img
+            class="team-photo"
+            src="assets/image/14uTeam.png"
+            alt="Harrisburg Hitters 14U Team"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='assets/image/HitterLitter.jpg';"
+          />
+
+          <div class="team-divider"></div>
+
           <div class="team-body">
             <div class="team-age">14U</div>
             <div class="team-sub">Team Page</div>
           </div>
+
         </a>
 
-        <a class="team-tile" role="listitem" href="Teams/13u.html" aria-label="13U team page">
-          <img class="team-photo" src="assets/image/13uTeam.png" alt="Harrisburg Hitters 13U Team" loading="lazy"
-               onerror="this.onerror=null;this.src='assets/image/HitterLitter.jpg';" />
-          <div class="team-divider" aria-hidden="true"></div>
+        <!-- ===================== -->
+        <!-- 13U - HIDDEN          -->
+        <!-- ===================== -->
+
+        <a
+          class="team-tile hidden-team"
+          role="listitem"
+          href="Teams/13u.html"
+          aria-label="13U team page"
+        >
+
+          <img
+            class="team-photo"
+            src="assets/image/13uTeam.png"
+            alt="Harrisburg Hitters 13U Team"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='assets/image/HitterLitter.jpg';"
+          />
+
+          <div class="team-divider"></div>
+
           <div class="team-body">
             <div class="team-age">13U</div>
             <div class="team-sub">Team Page</div>
           </div>
+
         </a>
 
-        <a class="team-tile" role="listitem" href="Teams/12u.html" aria-label="12U team page">
-          <img class="team-photo" src="assets/image/12uTeam.png" alt="Harrisburg Hitters 12U Team" loading="lazy"
-               onerror="this.onerror=null;this.src='assets/image/HitterLitter.jpg';" />
-          <div class="team-divider" aria-hidden="true"></div>
+        <!-- ===================== -->
+        <!-- 12U - HIDDEN          -->
+        <!-- ===================== -->
+
+        <a
+          class="team-tile hidden-team"
+          role="listitem"
+          href="Teams/12u.html"
+          aria-label="12U team page"
+        >
+
+          <img
+            class="team-photo"
+            src="assets/image/12uTeam.png"
+            alt="Harrisburg Hitters 12U Team"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='assets/image/HitterLitter.jpg';"
+          />
+
+          <div class="team-divider"></div>
+
           <div class="team-body">
             <div class="team-age">12U</div>
             <div class="team-sub">Team Page</div>
           </div>
+
         </a>
 
-        <a class="team-tile" role="listitem" href="Teams/11u.html" aria-label="11U team page">
-          <img class="team-photo" src="assets/image/11uTeam.png" alt="Harrisburg Hitters 11U Team" loading="lazy"
-               onerror="this.onerror=null;this.src='assets/image/HitterLitter.jpg';" />
-          <div class="team-divider" aria-hidden="true"></div>
+        <!-- ===================== -->
+        <!-- 11U - HIDDEN          -->
+        <!-- ===================== -->
+
+        <a
+          class="team-tile hidden-team"
+          role="listitem"
+          href="Teams/11u.html"
+          aria-label="11U team page"
+        >
+
+          <img
+            class="team-photo"
+            src="assets/image/11uTeam.png"
+            alt="Harrisburg Hitters 11U Team"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='assets/image/HitterLitter.jpg';"
+          />
+
+          <div class="team-divider"></div>
+
           <div class="team-body">
             <div class="team-age">11U</div>
             <div class="team-sub">Team Page</div>
           </div>
+
         </a>
 
-        <!-- 10U: Nationally Ranked badge bottom-right -->
-        <a class="team-tile" role="listitem" href="Teams/10u.html" aria-label="10U team page (nationally ranked)">
-          <img class="team-photo" src="assets/image/10uTeam.png" alt="Harrisburg Hitters 10U Team" loading="lazy"
-               onerror="this.onerror=null;this.src='assets/image/HitterLitter.jpg';" />
-          <div class="team-divider" aria-hidden="true"></div>
+        <!-- ===================== -->
+        <!-- 10U - NATIONALLY RANKED -->
+        <!-- ===================== -->
+
+        <a
+          class="team-tile"
+          role="listitem"
+          href="Teams/10u.html"
+          aria-label="10U nationally ranked team page"
+        >
+
+          <img
+            class="team-photo"
+            src="assets/image/10uTeam.png"
+            alt="Harrisburg Hitters 10U Team"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='assets/image/HitterLitter.jpg';"
+          />
+
+          <div class="team-divider"></div>
+
           <div class="team-body">
             <div class="team-age">10U</div>
             <div class="team-sub">Team Page</div>
           </div>
 
-          <span class="team-badge" title="Nationally Ranked">
-            <span class="emoji" role="img" aria-label="trophy">🏆</span>
+          <span
+            class="team-badge"
+            title="Nationally Ranked"
+          >
+            <span class="emoji"
+                  aria-hidden="true">
+              🏆
+            </span>
+
             NATIONALLY RANKED
           </span>
+
         </a>
 
-        <a class="team-tile" role="listitem" href="Teams/9u.html" aria-label="9U team page">
-          <img class="team-photo" src="assets/image/9uTeam.png" alt="Harrisburg Hitters 9U Team" loading="lazy"
-               onerror="this.onerror=null;this.src='assets/image/HitterLitter.jpg';" />
-          <div class="team-divider" aria-hidden="true"></div>
+        <!-- ===================== -->
+        <!-- 9U - VISIBLE          -->
+        <!-- ===================== -->
+
+        <a
+          class="team-tile"
+          role="listitem"
+          href="Teams/9u.html"
+          aria-label="9U team page"
+        >
+
+          <img
+            class="team-photo"
+            src="assets/image/9uTeam.png"
+            alt="Harrisburg Hitters 9U Team"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='assets/image/HitterLitter.jpg';"
+          />
+
+          <div class="team-divider"></div>
+
           <div class="team-body">
             <div class="team-age">9U</div>
             <div class="team-sub">Team Page</div>
           </div>
+
         </a>
 
-        <a class="team-tile" role="listitem" href="Teams/8u.html" aria-label="8U team page">
-          <img class="team-photo" src="assets/image/8uTeam.jpg" alt="Harrisburg Hitters 8U Team" loading="lazy"
-               onerror="this.onerror=null;this.src='assets/image/HitterLitter.jpg';" />
-          <div class="team-divider" aria-hidden="true"></div>
+        <!-- ===================== -->
+        <!-- 8U - NATIONALLY RANKED -->
+        <!-- ===================== -->
+
+        <a
+          class="team-tile"
+          role="listitem"
+          href="Teams/8u.html"
+          aria-label="8U nationally ranked team page"
+        >
+
+          <img
+            class="team-photo"
+            src="assets/image/8uTeam.jpg"
+            alt="Harrisburg Hitters 8U Team"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='assets/image/HitterLitter.jpg';"
+          />
+
+          <div class="team-divider"></div>
+
           <div class="team-body">
             <div class="team-age">8U</div>
             <div class="team-sub">Team Page</div>
           </div>
+
+          <span
+            class="team-badge"
+            title="Nationally Ranked"
+          >
+            <span class="emoji"
+                  aria-hidden="true">
+              🏆
+            </span>
+
+            NATIONALLY RANKED
+          </span>
+
         </a>
 
-        <a class="team-tile" role="listitem" href="Teams/7u.html" aria-label="7U team page">
-          <img class="team-photo" src="assets/image/7uTeam.png" alt="Harrisburg Hitters 7U Team" loading="lazy"
-               onerror="this.onerror=null;this.src='assets/image/HitterLitter.jpg';" />
-          <div class="team-divider" aria-hidden="true"></div>
+        <!-- ===================== -->
+        <!-- 7U - NATIONALLY RANKED -->
+        <!-- ===================== -->
+
+        <a
+          class="team-tile"
+          role="listitem"
+          href="Teams/7u.html"
+          aria-label="7U nationally ranked team page"
+        >
+
+          <img
+            class="team-photo"
+            src="assets/image/7uTeam.png"
+            alt="Harrisburg Hitters 7U Team"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='assets/image/HitterLitter.jpg';"
+          />
+
+          <div class="team-divider"></div>
+
           <div class="team-body">
             <div class="team-age">7U</div>
             <div class="team-sub">Team Page</div>
           </div>
+
+          <span
+            class="team-badge"
+            title="Nationally Ranked"
+          >
+            <span class="emoji"
+                  aria-hidden="true">
+              🏆
+            </span>
+
+            NATIONALLY RANKED
+          </span>
+
         </a>
 
-        <a class="team-tile" role="listitem" href="Teams/6u.html" aria-label="6U team page">
-          <img class="team-photo" src="assets/image/6uTeam.png" alt="Harrisburg Hitters 6U Team" loading="lazy"
-               onerror="this.onerror=null;this.src='assets/image/HitterLitter.jpg';" />
-          <div class="team-divider" aria-hidden="true"></div>
+        <!-- ===================== -->
+        <!-- 6U - HIDDEN           -->
+        <!-- ===================== -->
+
+        <a
+          class="team-tile hidden-team"
+          role="listitem"
+          href="Teams/6u.html"
+          aria-label="6U team page"
+        >
+
+          <img
+            class="team-photo"
+            src="assets/image/6uTeam.png"
+            alt="Harrisburg Hitters 6U Team"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='assets/image/HitterLitter.jpg';"
+          />
+
+          <div class="team-divider"></div>
+
           <div class="team-body">
             <div class="team-age">6U</div>
             <div class="team-sub">Team Page</div>
           </div>
+
         </a>
 
       </div>
+
     </section>
 
   </main>
 
-<div class="footer">Harrisburg Hitters Youth Football Association • Harrisburg, PA</div>
+  <!-- FOOTER -->
+
+  <div class="footer">
+    Harrisburg Hitters Youth Football Association
+    • Harrisburg, PA
+  </div>
+
+  <!-- JAVASCRIPT -->
 
   <script src="assets/site.js"></script>
+
   <script>
-    function toggleMenu(){
-      const nav = document.getElementById("site-nav");
-      nav.classList.toggle("open");
+
+    function toggleMenu() {
+
+      const nav =
+        document.getElementById("site-nav");
+
+      const button =
+        document.querySelector(".menu-btn");
+
+      if (!nav) return;
+
+      const isOpen =
+        nav.classList.toggle("open");
+
+      if (button) {
+        button.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+      }
+
     }
 
+    /* SHRINK HEADER ON SCROLL */
+
     (function () {
-      const topbar = document.getElementById("topbar");
+
+      const topbar =
+        document.getElementById("topbar");
+
+      if (!topbar) return;
+
       function onScroll() {
-        const y = window.scrollY || document.documentElement.scrollTop || 0;
-        if (y > 30) topbar.classList.add("shrink");
-        else topbar.classList.remove("shrink");
+
+        const y =
+          window.scrollY ||
+          document.documentElement.scrollTop ||
+          0;
+
+        if (y > 30) {
+          topbar.classList.add("shrink");
+        } else {
+          topbar.classList.remove("shrink");
+        }
+
       }
-      window.addEventListener("scroll", onScroll, { passive: true });
+
+      window.addEventListener(
+        "scroll",
+        onScroll,
+        { passive: true }
+      );
+
       onScroll();
+
     })();
+
   </script>
 
 </body>
