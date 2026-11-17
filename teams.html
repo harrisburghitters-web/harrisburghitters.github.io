@@ -50,11 +50,11 @@
       position: sticky;
       top: 0;
       z-index: 999;
+      background: #000;
+      color: var(--text-light);
       transition:
         padding 180ms ease,
         box-shadow 180ms ease;
-      background: #000;
-      color: var(--text-light);
     }
 
     .brand-row {
@@ -117,8 +117,19 @@
       color: var(--text-light);
     }
 
-    @media (max-width: 720px) {
+    .topbar.shrink {
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
 
+    .topbar.shrink .brand-row {
+      padding: 10px 16px;
+    }
+
+    .topbar.shrink .brand-logo {
+      height: 64px;
+    }
+
+    @media (max-width: 720px) {
       .brand-row {
         display: none;
       }
@@ -126,7 +137,6 @@
       .mobile-brand {
         display: flex;
       }
-
     }
 
     /* NAVIGATION */
@@ -215,8 +225,7 @@
       background: var(--section-bg);
       padding: 22px;
       border-radius: 16px;
-      box-shadow:
-        0 6px 28px rgba(15,15,15,0.06);
+      box-shadow: 0 6px 28px rgba(15,15,15,.06);
     }
 
     .section-title {
@@ -241,11 +250,9 @@
     }
 
     @media (min-width: 720px) {
-
       .teams-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-
     }
 
     /* TEAM CARDS */
@@ -268,8 +275,7 @@
 
     .team-tile:hover {
       transform: translateY(-6px);
-      box-shadow:
-        0 18px 36px rgba(3,3,3,0.35);
+      box-shadow: 0 18px 36px rgba(3,3,3,.35);
     }
 
     .team-photo {
@@ -281,16 +287,14 @@
     }
 
     @media (min-width: 720px) {
-
       .team-photo {
         height: 200px;
       }
-
     }
 
     .team-divider {
       height: 1px;
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,.04);
     }
 
     .team-body {
@@ -304,7 +308,7 @@
     .team-age {
       font-size: 34px;
       font-weight: 900;
-      letter-spacing: 0.6px;
+      letter-spacing: .6px;
       color: var(--text-light);
       line-height: 1;
     }
@@ -320,10 +324,9 @@
       position: absolute;
       right: 12px;
       bottom: 12px;
-      background: rgba(212,175,55,0.10);
+      background: rgba(212,175,55,.10);
       color: var(--gold);
-      border:
-        1px solid rgba(212,175,55,0.35);
+      border: 1px solid rgba(212,175,55,.35);
       padding: 7px 12px;
       border-radius: 999px;
       font-weight: 900;
@@ -497,7 +500,6 @@
           href="Teams/14u.html"
           aria-label="14U team page"
         >
-
           <img
             class="team-photo"
             src="assets/image/14uTeam.png"
@@ -512,7 +514,6 @@
             <div class="team-age">14U</div>
             <div class="team-sub">Team Page</div>
           </div>
-
         </a>
 
         <!-- ===================== -->
@@ -525,7 +526,6 @@
           href="Teams/13u.html"
           aria-label="13U team page"
         >
-
           <img
             class="team-photo"
             src="assets/image/13uTeam.png"
@@ -540,7 +540,6 @@
             <div class="team-age">13U</div>
             <div class="team-sub">Team Page</div>
           </div>
-
         </a>
 
         <!-- ===================== -->
@@ -553,7 +552,6 @@
           href="Teams/12u.html"
           aria-label="12U team page"
         >
-
           <img
             class="team-photo"
             src="assets/image/12uTeam.png"
@@ -568,18 +566,18 @@
             <div class="team-age">12U</div>
             <div class="team-sub">Team Page</div>
           </div>
-
         </a>
 
         <!-- ===================== -->
-        <!-- 11U - HIDDEN          -->
+        <!-- 11U - NATIONALLY RANKED -->
+        <!-- PREVIOUSLY 10U       -->
         <!-- ===================== -->
 
         <a
-          class="team-tile hidden-team"
+          class="team-tile"
           role="listitem"
           href="Teams/11u.html"
-          aria-label="11U team page"
+          aria-label="11U nationally ranked team page"
         >
 
           <img
@@ -597,17 +595,28 @@
             <div class="team-sub">Team Page</div>
           </div>
 
+          <span
+            class="team-badge"
+            title="Nationally Ranked"
+          >
+            <span class="emoji" aria-hidden="true">
+              🏆
+            </span>
+            NATIONALLY RANKED
+          </span>
+
         </a>
 
         <!-- ===================== -->
-        <!-- 10U - NATIONALLY RANKED -->
+        <!-- 10U - VISIBLE         -->
+        <!-- PREVIOUSLY 9U        -->
         <!-- ===================== -->
 
         <a
           class="team-tile"
           role="listitem"
           href="Teams/10u.html"
-          aria-label="10U nationally ranked team page"
+          aria-label="10U team page"
         >
 
           <img
@@ -625,29 +634,18 @@
             <div class="team-sub">Team Page</div>
           </div>
 
-          <span
-            class="team-badge"
-            title="Nationally Ranked"
-          >
-            <span class="emoji"
-                  aria-hidden="true">
-              🏆
-            </span>
-
-            NATIONALLY RANKED
-          </span>
-
         </a>
 
         <!-- ===================== -->
-        <!-- 9U - VISIBLE          -->
+        <!-- 9U - NATIONALLY RANKED -->
+        <!-- PREVIOUSLY 8U        -->
         <!-- ===================== -->
 
         <a
           class="team-tile"
           role="listitem"
           href="Teams/9u.html"
-          aria-label="9U team page"
+          aria-label="9U nationally ranked team page"
         >
 
           <img
@@ -665,10 +663,21 @@
             <div class="team-sub">Team Page</div>
           </div>
 
+          <span
+            class="team-badge"
+            title="Nationally Ranked"
+          >
+            <span class="emoji" aria-hidden="true">
+              🏆
+            </span>
+            NATIONALLY RANKED
+          </span>
+
         </a>
 
         <!-- ===================== -->
         <!-- 8U - NATIONALLY RANKED -->
+        <!-- PREVIOUSLY 7U        -->
         <!-- ===================== -->
 
         <a
@@ -697,27 +706,24 @@
             class="team-badge"
             title="Nationally Ranked"
           >
-            <span class="emoji"
-                  aria-hidden="true">
+            <span class="emoji" aria-hidden="true">
               🏆
             </span>
-
             NATIONALLY RANKED
           </span>
 
         </a>
 
         <!-- ===================== -->
-        <!-- 7U - NATIONALLY RANKED -->
+        <!-- 7U - HIDDEN           -->
         <!-- ===================== -->
 
         <a
-          class="team-tile"
+          class="team-tile hidden-team"
           role="listitem"
           href="Teams/7u.html"
-          aria-label="7U nationally ranked team page"
+          aria-label="7U team page"
         >
-
           <img
             class="team-photo"
             src="assets/image/7uTeam.png"
@@ -732,19 +738,6 @@
             <div class="team-age">7U</div>
             <div class="team-sub">Team Page</div>
           </div>
-
-          <span
-            class="team-badge"
-            title="Nationally Ranked"
-          >
-            <span class="emoji"
-                  aria-hidden="true">
-              🏆
-            </span>
-
-            NATIONALLY RANKED
-          </span>
-
         </a>
 
         <!-- ===================== -->
@@ -757,7 +750,6 @@
           href="Teams/6u.html"
           aria-label="6U team page"
         >
-
           <img
             class="team-photo"
             src="assets/image/6uTeam.png"
@@ -772,7 +764,6 @@
             <div class="team-age">6U</div>
             <div class="team-sub">Team Page</div>
           </div>
-
         </a>
 
       </div>
